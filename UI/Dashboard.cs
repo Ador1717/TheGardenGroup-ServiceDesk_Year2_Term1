@@ -11,4 +11,9 @@ public partial class Dashboard : Form
     {
         Show(this);
     }
+
+    private void label6_Click(object sender, EventArgs e)
+    {
+
+    }
 }

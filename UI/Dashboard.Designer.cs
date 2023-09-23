@@ -35,8 +35,22 @@
             pictureBox1 = new PictureBox();
             lblBarLicensed = new Label();
             lblBarNoDesk = new Label();
+            progressBar1 = new ProgressBar();
+            progressBar2 = new ProgressBar();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            button1 = new Button();
+            groupBox1 = new GroupBox();
+            groupBox2 = new GroupBox();
+            button2 = new Button();
             pnlBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // btnUserManagement
@@ -114,11 +128,133 @@
             lblBarNoDesk.TabIndex = 0;
             lblBarNoDesk.Text = "NoDesk";
             // 
+            // progressBar1
+            // 
+            progressBar1.ForeColor = Color.FromArgb(255, 128, 0);
+            progressBar1.Location = new Point(36, 128);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(239, 29);
+            progressBar1.TabIndex = 8;
+            // 
+            // progressBar2
+            // 
+            progressBar2.ForeColor = Color.Red;
+            progressBar2.Location = new Point(42, 128);
+            progressBar2.Name = "progressBar2";
+            progressBar2.Size = new Size(239, 29);
+            progressBar2.TabIndex = 9;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(36, 27);
+            label1.Name = "label1";
+            label1.Size = new Size(239, 31);
+            label1.TabIndex = 10;
+            label1.Text = "Unresolved Incidents";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(67, 58);
+            label2.Name = "label2";
+            label2.Size = new Size(172, 20);
+            label2.TabIndex = 11;
+            label2.Text = "All tickets currently open";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(128, 88);
+            label3.Name = "label3";
+            label3.Size = new Size(39, 20);
+            label3.TabIndex = 12;
+            label3.Text = "7/15";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(146, 88);
+            label4.Name = "label4";
+            label4.Size = new Size(17, 20);
+            label4.TabIndex = 15;
+            label4.Text = "1";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(58, 54);
+            label5.Name = "label5";
+            label5.Size = new Size(204, 20);
+            label5.TabIndex = 14;
+            label5.Text = "Tickets need immidate action";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(26, 23);
+            label6.Name = "label6";
+            label6.Size = new Size(261, 31);
+            label6.TabIndex = 13;
+            label6.Text = "Incidents past deadline";
+            label6.Click += label6_Click;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Blue;
+            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = Color.AliceBlue;
+            button1.Location = new Point(615, 142);
+            button1.Name = "button1";
+            button1.Size = new Size(159, 42);
+            button1.TabIndex = 16;
+            button1.Text = "SHOW LIST";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(progressBar1);
+            groupBox1.Location = new Point(39, 203);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(298, 191);
+            groupBox1.TabIndex = 17;
+            groupBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(label4);
+            groupBox2.Controls.Add(label5);
+            groupBox2.Controls.Add(label6);
+            groupBox2.Controls.Add(progressBar2);
+            groupBox2.Location = new Point(467, 203);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(307, 191);
+            groupBox2.TabIndex = 18;
+            groupBox2.TabStop = false;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(453, 143);
+            button2.Name = "button2";
+            button2.Size = new Size(156, 42);
+            button2.TabIndex = 19;
+            button2.Text = "Filtered Search";
+            button2.UseVisualStyleBackColor = true;
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 443);
+            Controls.Add(button2);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
+            Controls.Add(button1);
             Controls.Add(btnUserManagement);
             Controls.Add(btnMenuIncidentManagement);
             Controls.Add(btnMenuDashboard);
@@ -128,6 +264,10 @@
             pnlBar.ResumeLayout(false);
             pnlBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -140,5 +280,17 @@
         private PictureBox pictureBox1;
         private Label lblBarLicensed;
         private Label lblBarNoDesk;
+        private ProgressBar progressBar1;
+        private ProgressBar progressBar2;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
+        private Label label6;
+        private Button button1;
+        private GroupBox groupBox1;
+        private GroupBox groupBox2;
+        private Button button2;
     }
 }
