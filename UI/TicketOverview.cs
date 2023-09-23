@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿namespace UI;
 
-namespace UI
+public partial class TicketOverview : Form
 {
-    public partial class TicketOverview : Form
+    public TicketOverview()
     {
-        public TicketOverview()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
 
-        private void label1_Click(object sender, EventArgs e)
-        { 
-        }
+    private void label1_Click(object sender, EventArgs e)
+    {
+    }
+
+    private void btnMenuDashboard_Click(object sender, EventArgs e)
+    {
+        Dashboard dashboard = new Dashboard();
+        dashboard.Show();
+        Close();
     }
 }
