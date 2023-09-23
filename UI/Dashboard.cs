@@ -14,6 +14,5 @@ public partial class Dashboard : Form
 
     private void label6_Click(object sender, EventArgs e)
     {
-
     }
 }
