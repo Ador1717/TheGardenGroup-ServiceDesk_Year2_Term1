@@ -1,49 +1,35 @@
-﻿using DAL;
-using Model;
+﻿using System.Security.Cryptography;
 using System.Text;
-using System.Security.Cryptography;
+using DAL;
+using Model;
 
+namespace Service;
 
-namespace Service
+public class Autentication
 {
-    public class Autentication
+    public bool AutenticateUser(string userName, string password)
     {
-       
-        public bool AutenticateUser(string userName, string password)
-        {
-            // load the data from db
-            // hash the password
+        // load the data from db
+        // hash the password
 
-            // compare the hash
-            // return true or false
+        // compare the hash
+        // return true or false
 
-            UserData userData = new UserData();
-            User user = userData.GetByUsername(userName);
-            if (user == null)
-            {
-                return false;
-            }
+        UserDAO userData = new UserDAO();
+        User user = userData.GetByUsername(userName);
+        if (user == null) return false;
 
 
-            var tmpPassword = ASCIIEncoding.ASCII.GetBytes(password);
+        byte[] tmpPassword = Encoding.ASCII.GetBytes(password);
 
-            var tmpHash = new MD5CryptoServiceProvider().ComputeHash(tmpPassword);
+        byte[] tmpHash = new MD5CryptoServiceProvider().ComputeHash(tmpPassword);
 
-            StringBuilder hashString = new StringBuilder();
-            foreach (byte b in tmpHash)
-            {
-                hashString.Append(b.ToString("x2"));
-            }
-            
-            if (user.password != hashString.ToString())
-            {
-                return false;
-            }
+        StringBuilder hashString = new StringBuilder();
+        foreach (byte b in tmpHash) hashString.Append(b.ToString("x2"));
+
+        if (user.password != hashString.ToString()) return false;
 
 
-            return true;
-       
-        }
-
+        return true;
     }
 }
