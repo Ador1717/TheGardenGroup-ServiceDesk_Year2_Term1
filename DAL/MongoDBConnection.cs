@@ -1,16 +1,19 @@
 ﻿using MongoDB.Driver;
 
-namespace DAL;
-
-public class MongoDBConnection
+namespace DAL
 {
-    protected static IMongoDatabase database;
-
-    public MongoDBConnection()
+    public class MongoDBConnection
     {
-        MongoClient client =
-            new MongoClient(
-                "mongodb+srv://Ted:*049810Tc*@gardengroupproject.rsow8xd.mongodb.net/?retryWrites=true&w=majority");
-        database = client.GetDatabase("GardenGroupProject");
+        public static IMongoDatabase database;
+
+        public MongoDBConnection()
+        {
+            MongoClient client =
+                new MongoClient(
+                    "mongodb+srv://Ted:*049810Tc*@gardengroupproject.rsow8xd.mongodb.net/");
+
+            database = client.GetDatabase("GardenGroup");
+        }
+
     }
 }
