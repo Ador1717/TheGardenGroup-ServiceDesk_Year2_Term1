@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Model;
 
-internal class Ticket
+public class Ticket
 {
     public Ticket(ObjectId ticketId, DateTime dateTimeReported, string subject, TypeOfIncidentEnum typeOfIncidentEnum,
         string reportedByUser, PriorityEnum priorityEnum, DateTime deadline, string description, TicketStatus status)
