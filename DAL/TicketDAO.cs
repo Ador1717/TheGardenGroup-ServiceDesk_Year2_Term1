@@ -1,5 +1,14 @@
-﻿namespace DAL;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 
-public class TicketDAO
+namespace DAL;
+
+public class TicketDAO : MongoDBConnection
 {
+    protected static IMongoCollection<BsonDocument> ticketCollection;
+
+    public TicketDAO()
+    {
+        ticketCollection = database.GetCollection<BsonDocument>("Tickets");
+    }
 }
