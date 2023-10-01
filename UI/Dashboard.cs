@@ -1,12 +1,10 @@
 ﻿using Model;
 using Service;
 
-
 namespace UI;
 
 public partial class Dashboard : Form
 {
-
     private readonly TicketService _ticketService;
 
     public Dashboard()
