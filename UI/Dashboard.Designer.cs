@@ -46,7 +46,7 @@
             btnShowlist = new Button();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
-            button2 = new Button();
+            btnFilteredSearch = new Button();
             pnlBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
@@ -237,21 +237,22 @@
             groupBox2.TabIndex = 18;
             groupBox2.TabStop = false;
             // 
-            // button2
+            // btnFilteredSearch
             // 
-            button2.Location = new Point(453, 143);
-            button2.Name = "button2";
-            button2.Size = new Size(156, 42);
-            button2.TabIndex = 19;
-            button2.Text = "Filtered Search";
-            button2.UseVisualStyleBackColor = true;
+            btnFilteredSearch.Location = new Point(453, 143);
+            btnFilteredSearch.Name = "btnFilteredSearch";
+            btnFilteredSearch.Size = new Size(156, 42);
+            btnFilteredSearch.TabIndex = 19;
+            btnFilteredSearch.Text = "Filtered Search";
+            btnFilteredSearch.UseVisualStyleBackColor = true;
+            btnFilteredSearch.Click += btnFilteredSearch_Click;
             // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 443);
-            Controls.Add(button2);
+            Controls.Add(btnFilteredSearch);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(btnShowlist);
@@ -291,6 +292,6 @@
         private Button btnShowlist;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
-        private Button button2;
+        private Button btnFilteredSearch;
     }
 }

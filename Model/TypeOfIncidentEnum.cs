@@ -2,7 +2,7 @@
 
 public enum TypeOfIncidentEnum
 {
-    hardware,
-    software,
-    service
+    HardwareDisruption,
+    SoftwareDisruption,
+    ServiceDisruption
 }
