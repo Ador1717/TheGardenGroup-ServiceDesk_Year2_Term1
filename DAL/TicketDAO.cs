@@ -57,4 +57,10 @@ public class TicketDAO : MongoDBConnection
         UpdateResult? result = ticketCollection.UpdateOne(filter, update);
         return result.ModifiedCount > 0;
     }
+
+    public List<Ticket> GetTicketsPastDeadline()
+    {
+        FilterDefinition<Ticket>? filter = Builders<Ticket>.Filter.Lt(t => t.deadline, DateTime.Now);
+        return ticketCollection.Find(filter).ToList();
+    }
 }

@@ -46,4 +46,9 @@ public class TicketService
     {
         return _ticketDAO.UpdateTicketStatus(ticketId, newStatus);
     }
+
+    public List<Ticket> GetTicketsPastDeadline()
+    {
+        return _ticketDAO.GetTicketsPastDeadline();
+    }
 }
