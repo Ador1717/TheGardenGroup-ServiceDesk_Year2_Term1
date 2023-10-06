@@ -1,31 +1,33 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
-namespace Model
+namespace Model;
+
+public class User
 {
-    public class User
+    public User(ObjectId userId, string firstName, string lastName, UserType userType, string email,
+        string phoneNumber, string location, string salt, string hashedPassword, string[] reportedTicktes)
     {
-        public string id { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string userType { get; set; }
-        public string email { get; set; }
-        public string phone { get; set; }
-        public string location { get; set; }
-        public string password { get; set; }
-        public string[] tickets { get; set; }
-       //public string Id { get; set; }
-       //public string Name { get; set; }
-       //public string Username { get; set; }
-       //public string Password { get; set; } // Should store hashed and salted password, not plaintext.
-       //public List<string> TicketIDs { get; set; } // List of tickets associated with the user.
-        public UserType Type { get; set; }
+        this.userId = userId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userType = userType;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.location = location;
+        this.salt = salt;
+        this.hashedPassword = hashedPassword;
+        this.reportedTicktes = reportedTicktes;
     }
 
-    public enum UserType
-    {
-        Regular,
-        ServiceDesk
-    }
-
+    [BsonId] public ObjectId userId { get; set; }
+    [BsonElement("firstName")] public string firstName { get; set; }
+    [BsonElement("lastName")] public string lastName { get; set; }
+    [BsonElement("userType")] public UserType userType { get; set; }
+    [BsonElement("email")] public string email { get; set; }
+    [BsonElement("phone")] public string phoneNumber { get; set; }
+    [BsonElement("location")] public string location { get; set; }
+    [BsonElement("salt")] public string salt { get; set; }
+    [BsonElement("hashedPassword")] public string hashedPassword { get; set; }
+    [BsonElement("reportedTickets")] public string[] reportedTicktes { get; set; }
 }
-
