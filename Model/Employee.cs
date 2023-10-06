@@ -14,11 +14,5 @@ namespace Model
         public string Password { get; set; } // Should store hashed and salted password, not plaintext.
         public List<string> TicketIDs { get; set; } // List of tickets associated with the user.
         public UserType Type { get; set; }
-    }
-
-    public enum UserType
-    {
-        Regular,
-        ServiceDesk
-    }
+    }  
 }
