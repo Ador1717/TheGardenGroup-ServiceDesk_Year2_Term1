@@ -23,7 +23,7 @@ public class UserService
         return _userDAO.GetAllUsers();
     }
 
-    public void AddUser(string email, string userName, BsonDocument name, BsonDocument password,
+    public void AddUser(string email, string userName, string name, string password,
         UserType userType, string phoneNumber, string location)
     {
         BsonDocument? user = _userDAO.AddUser(email, userName, name, password, userType, phoneNumber, location);

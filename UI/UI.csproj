@@ -21,6 +21,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <PackageReference Include="CircularProgressBar" Version="2.8.0.16" />
     <PackageReference Include="MongoDB.Driver" Version="2.21.0" />
   </ItemGroup>
 

@@ -37,7 +37,7 @@ public class UserDAO : MongoDBConnection
         return allUsers;
     }
 
-    public BsonDocument AddUser(string email, string userName, BsonDocument name, BsonDocument password,
+    public BsonDocument AddUser(string email, string userName, string name, string password,
         UserType userType, string phoneNumber, string location)
     {
         BsonDocument document = new BsonDocument
