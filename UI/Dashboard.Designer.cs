@@ -82,7 +82,7 @@
             btnMenuDashboard.TabIndex = 5;
             btnMenuDashboard.Text = "Dashboard";
             btnMenuDashboard.UseVisualStyleBackColor = true;
-            btnMenuDashboard.Click += btnMenuDashboard_Click;
+           // btnMenuDashboard.Click += btnMenuDashboard_Click;
             // 
             // pnlBar
             // 

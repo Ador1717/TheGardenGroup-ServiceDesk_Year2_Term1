@@ -12,7 +12,11 @@ public class TicketService
     {
         _ticketDAO = new TicketDAO();
     }
-
+    public IEnumerable<Ticket> GetTicketsByReporterEmail(string email)
+    {
+        // additional business logic if needed
+        return _ticketDAO.GetTicketsByReporterEmail(email);
+    }
     public List<Ticket> GetAllTickets()
     {
         return _ticketDAO.GetAllTickets();
@@ -28,12 +32,12 @@ public class TicketService
         return _ticketDAO.GetTicketsByDate(date);
     }
 
-    public bool AddTicket(ObjectId ticketId, DateTime dateTimeReported, string subject,
+    public bool AddTicket(DateTime dateTimeReported, string subject,
         TypeOfIncidentEnum typeOfIncidentEnum,
-        string reportedByUser, PriorityEnum priorityEnum, DateTime deadline, string description, TicketStatus status)
+        string reportedByUser, PriorityEnum priorityEnum, DateTime deadline, string description)
     {
-        Ticket newTicket = new Ticket(ticketId, dateTimeReported, subject, typeOfIncidentEnum, reportedByUser,
-            priorityEnum, deadline, description, status);
+        Ticket newTicket = new Ticket( dateTimeReported, subject, typeOfIncidentEnum, reportedByUser,
+            priorityEnum, deadline, description);
         return _ticketDAO.AddTicket(newTicket);
     }
 
