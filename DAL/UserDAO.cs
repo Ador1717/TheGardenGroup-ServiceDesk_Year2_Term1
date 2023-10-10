@@ -7,12 +7,20 @@ namespace DAL;
 
 public class UserDAO : MongoDBConnection
 {
-    public static IMongoCollection<BsonDocument> userCollection;
+    protected static IMongoCollection<User> userCollection;
+    //protected static IMongoCollection<Ticket> ticketCollection;
 
     public UserDAO()
     {
-        userCollection = database.GetCollection<BsonDocument>("Users");
+        userCollection = database.GetCollection<User>("Users");   
     }
+   
+    public User GetUserByEmail(string email)
+    {
+        return userCollection.Find(user => user.email == email).FirstOrDefault(); ;
+    }
+
+   
 
     public User GetByUsername(string username)
     {
@@ -23,19 +31,7 @@ public class UserDAO : MongoDBConnection
         return user;
     }
 
-    public List<User> GetAllUsers()
-    {
-        List<User> allUsers = new List<User>();
-        List<BsonDocument>? documents = userCollection.Find(new BsonDocument()).ToList();
-
-        foreach (BsonDocument document in documents)
-        {
-            User user = BsonSerializer.Deserialize<User>(document);
-            allUsers.Add(user);
-        }
-
-        return allUsers;
-    }
+   
 
     public BsonDocument AddUser(string email, string userName, string name, string password,
         UserType userType, string phoneNumber, string location)

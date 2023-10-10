@@ -13,10 +13,10 @@ public partial class Dashboard : Form
         _ticketService = new TicketService();
     }
 
-    private void btnMenuDashboard_Click(object sender, EventArgs e)
-    {
-        Show(this);
-    }
+    //private void btnMenuDashboard_Click(object sender, EventArgs e)
+   // {
+        //Show(this);
+    //}
 
     private void btnShowlist_Click(object sender, EventArgs e)
     {
