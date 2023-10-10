@@ -6,7 +6,8 @@ namespace Model;
 public class Ticket
 {
     public Ticket(ObjectId ticketId, DateTime dateTimeReported, string subject, TypeOfIncidentEnum typeOfIncidentEnum,
-        string reportedByUser, PriorityEnum priorityEnum, DateTime deadline, string description, TicketStatus status, ObjectId userId, string email)
+        string reportedByUser, PriorityEnum priorityEnum, DateTime deadline, string description, TicketStatus status,
+        ObjectId userId, string email)
     {
         this.ticketId = ticketId;
         this.dateTimeReported = dateTimeReported;
@@ -19,9 +20,8 @@ public class Ticket
         this.status = status;
         this.userId = userId;
         this.email = email;
-        
-
     }
+
     public Ticket(DateTime dateTimeReported, string subject, TypeOfIncidentEnum typeOfIncidentEnum,
         string reportedByUser, PriorityEnum priorityEnum, DateTime deadline,
         string description)
@@ -34,7 +34,6 @@ public class Ticket
         this.priorityEnum = priorityEnum;
         this.deadline = deadline;
         this.description = description;
- 
     }
 
     [BsonId] public ObjectId ticketId { get; set; }
@@ -48,6 +47,4 @@ public class Ticket
     [BsonElement("description")] public string description { get; set; }
     [BsonElement("status")] public TicketStatus status { get; set; }
     [BsonElement("email")] public string email { get; set; }
-
-
 }

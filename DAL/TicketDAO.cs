@@ -1,7 +1,5 @@
 ﻿using Model;
 using MongoDB.Bson;
-using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 
 namespace DAL;
@@ -14,11 +12,12 @@ public class TicketDAO : MongoDBConnection
     {
         ticketCollection = database.GetCollection<Ticket>("Tickets");
     }
+
     public IEnumerable<Ticket> GetTicketsByReporterEmail(string email)
     {
         return ticketCollection.Find(ticket => ticket.reportedByUser == email).ToList();
     }
-   
+
     public List<Ticket> GetAllTickets()
     {
         return ticketCollection.Find(new BsonDocument()).ToList();
@@ -69,6 +68,4 @@ public class TicketDAO : MongoDBConnection
         FilterDefinition<Ticket>? filter = Builders<Ticket>.Filter.Lt(t => t.deadline, DateTime.Now);
         return ticketCollection.Find(filter).ToList();
     }
-
-    
 }

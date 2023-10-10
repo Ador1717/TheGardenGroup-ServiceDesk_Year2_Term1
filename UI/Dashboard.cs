@@ -13,26 +13,18 @@ public partial class Dashboard : Form
         _ticketService = new TicketService();
     }
 
-    //private void btnMenuDashboard_Click(object sender, EventArgs e)
-   // {
-        //Show(this);
-    //}
 
-    private void btnShowlist_Click(object sender, EventArgs e)
-    {
-        TicketOverview ticketOverview = new TicketOverview();
-        Hide();
-        ticketOverview.Show();
-        ticketOverview.FormClosed += (s, args) => Close();
-    }
-
-
-    private void pBUnresolvedTickets_Click(object sender, EventArgs e)
+    private void pBUnresolvedTickets_Click_1(object sender, EventArgs e)
     {
         try
         {
-            List<Ticket> openTickets = _ticketService.GetTicketsByStatus(TicketStatus.Open);
             List<Ticket> allTickets = _ticketService.GetAllTickets();
+            List<Ticket> openTickets = new List<Ticket>();
+
+            foreach (Ticket ticket in allTickets)
+                if (ticket.status == TicketStatus.Open)
+                    openTickets.Add(ticket);
+
             pBUnresolvedTickets.Maximum = allTickets.Count > 0 ? allTickets.Count : 1;
             pBUnresolvedTickets.Value = Math.Min(openTickets.Count, pBUnresolvedTickets.Maximum);
             lblOpenTicketCount.Text = $"Open Tickets: {openTickets.Count}";
@@ -43,7 +35,7 @@ public partial class Dashboard : Form
         }
     }
 
-    private void pBPastDeadline_Click(object sender, EventArgs e)
+    private void pBPastDeadline_Click_1(object sender, EventArgs e)
     {
         try
         {
@@ -59,11 +51,11 @@ public partial class Dashboard : Form
         }
     }
 
-    private void btnFilteredSearch_Click(object sender, EventArgs e)
+    private void btnShowlist_Click_1(object sender, EventArgs e)
     {
-        DashboardFilteredSearch dashboardFiltered = new DashboardFilteredSearch();
+        TicketOverview ticketOverview = new TicketOverview();
         Hide();
-        dashboardFiltered.Show();
-        dashboardFiltered.FormClosed += (s, args) => Close();
+        ticketOverview.Show();
+        ticketOverview.FormClosed += (s, args) => Close();
     }
 }

@@ -1,5 +1,4 @@
-﻿using DAL;
-using Model;
+﻿using Model;
 using Service;
 using Services;
 
@@ -25,7 +24,7 @@ public partial class TicketOverview : Form
         IEnumerable<Ticket> tickets = _ticketService.GetAllTickets();
 
         // Format and display data in ListView or other control.
-        foreach (var ticket in tickets)
+        foreach (Ticket ticket in tickets)
         {
             ListViewItem item = new ListViewItem(ticket.ticketId.ToString());
             item.Tag = ticket.ticketId.ToString();
@@ -40,10 +39,9 @@ public partial class TicketOverview : Form
 
     private void TicketOverview_Load(object sender, EventArgs e)
     {
-
         listviewTicketOverview.GridLines = true;
         listviewTicketOverview.FullRowSelect = true;
-        listviewTicketOverview.View = System.Windows.Forms.View.Details;
+        listviewTicketOverview.View = View.Details;
         listviewTicketOverview.Columns.Add("_Id", 100, HorizontalAlignment.Left);
         listviewTicketOverview.Columns.Add("SubjectEmail", 100, HorizontalAlignment.Left);
         listviewTicketOverview.Columns.Add("username", 100, HorizontalAlignment.Left);
@@ -57,6 +55,7 @@ public partial class TicketOverview : Form
     {
         FilterTickets(txtBoxFilterEmail.Text);
     }
+
     private void FilterTickets(string emailFilter)
     {
         listviewTicketOverview.Items.Clear();
@@ -64,10 +63,10 @@ public partial class TicketOverview : Form
         IEnumerable<Ticket> tickets = _ticketService.GetAllTickets();
 
         // Filter the tickets based on the emailFilter.
-        var filteredTickets = tickets.Where(t =>
+        IEnumerable<Ticket> filteredTickets = tickets.Where(t =>
             t.email != null &&
             t.email.Contains(emailFilter, StringComparison.OrdinalIgnoreCase));
-        foreach (var ticket in filteredTickets)
+        foreach (Ticket ticket in filteredTickets)
         {
             ListViewItem item = new ListViewItem(ticket.ticketId.ToString());
             item.Tag = ticket.ticketId.ToString();
@@ -85,6 +84,13 @@ public partial class TicketOverview : Form
         CreateTicket create = new CreateTicket();
         create.ShowDialog();
         LoadTicketData();
+    }
 
+    private void btnMenuDashboard_Click(object sender, EventArgs e)
+    {
+        Dashboard dashboard = new Dashboard();
+        Hide();
+        dashboard.Show();
+        dashboard.FormClosed += (s, args) => Close();
     }
 }

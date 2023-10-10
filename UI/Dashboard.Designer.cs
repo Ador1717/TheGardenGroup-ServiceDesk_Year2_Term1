@@ -82,7 +82,6 @@
             btnMenuDashboard.TabIndex = 5;
             btnMenuDashboard.Text = "Dashboard";
             btnMenuDashboard.UseVisualStyleBackColor = true;
-           // btnMenuDashboard.Click += btnMenuDashboard_Click;
             // 
             // pnlBar
             // 
@@ -135,7 +134,7 @@
             pBUnresolvedTickets.Name = "pBUnresolvedTickets";
             pBUnresolvedTickets.Size = new Size(239, 29);
             pBUnresolvedTickets.TabIndex = 8;
-            pBUnresolvedTickets.Click += pBUnresolvedTickets_Click;
+            pBUnresolvedTickets.Click += pBUnresolvedTickets_Click_1;
             // 
             // pBPastDeadline
             // 
@@ -144,7 +143,7 @@
             pBPastDeadline.Name = "pBPastDeadline";
             pBPastDeadline.Size = new Size(239, 29);
             pBPastDeadline.TabIndex = 9;
-            pBPastDeadline.Click += pBPastDeadline_Click;
+            pBPastDeadline.Click += pBPastDeadline_Click_1;
             // 
             // label1
             // 
@@ -168,7 +167,7 @@
             // lblOpenTicketCount
             // 
             lblOpenTicketCount.AutoSize = true;
-            lblOpenTicketCount.Location = new Point(128, 88);
+            lblOpenTicketCount.Location = new Point(67, 88);
             lblOpenTicketCount.Name = "lblOpenTicketCount";
             lblOpenTicketCount.Size = new Size(0, 20);
             lblOpenTicketCount.TabIndex = 12;
@@ -176,7 +175,7 @@
             // lblPastDeadlineCount
             // 
             lblPastDeadlineCount.AutoSize = true;
-            lblPastDeadlineCount.Location = new Point(146, 88);
+            lblPastDeadlineCount.Location = new Point(58, 88);
             lblPastDeadlineCount.Name = "lblPastDeadlineCount";
             lblPastDeadlineCount.Size = new Size(0, 20);
             lblPastDeadlineCount.TabIndex = 15;
@@ -211,7 +210,7 @@
             btnShowlist.TabIndex = 16;
             btnShowlist.Text = "SHOW LIST";
             btnShowlist.UseVisualStyleBackColor = false;
-            btnShowlist.Click += btnShowlist_Click;
+            btnShowlist.Click += btnShowlist_Click_1;
             // 
             // groupBox1
             // 
@@ -245,7 +244,6 @@
             btnFilteredSearch.TabIndex = 19;
             btnFilteredSearch.Text = "Filtered Search";
             btnFilteredSearch.UseVisualStyleBackColor = true;
-            btnFilteredSearch.Click += btnFilteredSearch_Click;
             // 
             // Dashboard
             // 
