@@ -39,7 +39,6 @@
             listViewTickets.Size = new Size(728, 271);
             listViewTickets.TabIndex = 0;
             listViewTickets.UseCompatibleStateImageBehavior = false;
-            Load += TicketOverview_Load;
             // 
             // btnGoBack
             // 

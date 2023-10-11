@@ -13,6 +13,8 @@ public partial class Dashboard : Form
         _ticketService = new TicketService();
         UpdateOpenTicketsProgressBar();
         UpdatePastDeadlineProgressBar();
+        StartPosition = FormStartPosition.CenterScreen;
+        FormBorderStyle = FormBorderStyle.FixedSingle;
     }
 
 

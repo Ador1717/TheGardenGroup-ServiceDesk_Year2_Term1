@@ -11,10 +11,8 @@ public partial class ListViewForOpenTickets : Form
     {
         InitializeComponent();
         _ticketService = new TicketService();
-    }
-
-    private void TicketOverview_Load(object sender, EventArgs e)
-    {
+        StartPosition = FormStartPosition.CenterScreen;
+        FormBorderStyle = FormBorderStyle.FixedSingle;
         ConfigureListView();
         LoadTickets();
     }
