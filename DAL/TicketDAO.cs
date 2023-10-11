@@ -4,13 +4,13 @@ using MongoDB.Driver;
 
 namespace DAL;
 
-public class TicketDAO : MongoDBConnection
+public class TicketDAO
 {
-    protected static IMongoCollection<Ticket> ticketCollection;
+    private readonly IMongoCollection<Ticket> ticketCollection;
 
     public TicketDAO()
     {
-        ticketCollection = database.GetCollection<Ticket>("Tickets");
+        ticketCollection = MongoDBConnection.Instance.Database.GetCollection<Ticket>("Tickets");
     }
 
     public IEnumerable<Ticket> GetTicketsByReporterEmail(string email)

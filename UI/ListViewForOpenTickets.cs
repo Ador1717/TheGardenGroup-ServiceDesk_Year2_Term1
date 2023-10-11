@@ -19,8 +19,8 @@ public partial class ListViewForOpenTickets : Form
 
     private void LoadTickets()
     {
-        IEnumerable<Ticket> openTickets =
-            _ticketService.GetAllTickets().Where(ticket => ticket.status == TicketStatus.Open);
+        // Use the GetTicketsByStatus method to retrieve open tickets
+        IEnumerable<Ticket> openTickets = _ticketService.GetTicketsByStatus(TicketStatus.Open);
 
         listViewTickets.Items.Clear();
 
@@ -35,6 +35,7 @@ public partial class ListViewForOpenTickets : Form
             listViewTickets.Items.Add(item);
         }
     }
+
 
     private void ConfigureListView()
     {

@@ -19,8 +19,7 @@ public partial class ListViewForDeadlineTickets : Form
 
     private void LoadTickets()
     {
-        IEnumerable<Ticket> deadlineTickets =
-            _ticketService.GetAllTickets().Where(ticket => ticket.status == TicketStatus.Open);
+        IEnumerable<Ticket> deadlineTickets = _ticketService.GetTicketsPastDeadline();
 
         listViewTickets.Items.Clear();
 

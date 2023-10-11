@@ -4,13 +4,18 @@ namespace DAL;
 
 public class MongoDBConnection
 {
-    public static IMongoDatabase database;
+    //Making Singelton pattern
+    private static readonly Lazy<MongoDBConnection> instance =
+        new Lazy<MongoDBConnection>(() => new MongoDBConnection());
 
-    public MongoDBConnection()
+
+    private MongoDBConnection()
     {
-        MongoClient client =
-            new MongoClient(
-                "mongodb+srv://Ted:*049810Tc*@gardengroupproject.rsow8xd.mongodb.net/");
-        database = client.GetDatabase("GardenGroup");
+        MongoClient client = new MongoClient("mongodb+srv://Ted:*049810Tc*@gardengroupproject.rsow8xd.mongodb.net/");
+        Database = client.GetDatabase("GardenGroup");
     }
+
+    public IMongoDatabase Database { get; }
+
+    public static MongoDBConnection Instance => instance.Value;
 }
