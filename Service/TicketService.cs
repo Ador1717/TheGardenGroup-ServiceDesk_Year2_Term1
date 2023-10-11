@@ -2,6 +2,8 @@
 using Model;
 using MongoDB.Bson;
 
+// To ensure we have access to the TicketDAO class
+
 namespace Service;
 
 public class TicketService
@@ -24,14 +26,14 @@ public class TicketService
         return _ticketDAO.GetAllTickets();
     }
 
-    public List<Ticket> GetTicketsByStatus(TicketStatus status)
+    public List<Ticket> GetOpenTickets()
     {
-        return _ticketDAO.GetTicketsByStatus(status);
+        return _ticketDAO.GetOpenTickets(TicketStatus.Open);
     }
 
-    public List<Ticket> GetTicketsByDate(DateTime date)
+    public List<Ticket> GetTicketsPastDeadline()
     {
-        return _ticketDAO.GetTicketsByDate(date);
+        return _ticketDAO.GetTicketsPastDeadline();
     }
 
     public bool AddTicket(DateTime dateTimeReported, string subject,
@@ -51,10 +53,5 @@ public class TicketService
     public bool UpdateTicketStatus(ObjectId ticketId, TicketStatus newStatus)
     {
         return _ticketDAO.UpdateTicketStatus(ticketId, newStatus);
-    }
-
-    public List<Ticket> GetTicketsPastDeadline()
-    {
-        return _ticketDAO.GetTicketsPastDeadline();
     }
 }

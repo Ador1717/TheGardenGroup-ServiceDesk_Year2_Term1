@@ -20,7 +20,7 @@ public partial class ListViewForOpenTickets : Form
     private void LoadTickets()
     {
         // Use the GetTicketsByStatus method to retrieve open tickets
-        IEnumerable<Ticket> openTickets = _ticketService.GetTicketsByStatus(TicketStatus.Open);
+        IEnumerable<Ticket> openTickets = _ticketService.GetOpenTickets();
 
         listViewTickets.Items.Clear();
 
@@ -45,10 +45,10 @@ public partial class ListViewForOpenTickets : Form
 
         listViewTickets.Columns.AddRange(new[]
         {
-            new ColumnHeader { Text = "_Id", Width = 100 },
-            new ColumnHeader { Text = "SubjectEmail", Width = 200 },
-            new ColumnHeader { Text = "username", Width = 100 },
-            new ColumnHeader { Text = "dateTimeReported", Width = 200 },
+            new ColumnHeader { Text = "Id", Width = 100 },
+            new ColumnHeader { Text = "Email", Width = 200 },
+            new ColumnHeader { Text = "Name", Width = 100 },
+            new ColumnHeader { Text = "Date & Time Reported", Width = 200 },
             new ColumnHeader { Text = "Status", Width = 100 }
         });
     }

@@ -23,15 +23,9 @@ public class TicketDAO
         return ticketCollection.Find(new BsonDocument()).ToList();
     }
 
-    public List<Ticket> GetTicketsByStatus(TicketStatus status)
+    public List<Ticket> GetOpenTickets(TicketStatus status)
     {
-        FilterDefinition<Ticket>? filter = Builders<Ticket>.Filter.Eq(t => t.status, status);
-        return ticketCollection.Find(filter).ToList();
-    }
-
-    public List<Ticket> GetTicketsByDate(DateTime date)
-    {
-        FilterDefinition<Ticket>? filter = Builders<Ticket>.Filter.Eq(t => t.dateTimeReported, date);
+        FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(t => t.status, status);
         return ticketCollection.Find(filter).ToList();
     }
 
@@ -50,22 +44,22 @@ public class TicketDAO
 
     public bool DeleteTicket(ObjectId ticketId)
     {
-        FilterDefinition<Ticket>? filter = Builders<Ticket>.Filter.Eq(t => t.ticketId, ticketId);
-        DeleteResult? result = ticketCollection.DeleteOne(filter);
+        FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(t => t.ticketId, ticketId);
+        DeleteResult result = ticketCollection.DeleteOne(filter);
         return result.DeletedCount > 0;
     }
 
     public bool UpdateTicketStatus(ObjectId ticketId, TicketStatus newStatus)
     {
-        FilterDefinition<Ticket>? filter = Builders<Ticket>.Filter.Eq(t => t.ticketId, ticketId);
-        UpdateDefinition<Ticket>? update = Builders<Ticket>.Update.Set(t => t.status, newStatus);
-        UpdateResult? result = ticketCollection.UpdateOne(filter, update);
+        FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Eq(t => t.ticketId, ticketId);
+        UpdateDefinition<Ticket> update = Builders<Ticket>.Update.Set(t => t.status, newStatus);
+        UpdateResult result = ticketCollection.UpdateOne(filter, update);
         return result.ModifiedCount > 0;
     }
 
     public List<Ticket> GetTicketsPastDeadline()
     {
-        FilterDefinition<Ticket>? filter = Builders<Ticket>.Filter.Lt(t => t.deadline, DateTime.Now);
+        FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Lt(t => t.deadline, DateTime.UtcNow);
         return ticketCollection.Find(filter).ToList();
     }
 }
