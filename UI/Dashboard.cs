@@ -18,6 +18,7 @@ public partial class Dashboard : Form
     {
         try
         {
+            // U need to change this so its a bit more elaborate use a query that searches for tickets with a certain status do for the other progress bar
             List<Ticket> allTickets = _ticketService.GetAllTickets();
             List<Ticket> openTickets = new List<Ticket>();
 

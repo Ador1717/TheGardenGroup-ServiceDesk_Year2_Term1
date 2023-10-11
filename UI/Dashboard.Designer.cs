@@ -46,7 +46,8 @@
             btnShowlist = new Button();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
-            btnFilteredSearch = new Button();
+            btnListViewUnresolved = new Button();
+            btnListViewDeadline = new Button();
             pnlBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
@@ -236,21 +237,31 @@
             groupBox2.TabIndex = 18;
             groupBox2.TabStop = false;
             // 
-            // btnFilteredSearch
+            // btnListViewUnresolved
             // 
-            btnFilteredSearch.Location = new Point(453, 143);
-            btnFilteredSearch.Name = "btnFilteredSearch";
-            btnFilteredSearch.Size = new Size(156, 42);
-            btnFilteredSearch.TabIndex = 19;
-            btnFilteredSearch.Text = "Filtered Search";
-            btnFilteredSearch.UseVisualStyleBackColor = true;
+            btnListViewUnresolved.Location = new Point(37, 400);
+            btnListViewUnresolved.Name = "btnListViewUnresolved";
+            btnListViewUnresolved.Size = new Size(300, 38);
+            btnListViewUnresolved.TabIndex = 19;
+            btnListViewUnresolved.Text = "Open List Of Tickets";
+            btnListViewUnresolved.UseVisualStyleBackColor = true;
+            // 
+            // btnListViewDeadline
+            // 
+            btnListViewDeadline.Location = new Point(467, 400);
+            btnListViewDeadline.Name = "btnListViewDeadline";
+            btnListViewDeadline.Size = new Size(307, 38);
+            btnListViewDeadline.TabIndex = 20;
+            btnListViewDeadline.Text = "Open List Of Tickets";
+            btnListViewDeadline.UseVisualStyleBackColor = true;
             // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 443);
-            Controls.Add(btnFilteredSearch);
+            ClientSize = new Size(800, 462);
+            Controls.Add(btnListViewDeadline);
+            Controls.Add(btnListViewUnresolved);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(btnShowlist);
@@ -290,6 +301,7 @@
         private Button btnShowlist;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
-        private Button btnFilteredSearch;
+        private Button btnListViewUnresolved;
+        private Button btnListViewDeadline;
     }
 }
