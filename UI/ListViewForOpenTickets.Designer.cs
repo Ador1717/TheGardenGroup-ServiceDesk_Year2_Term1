@@ -28,12 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "ListViewForOpenTickets";
+            btnGoBack = new Button();
+            listViewTickets = new ListView();
+            SuspendLayout();
+            // 
+            // btnGoBack
+            // 
+            btnGoBack.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGoBack.Location = new Point(36, 289);
+            btnGoBack.Name = "btnGoBack";
+            btnGoBack.Size = new Size(151, 42);
+            btnGoBack.TabIndex = 3;
+            btnGoBack.Text = "Back";
+            btnGoBack.UseVisualStyleBackColor = true;
+            btnGoBack.Click += btnGoBack_Click;
+            // 
+            // listViewTickets
+            // 
+            listViewTickets.Location = new Point(36, 12);
+            listViewTickets.Name = "listViewTickets";
+            listViewTickets.Size = new Size(728, 271);
+            listViewTickets.TabIndex = 2;
+            listViewTickets.UseCompatibleStateImageBehavior = false;
+            Load += TicketOverview_Load;
+
+            // 
+            // ListViewForOpenTickets
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 342);
+            Controls.Add(btnGoBack);
+            Controls.Add(listViewTickets);
+            Name = "ListViewForOpenTickets";
+            Text = "ListViewForOpenTickets";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnGoBack;
+        private ListView listViewTickets;
     }
 }

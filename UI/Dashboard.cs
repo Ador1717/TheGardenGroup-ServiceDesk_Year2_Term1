@@ -1,8 +1,6 @@
 ﻿using Model;
 using Service;
 
-// Assuming this is where Ticket and TicketStatus are defined
-
 namespace UI;
 
 public partial class Dashboard : Form

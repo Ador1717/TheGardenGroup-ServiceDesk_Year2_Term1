@@ -28,12 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "ListViewForDeadlineTickets";
+            listViewTickets = new ListView();
+            btnGoBack = new Button();
+            SuspendLayout();
+            // 
+            // listViewTickets
+            // 
+            listViewTickets.Location = new Point(34, 12);
+            listViewTickets.Name = "listViewTickets";
+            listViewTickets.Size = new Size(728, 271);
+            listViewTickets.TabIndex = 0;
+            listViewTickets.UseCompatibleStateImageBehavior = false;
+            Load += TicketOverview_Load;
+            // 
+            // btnGoBack
+            // 
+            btnGoBack.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGoBack.Location = new Point(34, 289);
+            btnGoBack.Name = "btnGoBack";
+            btnGoBack.Size = new Size(151, 42);
+            btnGoBack.TabIndex = 1;
+            btnGoBack.Text = "Back";
+            btnGoBack.UseVisualStyleBackColor = true;
+            btnGoBack.Click += btnGoBack_Click;
+            // 
+            // ListViewForDeadlineTickets
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 348);
+            Controls.Add(btnGoBack);
+            Controls.Add(listViewTickets);
+            Name = "ListViewForDeadlineTickets";
+            Text = "ListViewForDeadlineTickets";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private ListView listViewTickets;
+        private Button btnGoBack;
+
     }
 }

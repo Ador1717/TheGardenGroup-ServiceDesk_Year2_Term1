@@ -42,7 +42,7 @@ public class TicketDAO : MongoDBConnection
             ticketCollection.InsertOne(ticket);
             return true;
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             return false;
         }
