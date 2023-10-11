@@ -1,6 +1,8 @@
 ﻿using Model;
 using Service;
 
+// Assuming this is where Ticket and TicketStatus are defined
+
 namespace UI;
 
 public partial class Dashboard : Form
@@ -11,48 +13,48 @@ public partial class Dashboard : Form
     {
         InitializeComponent();
         _ticketService = new TicketService();
+        UpdateOpenTicketsProgressBar();
+        UpdatePastDeadlineProgressBar();
     }
 
 
-    private void pBUnresolvedTickets_Click_1(object sender, EventArgs e)
+    private void UpdateOpenTicketsProgressBar()
     {
-        try
-        {
-            // U need to change this so its a bit more elaborate use a query that searches for tickets with a certain status do for the other progress bar
-            List<Ticket> allTickets = _ticketService.GetAllTickets();
-            List<Ticket> openTickets = new List<Ticket>();
+        List<Ticket> allTickets = _ticketService.GetAllTickets();
+        List<Ticket> openTickets = allTickets.Where(ticket => ticket.status == TicketStatus.Open).ToList();
 
-            foreach (Ticket ticket in allTickets)
-                if (ticket.status == TicketStatus.Open)
-                    openTickets.Add(ticket);
-
-            pBUnresolvedTickets.Maximum = allTickets.Count > 0 ? allTickets.Count : 1;
-            pBUnresolvedTickets.Value = Math.Min(openTickets.Count, pBUnresolvedTickets.Maximum);
-            lblOpenTicketCount.Text = $"Open Tickets: {openTickets.Count}";
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+        pbOpen.Maximum = allTickets.Count > 0 ? allTickets.Count : 1;
+        pbOpen.Value = openTickets.Count;
+        lblOpenTicketCount.Text = $"Open Tickets: {openTickets.Count}";
     }
 
-    private void pBPastDeadline_Click_1(object sender, EventArgs e)
+    private void UpdatePastDeadlineProgressBar()
     {
-        try
-        {
-            List<Ticket> pastDeadlineTickets = _ticketService.GetTicketsPastDeadline();
-            List<Ticket> allTickets = _ticketService.GetAllTickets();
-            pBPastDeadline.Maximum = allTickets.Count > 0 ? allTickets.Count : 1;
-            pBPastDeadline.Value = Math.Min(pastDeadlineTickets.Count, pBPastDeadline.Maximum);
-            lblPastDeadlineCount.Text = $"Past Deadline Tickets: {pastDeadlineTickets.Count}";
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+        List<Ticket> pastDeadlineTickets = _ticketService.GetTicketsPastDeadline();
+        List<Ticket> allTickets = _ticketService.GetAllTickets();
+
+        pbDeadline.Maximum = allTickets.Count > 0 ? allTickets.Count : 1;
+        pbDeadline.Value = pastDeadlineTickets.Count;
+        lblPastDeadlineCount.Text = $"Past Deadline Tickets: {pastDeadlineTickets.Count}";
     }
 
-    private void btnShowlist_Click_1(object sender, EventArgs e)
+    private void btnListViewDeadline_Click(object sender, EventArgs e)
+    {
+        ListViewForDeadlineTickets listView = new ListViewForDeadlineTickets();
+        Hide();
+        listView.Show();
+        listView.FormClosed += (s, args) => Close();
+    }
+
+    private void btnListViewUnresolved_Click(object sender, EventArgs e)
+    {
+        ListViewForOpenTickets listView = new ListViewForOpenTickets();
+        Hide();
+        listView.Show();
+        listView.FormClosed += (s, args) => Close();
+    }
+
+    private void showList_Click(object sender, EventArgs e)
     {
         TicketOverview ticketOverview = new TicketOverview();
         Hide();
