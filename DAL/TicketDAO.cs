@@ -13,6 +13,7 @@ public class TicketDAO
         ticketCollection = MongoDBConnection.Instance.Database.GetCollection<Ticket>("Tickets");
     }
 
+
     public IEnumerable<Ticket> GetTicketsByReporterEmail(string email)
     {
         return ticketCollection.Find(ticket => ticket.reportedByUser == email).ToList();
@@ -22,6 +23,40 @@ public class TicketDAO
     {
         return ticketCollection.Find(new BsonDocument()).ToList();
     }
+
+    public IFindFluent<Ticket, Ticket> GetAllIncidents()
+    {
+        IFindFluent<Ticket, Ticket>? allIncidents = ticketCollection.Find(i => true);
+        return allIncidents;
+    }
+
+    public List<Ticket> GetTickets()
+    {
+        IFindFluent<Ticket, Ticket> tickets = GetAllIncidents();
+        List<Ticket> results = new List<Ticket>();
+
+        foreach (Ticket? ticket in tickets.ToList())
+        {
+            Ticket newTicket = new Ticket(
+                ticket.ticketId,
+                ticket.dateTimeReported,
+                ticket.subject,
+                ticket.typeOfIncidentEnum,
+                ticket.reportedByUser,
+                ticket.priorityEnum,
+                ticket.deadline,
+                ticket.description,
+                ticket.status,
+                ticket.userId.HasValue ? ticket.userId.Value : ObjectId.Empty,
+                ticket.email
+            );
+
+            results.Add(newTicket);
+        }
+
+        return results;
+    }
+
 
     public List<Ticket> GetOpenTickets(TicketStatus status)
     {
