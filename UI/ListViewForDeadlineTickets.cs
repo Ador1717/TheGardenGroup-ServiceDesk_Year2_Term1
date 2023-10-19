@@ -6,11 +6,14 @@ namespace UI;
 public partial class ListViewForDeadlineTickets : Form
 {
     private readonly TicketService _ticketService;
+    private readonly User user;
 
-    public ListViewForDeadlineTickets()
+
+    public ListViewForDeadlineTickets(User user)
     {
         InitializeComponent();
         _ticketService = new TicketService();
+        this.user = user;
         StartPosition = FormStartPosition.CenterScreen;
         FormBorderStyle = FormBorderStyle.FixedSingle;
         ConfigureListView();
@@ -58,7 +61,7 @@ public partial class ListViewForDeadlineTickets : Form
 
     private void btnGoBack_Click(object sender, EventArgs e)
     {
-        Dashboard dashboard = new Dashboard();
+        Dashboard dashboard = new Dashboard(this.user);
         Hide();
         dashboard.Show();
         dashboard.FormClosed += (s, args) => Close();

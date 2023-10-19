@@ -6,7 +6,7 @@ namespace Model;
 public class User
 {
     public User(ObjectId userId, string firstName, string lastName, UserType userType, string email,
-        string phoneNumber, string location, string salt, string hashedPassword)
+        string phoneNumber, string location, string salt, string hashedPassword, string username, List<string> reportedTickets)
     {
         this.userId = userId;
         this.firstName = firstName;
@@ -17,6 +17,8 @@ public class User
         this.location = location;
         this.salt = salt;
         this.hashedPassword = hashedPassword;
+        this.username = username;
+        this.reportedTickets = reportedTickets;
     }
 
     [BsonId] public ObjectId userId { get; set; }
@@ -28,4 +30,8 @@ public class User
     [BsonElement("location")] public string location { get; set; }
     [BsonElement("salt")] public string salt { get; set; }
     [BsonElement("hashedPassword")] public string hashedPassword { get; set; }
+
+    [BsonElement("username")] public string username { get; set; }
+    [BsonElement("reportedTickets")] public List<string> reportedTickets { get; set; }
+
 }
