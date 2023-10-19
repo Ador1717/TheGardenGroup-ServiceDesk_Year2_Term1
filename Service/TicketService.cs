@@ -2,8 +2,6 @@
 using Model;
 using MongoDB.Bson;
 
-// To ensure we have access to the TicketDAO class
-
 namespace Service;
 
 public class TicketService
@@ -18,7 +16,6 @@ public class TicketService
 
     public IEnumerable<Ticket> GetTicketsByReporterEmail(string email)
     {
-        // additional business logic if needed
         return _ticketDAO.GetTicketsByReporterEmail(email);
     }
 
