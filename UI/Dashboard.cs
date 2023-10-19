@@ -9,6 +9,7 @@ public partial class Dashboard : Form
 
     public Dashboard()
     {
+        //Initializing lists, getting all tickets
         InitializeComponent();
         _ticketService = new TicketService();
         UpdateOpenTicketsProgressBar();
@@ -17,6 +18,7 @@ public partial class Dashboard : Form
         FormBorderStyle = FormBorderStyle.FixedSingle;
     }
 
+    //Getting all tickets with status open and setting the progress bar and label with the correct data
     private void UpdateOpenTicketsProgressBar()
     {
         List<Ticket> allTickets = _ticketService.GetAllTickets();
@@ -27,6 +29,7 @@ public partial class Dashboard : Form
         lblOpenTicketCount.Text = $"Open Tickets: {openTickets.Count}";
     }
 
+    //Getting all tickets that are past deadline and setting the progress bar and label with the correct data
     private void UpdatePastDeadlineProgressBar()
     {
         List<Ticket> pastDeadlineTickets = _ticketService.GetTicketsPastDeadlineUsingAggregation();
@@ -37,6 +40,7 @@ public partial class Dashboard : Form
         lblPastDeadlineCount.Text = $"Past Deadline Tickets: {pastDeadlineTickets.Count}";
     }
 
+    //Opens the additional part, which displays the list of tickets that are overdue
     private void btnListViewDeadline_Click(object sender, EventArgs e)
     {
         ListViewForDeadlineTickets listView = new ListViewForDeadlineTickets();
@@ -45,6 +49,7 @@ public partial class Dashboard : Form
         listView.FormClosed += (s, args) => Close();
     }
 
+    //Opens the additional part, which displays the list of tickets that have unresolved tickets 
     private void btnListViewUnresolved_Click(object sender, EventArgs e)
     {
         ListViewForOpenTickets listView = new ListViewForOpenTickets();
@@ -53,6 +58,7 @@ public partial class Dashboard : Form
         listView.FormClosed += (s, args) => Close();
     }
 
+    //Opens list view of all tickets
     private void showList_Click(object sender, EventArgs e)
     {
         TicketOverview ticketOverview = new TicketOverview();
