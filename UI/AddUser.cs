@@ -18,8 +18,8 @@ namespace UI
             InitializeComponent();
 
             // Populate the UserTypeComboBox and LocationComboBox with enum values.
-            UserTypeComboBox.DataSource = Enum.GetValues(typeof(UserType));
-            LocationComboBox.DataSource = Enum.GetValues(typeof(Location));
+            /* UserTypeComboBox.DataSource = Enum.GetValues(typeof(UserType));
+            LocationComboBox.DataSource = Enum.GetValues(typeof(Location)); */
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
