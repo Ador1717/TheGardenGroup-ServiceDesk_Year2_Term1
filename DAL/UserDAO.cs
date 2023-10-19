@@ -20,7 +20,7 @@ public class UserDAO
 
     public User GetByUsername(string username)
     {
-        FilterDefinition<User>? filter = Builders<User>.Filter.Eq(u => u.firstName, username);
+        FilterDefinition<User>? filter = Builders<User>.Filter.Eq(u => u.username, username);
         return userCollection.Find(filter).FirstOrDefault();
     }
 

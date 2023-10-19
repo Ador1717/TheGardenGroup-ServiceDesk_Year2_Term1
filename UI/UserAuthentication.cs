@@ -18,18 +18,27 @@ namespace UI
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            string userName = textBoxUserName.Text;
+            string username = textBoxUserName.Text;
             string password  = textBoxPassword.Text;
 
-            if (!autentication.AutenticateUser(userName, password))
+            User user = autentication.AutenticateUser(username, password);
+
+            if (user == null)
             {
-                MessageBox.Show("invalid credentials");
+                MessageBox.Show("Invalid Credentials");
                 return;
-            } 
+            }
+
+
+            this.Hide();
+            new Dashboard(user).Show();
             
-            
-            
-            MessageBox.Show(userName);
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.autentication.ResetPassword("hi");
         }
     }
 }

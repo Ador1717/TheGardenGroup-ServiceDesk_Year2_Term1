@@ -8,13 +8,15 @@ public partial class TicketOverview : Form
 {
     private readonly TicketService _ticketService;
     private readonly UserService _userService;
+    private readonly User user;
 
-    public TicketOverview()
+    public TicketOverview(User user)
     {
         InitializeComponent();
         _ticketService = new TicketService();
         _userService = new UserService();
         LoadTicketData();
+        this.user = user;
     }
 
     private void LoadTicketData()
@@ -88,7 +90,7 @@ public partial class TicketOverview : Form
 
     private void btnMenuDashboard_Click(object sender, EventArgs e)
     {
-        Dashboard dashboard = new Dashboard();
+        Dashboard dashboard = new Dashboard(this.user);
         Hide();
         dashboard.Show();
         dashboard.FormClosed += (s, args) => Close();
