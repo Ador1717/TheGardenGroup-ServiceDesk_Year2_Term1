@@ -17,11 +17,10 @@ public partial class Dashboard : Form
         FormBorderStyle = FormBorderStyle.FixedSingle;
     }
 
-
     private void UpdateOpenTicketsProgressBar()
     {
         List<Ticket> allTickets = _ticketService.GetAllTickets();
-        List<Ticket> openTickets = allTickets.Where(ticket => ticket.status == TicketStatus.Open).ToList();
+        List<Ticket> openTickets = _ticketService.GetOpenTicketsUsingAggregation();
 
         pbOpen.Maximum = allTickets.Count > 0 ? allTickets.Count : 1;
         pbOpen.Value = openTickets.Count;
@@ -30,7 +29,7 @@ public partial class Dashboard : Form
 
     private void UpdatePastDeadlineProgressBar()
     {
-        List<Ticket> pastDeadlineTickets = _ticketService.GetTicketsPastDeadline();
+        List<Ticket> pastDeadlineTickets = _ticketService.GetTicketsPastDeadlineUsingAggregation();
         List<Ticket> allTickets = _ticketService.GetAllTickets();
 
         pbDeadline.Maximum = allTickets.Count > 0 ? allTickets.Count : 1;

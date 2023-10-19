@@ -97,4 +97,43 @@ public class TicketDAO
         FilterDefinition<Ticket> filter = Builders<Ticket>.Filter.Lt(t => t.deadline, DateTime.UtcNow);
         return ticketCollection.Find(filter).ToList();
     }
+
+    public List<Ticket> GetOpenTicketsUsingAggregation()
+    {
+        BsonDocument[] pipeline = new[]
+        {
+            new BsonDocument("$match",
+                new BsonDocument("status",
+                    new BsonDocument("$eq", "Open")))
+        };
+
+        return ticketCollection.Aggregate<Ticket>(pipeline).ToList();
+    }
+
+    public List<Ticket> GetTicketsPastDeadlineUsingAggregation()
+    {
+        BsonDocument[] pipeline = new[]
+        {
+            new BsonDocument("$match",
+                new BsonDocument("$expr",
+                    new BsonDocument("$and",
+                        new BsonArray
+                        {
+                            new BsonDocument("$lt",
+                                new BsonArray
+                                {
+                                    "$deadline",
+                                    new BsonDocument("$toDate", "$$NOW")
+                                }),
+                            new BsonDocument("$eq",
+                                new BsonArray
+                                {
+                                    "$status",
+                                    "Open"
+                                })
+                        })))
+        };
+
+        return ticketCollection.Aggregate<Ticket>(pipeline).ToList();
+    }
 }

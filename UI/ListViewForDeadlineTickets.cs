@@ -20,10 +20,14 @@ public partial class ListViewForDeadlineTickets : Form
     private void LoadTickets()
     {
         IEnumerable<Ticket> deadlineTickets = _ticketService.GetTicketsPastDeadline();
+        PopulateListView(deadlineTickets);
+    }
 
+    private void PopulateListView(IEnumerable<Ticket> tickets)
+    {
         listViewTickets.Items.Clear();
 
-        foreach (Ticket ticket in deadlineTickets)
+        foreach (Ticket ticket in tickets)
         {
             ListViewItem item = new ListViewItem(ticket.ticketId.ToString())
             {

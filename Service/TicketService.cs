@@ -87,4 +87,14 @@ public class TicketService
     {
         return _ticketDAO.UpdateTicketStatus(ticketId, newStatus);
     }
+
+    public List<Ticket> GetOpenTicketsUsingAggregation()
+    {
+        return _ticketDAO.GetOpenTicketsUsingAggregation();
+    }
+
+    public List<Ticket> GetTicketsPastDeadlineUsingAggregation()
+    {
+        return _ticketDAO.GetTicketsPastDeadlineUsingAggregation();
+    }
 }

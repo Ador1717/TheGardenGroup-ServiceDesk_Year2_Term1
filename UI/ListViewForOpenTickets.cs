@@ -19,12 +19,15 @@ public partial class ListViewForOpenTickets : Form
 
     private void LoadTickets()
     {
-        // Use the GetTicketsByStatus method to retrieve open tickets
         IEnumerable<Ticket> openTickets = _ticketService.GetOpenTickets();
+        PopulateListView(openTickets);
+    }
 
+    private void PopulateListView(IEnumerable<Ticket> tickets)
+    {
         listViewTickets.Items.Clear();
 
-        foreach (Ticket ticket in openTickets)
+        foreach (Ticket ticket in tickets)
         {
             ListViewItem item = new ListViewItem(ticket.ticketId.ToString());
             item.Tag = ticket.ticketId.ToString();
