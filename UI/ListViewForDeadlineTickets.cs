@@ -55,7 +55,6 @@ public partial class ListViewForDeadlineTickets : Form
                     Tag = ticket.ticketId.ToString(),
                     SubItems =
                     {
-                        ticket.email,
                         ticket.reportedByUser,
                         ticket.dateTimeReported.ToString("yyyy-MM-dd HH:mm:ss"),
                         ticket.status.ToString()
@@ -82,7 +81,6 @@ public partial class ListViewForDeadlineTickets : Form
             listViewTickets.Columns.AddRange(new[]
             {
                 new ColumnHeader { Text = "Id", Width = 100 },
-                new ColumnHeader { Text = "Email", Width = 200 },
                 new ColumnHeader { Text = "Name", Width = 100 },
                 new ColumnHeader { Text = "Date & Time Reported", Width = 200 },
                 new ColumnHeader { Text = "Status", Width = 100 }
