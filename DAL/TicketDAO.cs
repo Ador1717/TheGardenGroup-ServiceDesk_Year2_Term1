@@ -69,8 +69,22 @@ public class TicketDAO
     //The following query is finding tickets that have ticket status open and that its deadline is over today's date.
     public List<Ticket> GetTicketsPastDeadlineUsingAggregation()
     {
+        DateTime currentDateTime = DateTime.UtcNow.Date;
+        BsonDateTime bsonCurrentDateTime = new BsonDateTime(currentDateTime);
         BsonDocument[] pipeline =
         {
+            new BsonDocument("$addFields",
+                new BsonDocument("deadline",
+                    new BsonDocument("$dateFromParts",
+                        new BsonDocument
+                        {
+                            { "year", new BsonDocument("$year", new BsonDocument("$toDate", "$deadline")) },
+                            { "month", new BsonDocument("$month", new BsonDocument("$toDate", "$deadline")) },
+                            { "day", new BsonDocument("$dayOfMonth", new BsonDocument("$toDate", "$deadline")) }
+                        }
+                    )
+                )
+            ),
             new BsonDocument("$match",
                 new BsonDocument("$expr",
                     new BsonDocument("$and",
@@ -80,7 +94,7 @@ public class TicketDAO
                                 new BsonArray
                                 {
                                     "$deadline",
-                                    new BsonDocument("$toDate", "$$NOW")
+                                    bsonCurrentDateTime
                                 }),
                             new BsonDocument("$eq",
                                 new BsonArray
@@ -90,7 +104,6 @@ public class TicketDAO
                                 })
                         })))
         };
-
         return ticketCollection.Aggregate<Ticket>(pipeline).ToList();
     }
 }
