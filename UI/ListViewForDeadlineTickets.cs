@@ -19,7 +19,7 @@ public partial class ListViewForDeadlineTickets : Form
 
     private void LoadTickets()
     {
-        IEnumerable<Ticket> deadlineTickets = _ticketService.GetTicketsPastDeadline();
+        IEnumerable<Ticket> deadlineTickets = _ticketService.GetTicketsPastDeadlineUsingAggregation();
         PopulateListView(deadlineTickets);
     }
 

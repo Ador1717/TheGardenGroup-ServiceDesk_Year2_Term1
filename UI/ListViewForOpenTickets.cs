@@ -19,7 +19,7 @@ public partial class ListViewForOpenTickets : Form
 
     private void LoadTickets()
     {
-        IEnumerable<Ticket> openTickets = _ticketService.GetOpenTickets();
+        IEnumerable<Ticket> openTickets = _ticketService.GetOpenTicketsUsingAggregation();
         PopulateListView(openTickets);
     }
 

@@ -27,47 +27,6 @@ public class TicketService
         return _ticketDAO.GetAllTickets();
     }
 
-    public List<Ticket> GetOpenTickets()
-    {
-        return _ticketDAO.GetOpenTickets(TicketStatus.Open);
-    }
-
-    public List<Ticket> GetTicketsPastDeadline()
-    {
-        return _ticketDAO.GetTicketsPastDeadline();
-    }
-
-    public List<Ticket> GeTickets()
-    {
-        return _ticketDAO.GetTickets();
-    }
-
-    public List<Ticket> PastDeadlineIncidents()
-    {
-        incidentList = GeTickets();
-        List<Ticket> incidents = new List<Ticket>();
-        for (int i = 0; i < incidentList.Count; i++)
-            if (incidents[i].deadline < DateTime.Now && incidents[i].status != TicketStatus.Resolved)
-                incidents.Add(incidentList[i]);
-        return incidents;
-    }
-
-    public List<Ticket> SortIncidentByStatus(TicketStatus status)
-    {
-        incidentList = GeTickets();
-        List<Ticket> incidents = new List<Ticket>();
-        try
-        {
-            for (int i = 0; i < incidentList.Count; i++)
-                if (incidentList[i].status == status)
-                    incidents.Add(incidentList[i]);
-        }
-        catch (Exception)
-        {
-        }
-
-        return incidents;
-    }
 
     public bool AddTicket(DateTime dateTimeReported, string subject,
         TypeOfIncidentEnum typeOfIncidentEnum,
