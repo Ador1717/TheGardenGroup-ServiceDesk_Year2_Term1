@@ -10,54 +10,79 @@ public partial class Dashboard : Form
 
     public Dashboard(User user)
     {
-        //Initializing lists, getting all tickets
-        InitializeComponent();
-        this.user = user;
-        _ticketService = new TicketService();
-        UpdateOpenTicketsProgressBar();
-        UpdatePastDeadlineProgressBar();
-        StartPosition = FormStartPosition.CenterScreen;
-        FormBorderStyle = FormBorderStyle.FixedSingle;
-
-        lblBarNoDesk.Text = user.email;
-        btnUserManagement.Enabled =
-            this.user.userType == UserType.ServiceDeskUser || this.user.userType == UserType.Manager;
+        try
+        {
+            // Initializing lists, getting all tickets
+            InitializeComponent();
+            this.user = user;
+            _ticketService = new TicketService();
+            UpdateOpenTicketsProgressBar();
+            UpdatePastDeadlineProgressBar();
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            lblBarNoDesk.Text = user.email;
+            btnUserManagement.Enabled =
+                this.user.userType == UserType.ServiceDeskUser || this.user.userType == UserType.Manager;
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("An error occurred during initialization: " + ex.Message);
+        }
     }
 
-    //Getting all tickets with status open and setting the progress bar and label with the correct data
+    //Loads a list of open tickets 
     private void UpdateOpenTicketsProgressBar()
     {
-        List<Ticket> allTickets = _ticketService.GetAllTickets();
-        List<Ticket> openTickets = _ticketService.GetOpenTicketsUsingAggregation();
+        try
+        {
+            List<Ticket> allTickets = _ticketService.GetAllTickets();
+            List<Ticket> openTickets = _ticketService.GetOpenTicketsUsingAggregation();
 
-        pbOpen.Maximum = allTickets.Count > 0 ? allTickets.Count : 1;
-        pbOpen.Value = openTickets.Count;
-        lblOpenTicketCount.Text = $"Open Tickets: {openTickets.Count}";
+            pbOpen.Maximum = allTickets.Count > 0 ? allTickets.Count : 1;
+            pbOpen.Value = openTickets.Count;
+            lblOpenTicketCount.Text = $"Open Tickets: {openTickets.Count}";
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("An error occurred while updating open tickets: " + ex.Message);
+        }
     }
 
-    //Getting all tickets that are past deadline and setting the progress bar and label with the correct data
+    //Loads a list of unresolved tickets
     private void UpdatePastDeadlineProgressBar()
     {
-        List<Ticket> pastDeadlineTickets = _ticketService.GetTicketsPastDeadlineUsingAggregation();
-        List<Ticket> allTickets = _ticketService.GetAllTickets();
+        try
+        {
+            List<Ticket> pastDeadlineTickets = _ticketService.GetTicketsPastDeadlineUsingAggregation();
+            List<Ticket> allTickets = _ticketService.GetAllTickets();
 
-        pbDeadline.Maximum = allTickets.Count > 0 ? allTickets.Count : 1;
-        pbDeadline.Value = pastDeadlineTickets.Count;
-        lblPastDeadlineCount.Text = $"Past Deadline Tickets: {pastDeadlineTickets.Count}";
+            pbDeadline.Maximum = allTickets.Count > 0 ? allTickets.Count : 1;
+            pbDeadline.Value = pastDeadlineTickets.Count;
+            lblPastDeadlineCount.Text = $"Past Deadline Tickets: {pastDeadlineTickets.Count}";
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("An error occurred while updating past deadline tickets: " + ex.Message);
+        }
     }
-
 
     private void btnMenuDashboard_Click(object sender, EventArgs e)
     {
     }
 
-    //Opens list view of all tickets
     private void showList_Click_1(object sender, EventArgs e)
     {
-        TicketOverview ticketOverview = new TicketOverview(user);
-        Hide();
-        ticketOverview.Show();
-        ticketOverview.FormClosed += (s, args) => Close();
+        try
+        {
+            TicketOverview ticketOverview = new TicketOverview(user);
+            Hide();
+            ticketOverview.Show();
+            ticketOverview.FormClosed += (s, args) => Close();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("An error occurred while opening ticket overview: " + ex.Message);
+        }
     }
 
     private void lblBarNoDesk_Click(object sender, EventArgs e)
@@ -68,21 +93,35 @@ public partial class Dashboard : Form
     {
     }
 
-    //Opens the additional part, which displays the list of tickets that are overdue
+    //Opens Joan's additional part that shows a list view of tickets which have status open
     private void btnListViewUnresolved_Click_1(object sender, EventArgs e)
     {
-        ListViewForOpenTickets listView = new ListViewForOpenTickets(user);
-        Hide();
-        listView.Show();
-        listView.FormClosed += (s, args) => Close();
+        try
+        {
+            ListViewForOpenTickets listView = new ListViewForOpenTickets(user);
+            Hide();
+            listView.Show();
+            listView.FormClosed += (s, args) => Close();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("An error occurred while opening list view for open tickets: " + ex.Message);
+        }
     }
 
-    //Opens the additional part, which displays the list of tickets that have unresolved tickets 
+    //Opens Joan's additional part that shows a list view of tickets which are overdue
     private void btnListViewDeadline_Click_1(object sender, EventArgs e)
     {
-        ListViewForDeadlineTickets listView = new ListViewForDeadlineTickets(user);
-        Hide();
-        listView.Show();
-        listView.FormClosed += (s, args) => Close();
+        try
+        {
+            ListViewForDeadlineTickets listView = new ListViewForDeadlineTickets(user);
+            Hide();
+            listView.Show();
+            listView.FormClosed += (s, args) => Close();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("An error occurred while opening list view for deadline tickets: " + ex.Message);
+        }
     }
 }
