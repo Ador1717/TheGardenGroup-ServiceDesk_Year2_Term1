@@ -10,6 +10,7 @@ public partial class ListViewForOpenTickets : Form
 
     public ListViewForOpenTickets(User user)
     {
+        //Loads ticket information and loads them into the list view
         InitializeComponent();
         _ticketService = new TicketService();
         StartPosition = FormStartPosition.CenterScreen;
@@ -18,13 +19,14 @@ public partial class ListViewForOpenTickets : Form
         ConfigureListView();
         LoadTickets();
     }
-
+    //Loads tickets into list 
     private void LoadTickets()
     {
         IEnumerable<Ticket> openTickets = _ticketService.GetOpenTicketsUsingAggregation();
         PopulateListView(openTickets);
     }
 
+    //Populates list view with list of tickets 
     private void PopulateListView(IEnumerable<Ticket> tickets)
     {
         listViewTickets.Items.Clear();
@@ -41,7 +43,7 @@ public partial class ListViewForOpenTickets : Form
         }
     }
 
-
+    //Configures the format of the list view
     private void ConfigureListView()
     {
         listViewTickets.GridLines = true;
@@ -57,7 +59,7 @@ public partial class ListViewForOpenTickets : Form
             new ColumnHeader { Text = "Status", Width = 100 }
         });
     }
-
+    //Goes back to dashboard view 
     private void btnGoBack_Click(object sender, EventArgs e)
     {
         Dashboard dashboard = new Dashboard(this.user);

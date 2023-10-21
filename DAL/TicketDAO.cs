@@ -53,7 +53,7 @@ public class TicketDAO
         return result.ModifiedCount > 0;
     }
 
-
+    //The following query is finding tickets by status by using the match aggregation function
     public List<Ticket> GetOpenTicketsUsingAggregation()
     {
         BsonDocument[] pipeline =
@@ -66,6 +66,7 @@ public class TicketDAO
         return ticketCollection.Aggregate<Ticket>(pipeline).ToList();
     }
 
+    //The following query is finding tickets that have ticket status open and that its deadline is over today's date.
     public List<Ticket> GetTicketsPastDeadlineUsingAggregation()
     {
         BsonDocument[] pipeline =

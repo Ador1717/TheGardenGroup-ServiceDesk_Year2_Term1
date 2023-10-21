@@ -28,262 +28,263 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnUserManagement = new System.Windows.Forms.Button();
-            this.btnMenuIncidentManagement = new System.Windows.Forms.Button();
-            this.btnMenuDashboard = new System.Windows.Forms.Button();
-            this.pnlBar = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblBarLicensed = new System.Windows.Forms.Label();
-            this.lblBarNoDesk = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblOpenTicketCount = new System.Windows.Forms.Label();
-            this.lblPastDeadlineCount = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pbOpen = new System.Windows.Forms.ProgressBar();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pbDeadline = new System.Windows.Forms.ProgressBar();
-            this.btnListViewUnresolved = new System.Windows.Forms.Button();
-            this.btnListViewDeadline = new System.Windows.Forms.Button();
-            this.showList = new System.Windows.Forms.Button();
-            this.pnlBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.SuspendLayout();
+            btnUserManagement = new Button();
+            btnMenuIncidentManagement = new Button();
+            btnMenuDashboard = new Button();
+            pnlBar = new Panel();
+            pictureBox1 = new PictureBox();
+            lblBarLicensed = new Label();
+            lblBarNoDesk = new Label();
+            label1 = new Label();
+            label2 = new Label();
+            lblOpenTicketCount = new Label();
+            lblPastDeadlineCount = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            groupBox1 = new GroupBox();
+            pbOpen = new ProgressBar();
+            groupBox2 = new GroupBox();
+            pbDeadline = new ProgressBar();
+            btnListViewUnresolved = new Button();
+            btnListViewDeadline = new Button();
+            showList = new Button();
+            pnlBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
+            SuspendLayout();
             // 
             // btnUserManagement
             // 
-            this.btnUserManagement.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnUserManagement.Location = new System.Drawing.Point(551, 96);
-            this.btnUserManagement.Margin = new System.Windows.Forms.Padding(2);
-            this.btnUserManagement.Name = "btnUserManagement";
-            this.btnUserManagement.Size = new System.Drawing.Size(223, 43);
-            this.btnUserManagement.TabIndex = 7;
-            this.btnUserManagement.Text = "User Management";
-            this.btnUserManagement.UseVisualStyleBackColor = true;
-            this.btnUserManagement.Click += new System.EventHandler(this.btnUserManagement_Click);
+            btnUserManagement.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUserManagement.Location = new Point(551, 96);
+            btnUserManagement.Margin = new Padding(2);
+            btnUserManagement.Name = "btnUserManagement";
+            btnUserManagement.Size = new Size(223, 43);
+            btnUserManagement.TabIndex = 7;
+            btnUserManagement.Text = "User Management";
+            btnUserManagement.UseVisualStyleBackColor = true;
+            btnUserManagement.Click += btnUserManagement_Click;
             // 
             // btnMenuIncidentManagement
             // 
-            this.btnMenuIncidentManagement.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnMenuIncidentManagement.Location = new System.Drawing.Point(293, 96);
-            this.btnMenuIncidentManagement.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMenuIncidentManagement.Name = "btnMenuIncidentManagement";
-            this.btnMenuIncidentManagement.Size = new System.Drawing.Size(254, 43);
-            this.btnMenuIncidentManagement.TabIndex = 6;
-            this.btnMenuIncidentManagement.Text = "Incident Management";
-            this.btnMenuIncidentManagement.UseVisualStyleBackColor = true;
+            btnMenuIncidentManagement.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnMenuIncidentManagement.Location = new Point(293, 96);
+            btnMenuIncidentManagement.Margin = new Padding(2);
+            btnMenuIncidentManagement.Name = "btnMenuIncidentManagement";
+            btnMenuIncidentManagement.Size = new Size(254, 43);
+            btnMenuIncidentManagement.TabIndex = 6;
+            btnMenuIncidentManagement.Text = "Incident Management";
+            btnMenuIncidentManagement.UseVisualStyleBackColor = true;
             // 
             // btnMenuDashboard
             // 
-            this.btnMenuDashboard.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnMenuDashboard.Location = new System.Drawing.Point(37, 96);
-            this.btnMenuDashboard.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMenuDashboard.Name = "btnMenuDashboard";
-            this.btnMenuDashboard.Size = new System.Drawing.Size(252, 43);
-            this.btnMenuDashboard.TabIndex = 5;
-            this.btnMenuDashboard.Text = "Dashboard";
-            this.btnMenuDashboard.UseVisualStyleBackColor = true;
-            this.btnMenuDashboard.Click += new System.EventHandler(this.btnMenuDashboard_Click);
+            btnMenuDashboard.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnMenuDashboard.Location = new Point(37, 96);
+            btnMenuDashboard.Margin = new Padding(2);
+            btnMenuDashboard.Name = "btnMenuDashboard";
+            btnMenuDashboard.Size = new Size(252, 43);
+            btnMenuDashboard.TabIndex = 5;
+            btnMenuDashboard.Text = "Dashboard";
+            btnMenuDashboard.UseVisualStyleBackColor = true;
+            btnMenuDashboard.Click += btnMenuDashboard_Click;
             // 
             // pnlBar
             // 
-            this.pnlBar.Controls.Add(this.pictureBox1);
-            this.pnlBar.Controls.Add(this.lblBarLicensed);
-            this.pnlBar.Controls.Add(this.lblBarNoDesk);
-            this.pnlBar.Location = new System.Drawing.Point(37, 18);
-            this.pnlBar.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlBar.Name = "pnlBar";
-            this.pnlBar.Size = new System.Drawing.Size(737, 74);
-            this.pnlBar.TabIndex = 4;
+            pnlBar.Controls.Add(pictureBox1);
+            pnlBar.Controls.Add(lblBarLicensed);
+            pnlBar.Controls.Add(lblBarNoDesk);
+            pnlBar.Location = new Point(37, 18);
+            pnlBar.Margin = new Padding(2);
+            pnlBar.Name = "pnlBar";
+            pnlBar.Size = new Size(737, 74);
+            pnlBar.TabIndex = 4;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::UI.Properties.Resources._11;
-            this.pictureBox1.Location = new System.Drawing.Point(2, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(147, 74);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = Properties.Resources._11;
+            pictureBox1.Location = new Point(2, 0);
+            pictureBox1.Margin = new Padding(2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(147, 74);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
             // 
             // lblBarLicensed
             // 
-            this.lblBarLicensed.AutoSize = true;
-            this.lblBarLicensed.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblBarLicensed.Location = new System.Drawing.Point(472, 45);
-            this.lblBarLicensed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblBarLicensed.Name = "lblBarLicensed";
-            this.lblBarLicensed.Size = new System.Drawing.Size(257, 23);
-            this.lblBarLicensed.TabIndex = 1;
-            this.lblBarLicensed.Text = "Licensed to: The Garden Group";
+            lblBarLicensed.AutoSize = true;
+            lblBarLicensed.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblBarLicensed.Location = new Point(472, 45);
+            lblBarLicensed.Margin = new Padding(2, 0, 2, 0);
+            lblBarLicensed.Name = "lblBarLicensed";
+            lblBarLicensed.Size = new Size(257, 23);
+            lblBarLicensed.TabIndex = 1;
+            lblBarLicensed.Text = "Licensed to: The Garden Group";
             // 
             // lblBarNoDesk
             // 
-            this.lblBarNoDesk.AutoSize = true;
-            this.lblBarNoDesk.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblBarNoDesk.Location = new System.Drawing.Point(153, 0);
-            this.lblBarNoDesk.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblBarNoDesk.Name = "lblBarNoDesk";
-            this.lblBarNoDesk.Size = new System.Drawing.Size(103, 32);
-            this.lblBarNoDesk.TabIndex = 0;
-            this.lblBarNoDesk.Text = "NoDesk";
-            this.lblBarNoDesk.Click += new System.EventHandler(this.lblBarNoDesk_Click);
+            lblBarNoDesk.AutoSize = true;
+            lblBarNoDesk.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lblBarNoDesk.Location = new Point(153, 0);
+            lblBarNoDesk.Margin = new Padding(2, 0, 2, 0);
+            lblBarNoDesk.Name = "lblBarNoDesk";
+            lblBarNoDesk.Size = new Size(103, 32);
+            lblBarNoDesk.TabIndex = 0;
+            lblBarNoDesk.Text = "NoDesk";
+            lblBarNoDesk.Click += lblBarNoDesk_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(27, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(239, 31);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Unresolved Incidents";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(27, 23);
+            label1.Name = "label1";
+            label1.Size = new Size(239, 31);
+            label1.TabIndex = 10;
+            label1.Text = "Unresolved Incidents";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(172, 20);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "All tickets currently open";
+            label2.AutoSize = true;
+            label2.Location = new Point(58, 54);
+            label2.Name = "label2";
+            label2.Size = new Size(172, 20);
+            label2.TabIndex = 11;
+            label2.Text = "All tickets currently open";
             // 
             // lblOpenTicketCount
             // 
-            this.lblOpenTicketCount.AutoSize = true;
-            this.lblOpenTicketCount.Location = new System.Drawing.Point(58, 84);
-            this.lblOpenTicketCount.Name = "lblOpenTicketCount";
-            this.lblOpenTicketCount.Size = new System.Drawing.Size(0, 20);
-            this.lblOpenTicketCount.TabIndex = 12;
+            lblOpenTicketCount.AutoSize = true;
+            lblOpenTicketCount.Location = new Point(58, 84);
+            lblOpenTicketCount.Name = "lblOpenTicketCount";
+            lblOpenTicketCount.Size = new Size(0, 20);
+            lblOpenTicketCount.TabIndex = 12;
             // 
             // lblPastDeadlineCount
             // 
-            this.lblPastDeadlineCount.AutoSize = true;
-            this.lblPastDeadlineCount.Location = new System.Drawing.Point(46, 84);
-            this.lblPastDeadlineCount.Name = "lblPastDeadlineCount";
-            this.lblPastDeadlineCount.Size = new System.Drawing.Size(0, 20);
-            this.lblPastDeadlineCount.TabIndex = 15;
+            lblPastDeadlineCount.AutoSize = true;
+            lblPastDeadlineCount.Location = new Point(46, 84);
+            lblPastDeadlineCount.Name = "lblPastDeadlineCount";
+            lblPastDeadlineCount.Size = new Size(0, 20);
+            lblPastDeadlineCount.TabIndex = 15;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(46, 54);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(204, 20);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Tickets need immidate action";
+            label5.AutoSize = true;
+            label5.Location = new Point(46, 54);
+            label5.Name = "label5";
+            label5.Size = new Size(204, 20);
+            label5.TabIndex = 14;
+            label5.Text = "Tickets need immidate action";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(14, 23);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(261, 31);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Incidents past deadline";
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(14, 23);
+            label6.Name = "label6";
+            label6.Size = new Size(261, 31);
+            label6.TabIndex = 13;
+            label6.Text = "Incidents past deadline";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.pbOpen);
-            this.groupBox1.Controls.Add(this.lblOpenTicketCount);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(42, 192);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(295, 163);
-            this.groupBox1.TabIndex = 17;
-            this.groupBox1.TabStop = false;
+            groupBox1.Controls.Add(pbOpen);
+            groupBox1.Controls.Add(lblOpenTicketCount);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Location = new Point(42, 192);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(295, 163);
+            groupBox1.TabIndex = 17;
+            groupBox1.TabStop = false;
             // 
             // pbOpen
             // 
-            this.pbOpen.Location = new System.Drawing.Point(27, 118);
-            this.pbOpen.Name = "pbOpen";
-            this.pbOpen.Size = new System.Drawing.Size(239, 29);
-            this.pbOpen.TabIndex = 13;
+            pbOpen.Location = new Point(27, 118);
+            pbOpen.Name = "pbOpen";
+            pbOpen.Size = new Size(239, 29);
+            pbOpen.TabIndex = 13;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.pbDeadline);
-            this.groupBox2.Controls.Add(this.lblPastDeadlineCount);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(479, 192);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(295, 163);
-            this.groupBox2.TabIndex = 18;
-            this.groupBox2.TabStop = false;
+            groupBox2.Controls.Add(pbDeadline);
+            groupBox2.Controls.Add(lblPastDeadlineCount);
+            groupBox2.Controls.Add(label5);
+            groupBox2.Controls.Add(label6);
+            groupBox2.Location = new Point(479, 192);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(295, 163);
+            groupBox2.TabIndex = 18;
+            groupBox2.TabStop = false;
             // 
             // pbDeadline
             // 
-            this.pbDeadline.Location = new System.Drawing.Point(30, 118);
-            this.pbDeadline.Name = "pbDeadline";
-            this.pbDeadline.Size = new System.Drawing.Size(240, 29);
-            this.pbDeadline.TabIndex = 16;
+            pbDeadline.Location = new Point(30, 118);
+            pbDeadline.Name = "pbDeadline";
+            pbDeadline.Size = new Size(240, 29);
+            pbDeadline.TabIndex = 16;
             // 
             // btnListViewUnresolved
             // 
-            this.btnListViewUnresolved.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnListViewUnresolved.Location = new System.Drawing.Point(37, 361);
-            this.btnListViewUnresolved.Name = "btnListViewUnresolved";
-            this.btnListViewUnresolved.Size = new System.Drawing.Size(300, 38);
-            this.btnListViewUnresolved.TabIndex = 19;
-            this.btnListViewUnresolved.Text = "Open List Of Tickets";
-            this.btnListViewUnresolved.UseVisualStyleBackColor = true;
+            btnListViewUnresolved.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnListViewUnresolved.Location = new Point(37, 361);
+            btnListViewUnresolved.Name = "btnListViewUnresolved";
+            btnListViewUnresolved.Size = new Size(300, 38);
+            btnListViewUnresolved.TabIndex = 19;
+            btnListViewUnresolved.Text = "Open List Of Tickets";
+            btnListViewUnresolved.UseVisualStyleBackColor = true;
+            btnListViewUnresolved.Click += btnListViewUnresolved_Click_1;
             // 
             // btnListViewDeadline
             // 
-            this.btnListViewDeadline.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnListViewDeadline.Location = new System.Drawing.Point(479, 361);
-            this.btnListViewDeadline.Name = "btnListViewDeadline";
-            this.btnListViewDeadline.Size = new System.Drawing.Size(300, 38);
-            this.btnListViewDeadline.TabIndex = 20;
-            this.btnListViewDeadline.Text = "Open List Of Tickets";
-            this.btnListViewDeadline.UseVisualStyleBackColor = true;
+            btnListViewDeadline.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnListViewDeadline.Location = new Point(479, 361);
+            btnListViewDeadline.Name = "btnListViewDeadline";
+            btnListViewDeadline.Size = new Size(300, 38);
+            btnListViewDeadline.TabIndex = 20;
+            btnListViewDeadline.Text = "Open List Of Tickets";
+            btnListViewDeadline.UseVisualStyleBackColor = true;
+            btnListViewDeadline.Click += btnListViewDeadline_Click_1;
             // 
             // showList
             // 
-            this.showList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.showList.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.showList.ForeColor = System.Drawing.Color.White;
-            this.showList.Location = new System.Drawing.Point(615, 144);
-            this.showList.Name = "showList";
-            this.showList.Size = new System.Drawing.Size(159, 42);
-            this.showList.TabIndex = 21;
-            this.showList.Text = "SHOW LIST";
-            this.showList.UseVisualStyleBackColor = false;
-            this.showList.Click += new System.EventHandler(this.showList_Click_1);
+            showList.BackColor = Color.FromArgb(0, 0, 192);
+            showList.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            showList.ForeColor = Color.White;
+            showList.Location = new Point(615, 144);
+            showList.Name = "showList";
+            showList.Size = new Size(159, 42);
+            showList.TabIndex = 21;
+            showList.Text = "SHOW LIST";
+            showList.UseVisualStyleBackColor = false;
+            showList.Click += showList_Click_1;
             // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 411);
-            this.Controls.Add(this.showList);
-            this.Controls.Add(this.btnListViewDeadline);
-            this.Controls.Add(this.btnListViewUnresolved);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnUserManagement);
-            this.Controls.Add(this.btnMenuIncidentManagement);
-            this.Controls.Add(this.btnMenuDashboard);
-            this.Controls.Add(this.pnlBar);
-            this.Name = "Dashboard";
-            this.Text = "Dashboard";
-            this.pnlBar.ResumeLayout(false);
-            this.pnlBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 411);
+            Controls.Add(showList);
+            Controls.Add(btnListViewDeadline);
+            Controls.Add(btnListViewUnresolved);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
+            Controls.Add(btnUserManagement);
+            Controls.Add(btnMenuIncidentManagement);
+            Controls.Add(btnMenuDashboard);
+            Controls.Add(pnlBar);
+            Name = "Dashboard";
+            Text = "Dashboard";
+            pnlBar.ResumeLayout(false);
+            pnlBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
