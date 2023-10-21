@@ -19,10 +19,11 @@ namespace Service
 
         private OTPService()
         {
+            this.otpStorage = new Dictionary<string, User>();
         }
 
 
-        public static OTPService getOTPService()
+        public static OTPService GetOTPService()
         {
             if (_instance == null)
             {

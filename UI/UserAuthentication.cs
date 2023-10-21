@@ -36,9 +36,24 @@ namespace UI
 
         }
 
+        // TODO: change label name
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.autentication.ResetPassword("hi");
+            string username = textBoxUserName.Text;
+            if (username == "")
+            {
+                MessageBox.Show("Please enter the username for which you want to reset the password");
+                return;
+            }
+
+            User user = autentication.GetUserForForgetPassword(username);
+            this.Hide();
+            new ResetPassword(user).Show();
+        }
+
+        private void UserAuthentication_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

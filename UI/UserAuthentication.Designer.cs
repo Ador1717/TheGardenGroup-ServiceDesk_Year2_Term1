@@ -51,6 +51,7 @@
             this.textBoxPassword.Location = new System.Drawing.Point(140, 322);
             this.textBoxPassword.Multiline = true;
             this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(364, 58);
             this.textBoxPassword.TabIndex = 1;
             this.textBoxPassword.UseSystemPasswordChar = true;
@@ -132,6 +133,7 @@
             this.Controls.Add(this.textBoxUserName);
             this.Name = "UserAuthentication";
             this.Text = "LoginForm";
+            this.Load += new System.EventHandler(this.UserAuthentication_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
