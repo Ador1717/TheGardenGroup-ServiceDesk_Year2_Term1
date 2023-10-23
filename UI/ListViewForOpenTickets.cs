@@ -6,7 +6,7 @@ namespace UI;
 public partial class ListViewForOpenTickets : Form
 {
     private readonly TicketService _ticketService;
-    private readonly User user;
+    private readonly User _user;
 
     public ListViewForOpenTickets(User user)
     {
@@ -17,13 +17,13 @@ public partial class ListViewForOpenTickets : Form
             _ticketService = new TicketService();
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.user = user;
+            _user = user;
             ConfigureListView();
             LoadTickets();
         }
         catch (Exception ex)
         {
-            MessageBox.Show("An error occurred during initialization: " + ex.Message);
+            MessageBox.Show(@"An error occurred during initialization: " + ex.Message);
         }
     }
 
@@ -37,7 +37,7 @@ public partial class ListViewForOpenTickets : Form
         }
         catch (Exception ex)
         {
-            MessageBox.Show("An error occurred while loading open tickets: " + ex.Message);
+            MessageBox.Show(@"An error occurred while loading open tickets: " + ex.Message);
         }
     }
 
@@ -59,7 +59,7 @@ public partial class ListViewForOpenTickets : Form
         }
         catch (Exception ex)
         {
-            MessageBox.Show("An error occurred while populating the list view: " + ex.Message);
+            MessageBox.Show(@"An error occurred while populating the list view: " + ex.Message);
         }
     }
 
@@ -74,15 +74,15 @@ public partial class ListViewForOpenTickets : Form
 
             listViewTickets.Columns.AddRange(new[]
             {
-                new ColumnHeader { Text = "Id", Width = 100 },
-                new ColumnHeader { Text = "Name", Width = 100 },
-                new ColumnHeader { Text = "Date & Time Reported", Width = 200 },
-                new ColumnHeader { Text = "Status", Width = 100 }
+                new ColumnHeader { Text = @"Id", Width = 100 },
+                new ColumnHeader { Text = @"Name", Width = 100 },
+                new ColumnHeader { Text = @"Date & Time Reported", Width = 200 },
+                new ColumnHeader { Text = @"Status", Width = 100 }
             });
         }
         catch (Exception ex)
         {
-            MessageBox.Show("An error occurred while configuring the list view: " + ex.Message);
+            MessageBox.Show(@"An error occurred while configuring the list view: " + ex.Message);
         }
     }
 
@@ -91,14 +91,14 @@ public partial class ListViewForOpenTickets : Form
     {
         try
         {
-            Dashboard dashboard = new Dashboard(user);
+            Dashboard dashboard = new Dashboard(_user);
             Hide();
             dashboard.Show();
             dashboard.FormClosed += (s, args) => Close();
         }
         catch (Exception ex)
         {
-            MessageBox.Show("An error occurred while returning to the dashboard: " + ex.Message);
+            MessageBox.Show(@"An error occurred while returning to the dashboard: " + ex.Message);
         }
     }
 }
