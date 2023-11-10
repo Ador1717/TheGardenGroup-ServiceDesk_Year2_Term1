@@ -50,10 +50,17 @@ public partial class ListViewForOpenTickets : Form
 
             foreach (Ticket ticket in tickets)
             {
-                ListViewItem item = new ListViewItem(ticket.ticketId.ToString());
-                item.SubItems.Add(ticket.reportedByUser);
-                item.SubItems.Add(ticket.dateTimeReported.ToString("yyyy-MM-dd HH:mm:ss"));
-                item.SubItems.Add(ticket.status.ToString());
+                ListViewItem item = new ListViewItem(ticket.ticketId.ToString())
+                {
+                    SubItems =
+                    {
+                        ticket.reportedByUser,
+                        ticket.dateTimeReported.ToString("yyyy-MM-dd HH:mm:ss"),
+                        ticket.status.ToString(),
+                        ticket.priorityEnum.ToString(),
+                        ticket.typeOfIncidentEnum.ToString()
+                    }
+                };
                 listViewTickets.Items.Add(item);
             }
         }
@@ -75,9 +82,10 @@ public partial class ListViewForOpenTickets : Form
             listViewTickets.Columns.AddRange(new[]
             {
                 new ColumnHeader { Text = @"Id", Width = 100 },
-                new ColumnHeader { Text = @"Name", Width = 100 },
-                new ColumnHeader { Text = @"Date & Time Reported", Width = 200 },
-                new ColumnHeader { Text = @"Status", Width = 100 }
+                new ColumnHeader { Text = @"Name", Width = 120 },
+                new ColumnHeader { Text = @"Date & Time Reported", Width = 160 },
+                new ColumnHeader { Text = @"Status", Width = 90 },
+                new ColumnHeader { Text = @"Priority", Width = 150 }
             });
         }
         catch (Exception ex)
