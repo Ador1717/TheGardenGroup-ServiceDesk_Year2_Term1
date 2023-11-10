@@ -11,6 +11,8 @@ public partial class UserAuthentication : Form
     {
         autentication = new Autentication();
         InitializeComponent();
+        StartPosition = FormStartPosition.CenterScreen;
+        FormBorderStyle = FormBorderStyle.FixedSingle;
     }
 
     private void buttonLogin_Click(object sender, EventArgs e)

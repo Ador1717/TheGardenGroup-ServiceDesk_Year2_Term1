@@ -17,6 +17,8 @@ public partial class UserManagement : Form
         InitializeComponent();
         _ticketService = new TicketService();
         _userService = new UserService();
+        StartPosition = FormStartPosition.CenterScreen;
+        FormBorderStyle = FormBorderStyle.FixedSingle;
         InitializeListView();
         LoadUserData();
     }
@@ -96,25 +98,30 @@ public partial class UserManagement : Form
     private void btnMenuIncidentManagement_Click(object sender, EventArgs e)
     {
         CreateTicket create = new CreateTicket(_user);
+        create.Show();
         Hide();
-        create.ShowDialog();
+        create.FormClosed += (s, args) => Close();
     }
 
     private void btnAddNewUser_Click(object sender, EventArgs e)
     {
         AddUser addUserForm = new AddUser(_user);
         addUserForm.Show();
+        Hide();
+        addUserForm.FormClosed += (s, args) => Close();
     }
 
     private void btnDeleteUser_Click(object sender, EventArgs e)
     {
         DeleteUser deleteUserForm = new DeleteUser(_user);
         deleteUserForm.Show();
+        deleteUserForm.FormClosed += (s, args) => Close();
     }
 
     private void btnUserManagement_Click(object sender, EventArgs e)
     {
         UserManagement userManagementForm = new UserManagement(_user);
         userManagementForm.Show();
+        userManagementForm.FormClosed += (s, args) => Close();
     }
 }

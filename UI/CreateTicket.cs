@@ -15,6 +15,8 @@ public partial class CreateTicket : Form
         InitializeComponent();
         cBPriority.DataSource = Enum.GetValues(typeof(PriorityEnum));
         cBTypeIncident.DataSource = Enum.GetValues(typeof(TypeOfIncidentEnum));
+        StartPosition = FormStartPosition.CenterScreen;
+        FormBorderStyle = FormBorderStyle.FixedSingle;
         _ticketService = new TicketService();
         _userService = new UserService();
         this.user = user;
@@ -66,16 +68,16 @@ public partial class CreateTicket : Form
     private void btnMenuDashboard_Click(object sender, EventArgs e)
     {
         Dashboard dashboard = new Dashboard(user);
-        Hide();
         dashboard.Show();
+        Hide();
         dashboard.FormClosed += (s, args) => Close();
     }
 
     private void btnMenuIncidentManagement_Click(object sender, EventArgs e)
     {
         TicketOverview ticketOverview = new TicketOverview(user);
-        Hide();
         ticketOverview.Show();
+        Hide();
         ticketOverview.FormClosed += (s, args) => Close();
     }
 
@@ -83,6 +85,7 @@ public partial class CreateTicket : Form
     {
         UserManagement userManagementForm = new UserManagement(user);
         userManagementForm.Show();
+        Hide();
         userManagementForm.FormClosed += (s, args) => Close();
     }
 }

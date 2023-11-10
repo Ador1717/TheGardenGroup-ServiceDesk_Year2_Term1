@@ -16,6 +16,8 @@ public partial class AddUser : Form
         _user = user;
         comboBox1.DataSource = Enum.GetValues(typeof(UserType));
         comboBox2.DataSource = Enum.GetValues(typeof(Location));
+        StartPosition = FormStartPosition.CenterScreen;
+        FormBorderStyle = FormBorderStyle.FixedSingle;
     }
 
 
@@ -75,6 +77,8 @@ public partial class AddUser : Form
         // Open the UserManagement form
         UserManagement userManagementForm = new UserManagement(_user);
         userManagementForm.Show();
+        Hide();
+        userManagementForm.FormClosed += (s, args) => Close();
     }
 
     private void btnMenuDashboard_Click(object sender, EventArgs e)
@@ -88,12 +92,16 @@ public partial class AddUser : Form
     private void btnMenuIncidentManagement_Click(object sender, EventArgs e)
     {
         CreateTicket create = new CreateTicket(_user);
+        create.Show();
         Hide();
+        create.FormClosed += (s, args) => Close();
     }
 
     private void btnUserManagement_Click(object sender, EventArgs e)
     {
         UserManagement userManagementForm = new UserManagement(_user);
         userManagementForm.Show();
+        Hide();
+        userManagementForm.FormClosed += (s, args) => Close();
     }
 }

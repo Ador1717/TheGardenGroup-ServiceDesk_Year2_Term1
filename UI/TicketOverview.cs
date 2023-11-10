@@ -15,6 +15,8 @@ public partial class TicketOverview : Form
         InitializeComponent();
         _ticketService = new TicketService();
         _userService = new UserService();
+        StartPosition = FormStartPosition.CenterScreen;
+        FormBorderStyle = FormBorderStyle.FixedSingle;
         LoadTicketData();
         this.user = user;
     }
@@ -86,15 +88,17 @@ public partial class TicketOverview : Form
     private void btnCreateIncident_Click(object sender, EventArgs e)
     {
         CreateTicket create = new CreateTicket(user);
-        create.ShowDialog();
+        create.Show();
+        Hide();
+        create.FormClosed += (s, args) => Close();
         LoadTicketData();
     }
 
     private void btnMenuDashboard_Click(object sender, EventArgs e)
     {
         Dashboard dashboard = new Dashboard(user);
-        Hide();
         dashboard.Show();
+        Hide();
         dashboard.FormClosed += (s, args) => Close();
     }
 
@@ -102,5 +106,7 @@ public partial class TicketOverview : Form
     {
         UserManagement userManagementForm = new UserManagement(user);
         userManagementForm.Show();
+        Hide();
+        userManagementForm.FormClosed += (s, args) => Close();
     }
 }

@@ -13,6 +13,8 @@ public partial class DeleteUser : Form
     {
         _user = user;
         InitializeComponent();
+        StartPosition = FormStartPosition.CenterScreen;
+        FormBorderStyle = FormBorderStyle.FixedSingle;
     }
 
 
@@ -20,6 +22,7 @@ public partial class DeleteUser : Form
     {
         UserManagement userManagementForm = new UserManagement(_user);
         userManagementForm.Show();
+        Hide();
     }
 
     private void deleteUserButton_Click(object sender, EventArgs e)
