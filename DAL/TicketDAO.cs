@@ -7,10 +7,12 @@ namespace DAL;
 public class TicketDAO : MongoDBConnection
 {
     protected static IMongoCollection<Ticket> ticketCollection;
+    protected static IMongoCollection<User> userCollection;
 
     public TicketDAO()
     {
         ticketCollection = database.GetCollection<Ticket>("Tickets");
+        userCollection = database.GetCollection<User>("Users");
     }
     public IEnumerable<Ticket> GetTicketsByReporterEmail(string email)
     {
@@ -19,7 +21,21 @@ public class TicketDAO : MongoDBConnection
    
     public List<Ticket> GetAllTickets()
     {
-        return ticketCollection.Find(new BsonDocument()).ToList();
+        // Define the aggregation pipeline to match tickets with user details.
+        var aggregation = ticketCollection.Aggregate()
+            .Lookup(
+                foreignCollectionName: "Users",
+                localField: "userId",
+                foreignField: "_id",
+                @as: "userDetails"
+            )
+            .Unwind("userDetails", new AggregateUnwindOptions<Ticket> { PreserveNullAndEmptyArrays = true })
+            .As<Ticket>()
+            .ToList();
+
+        return aggregation;
+       
+
     }
 
     public List<Ticket> GetTicketsByStatus(TicketStatus status)

@@ -1,16 +1,19 @@
 ﻿using Model;
 using Service;
+using System.Drawing.Printing;
 
 namespace UI;
 
 public partial class Dashboard : Form
 {
     private readonly TicketService _ticketService;
-
-    public Dashboard()
+    private readonly User user;
+   
+    public Dashboard(User user)
     {
         InitializeComponent();
         _ticketService = new TicketService();
+        this.user = user;
     }
 
     //private void btnMenuDashboard_Click(object sender, EventArgs e)
@@ -20,7 +23,7 @@ public partial class Dashboard : Form
 
     private void btnShowlist_Click(object sender, EventArgs e)
     {
-        TicketOverview ticketOverview = new TicketOverview();
+        TicketOverview ticketOverview = new TicketOverview(user);
         Hide();
         ticketOverview.Show();
         ticketOverview.FormClosed += (s, args) => Close();
