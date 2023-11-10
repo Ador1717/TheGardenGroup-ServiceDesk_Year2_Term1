@@ -117,11 +117,12 @@
             btnUserManagement.TabIndex = 3;
             btnUserManagement.Text = "User Management";
             btnUserManagement.UseVisualStyleBackColor = true;
+            btnUserManagement.Click += btnUserManagement_Click;
             // 
             // listviewTicketOverview
             // 
             listviewTicketOverview.Location = new Point(45, 210);
-            listviewTicketOverview.Margin = new Padding(2, 2, 2, 2);
+            listviewTicketOverview.Margin = new Padding(2);
             listviewTicketOverview.Name = "listviewTicketOverview";
             listviewTicketOverview.Size = new Size(563, 181);
             listviewTicketOverview.TabIndex = 4;
@@ -130,7 +131,7 @@
             // txtBoxFilterEmail
             // 
             txtBoxFilterEmail.Location = new Point(45, 174);
-            txtBoxFilterEmail.Margin = new Padding(2, 2, 2, 2);
+            txtBoxFilterEmail.Margin = new Padding(2);
             txtBoxFilterEmail.Name = "txtBoxFilterEmail";
             txtBoxFilterEmail.PlaceholderText = "     Filter by email";
             txtBoxFilterEmail.Size = new Size(182, 27);
@@ -140,7 +141,7 @@
             // btnCreateIncident
             // 
             btnCreateIncident.Location = new Point(406, 171);
-            btnCreateIncident.Margin = new Padding(2, 2, 2, 2);
+            btnCreateIncident.Margin = new Padding(2);
             btnCreateIncident.Name = "btnCreateIncident";
             btnCreateIncident.Size = new Size(188, 27);
             btnCreateIncident.TabIndex = 6;

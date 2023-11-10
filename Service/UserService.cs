@@ -24,6 +24,11 @@ public class UserService
         return _userDAO.GetByUsername(username);
     }
 
+    public List<User> GetAllUsers()
+    {
+        return _userDAO.GetAllUsers();
+    }
+
 
     public void AddUser(string email, string userName, string name, string password,
         UserType userType, string phoneNumber, string location)

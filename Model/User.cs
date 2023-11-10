@@ -5,10 +5,11 @@ namespace Model;
 
 public class User
 {
-    public User(ObjectId userId, string firstName, string lastName, UserType userType, string email,
-        string phoneNumber, string location, string salt, string hashedPassword, string username)
+    public User(ObjectId userId, string username, string firstName, string lastName, UserType userType, string email,
+        string phoneNumber, string location, string salt, string hashedPassword)
     {
         this.userId = userId;
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userType = userType;
@@ -21,6 +22,9 @@ public class User
     }
 
     [BsonId] public ObjectId userId { get; set; }
+
+    [BsonElement("ID")] public string ID { get; set; }
+    [BsonElement("username")] public string username { get; set; }
     [BsonElement("firstName")] public string firstName { get; set; }
     [BsonElement("lastName")] public string lastName { get; set; }
     [BsonElement("userType")] public UserType userType { get; set; }
