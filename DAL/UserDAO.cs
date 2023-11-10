@@ -72,9 +72,6 @@ public class UserDAO
         ReplaceOneResult result = userCollection.ReplaceOne(filter, user);
     }
 
-    public List<User> GetAllUsers()
-    {
-        return userCollection.Find(new BsonDocument()).ToList();
-    }
+
 
 }

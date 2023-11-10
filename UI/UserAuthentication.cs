@@ -33,21 +33,6 @@ public partial class UserAuthentication : Form
         new Dashboard(user).Show();
     }
 
-    private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-
-            if (user == null)
-            {
-                MessageBox.Show("Invalid Credentials");
-                return;
-            }
-
-
-            this.Hide();
-            new Dashboard(user).Show();
-            
-
-        }
 
         // TODO: change label name
         private void RestPasswordLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -75,4 +60,3 @@ public partial class UserAuthentication : Form
             Show_HidePass.Text = Show_HidePass.Checked ? "hide" : "show";
         }
     }
-}
