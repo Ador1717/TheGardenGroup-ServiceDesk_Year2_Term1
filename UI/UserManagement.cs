@@ -34,6 +34,7 @@ public partial class UserManagement : Form
         listviewUsermanagement.Columns.Add("Location", 80);
     }
 
+
     private void LoadUserData()
     {
         listviewUsermanagement.Items.Clear();
@@ -44,7 +45,6 @@ public partial class UserManagement : Form
         foreach (User user in users)
         {
             ListViewItem item = new ListViewItem(user.ID);
-            item.Tag = user.ID;
 
             item.SubItems.Add(user.ID);
             item.SubItems.Add(user.email);
