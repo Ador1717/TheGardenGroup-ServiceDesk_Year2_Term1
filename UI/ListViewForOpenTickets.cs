@@ -6,65 +6,107 @@ namespace UI;
 public partial class ListViewForOpenTickets : Form
 {
     private readonly TicketService _ticketService;
-    private readonly User user;
+    private readonly User _user;
 
     public ListViewForOpenTickets(User user)
     {
-        //Loads ticket information and loads them into the list view
-        InitializeComponent();
-        _ticketService = new TicketService();
-        StartPosition = FormStartPosition.CenterScreen;
-        FormBorderStyle = FormBorderStyle.FixedSingle;
-        this.user = user;
-        ConfigureListView();
-        LoadTickets();
-    }
-    //Loads tickets into list 
-    private void LoadTickets()
-    {
-        IEnumerable<Ticket> openTickets = _ticketService.GetOpenTicketsUsingAggregation();
-        PopulateListView(openTickets);
-    }
-
-    //Populates list view with list of tickets 
-    private void PopulateListView(IEnumerable<Ticket> tickets)
-    {
-        listViewTickets.Items.Clear();
-
-        foreach (Ticket ticket in tickets)
+        try
         {
-            ListViewItem item = new ListViewItem(ticket.ticketId.ToString());
-            item.Tag = ticket.ticketId.ToString();
-            item.SubItems.Add(ticket.email);
-            item.SubItems.Add(ticket.reportedByUser);
-            item.SubItems.Add(ticket.dateTimeReported.ToString("yyyy-MM-dd HH:mm:ss"));
-            item.SubItems.Add(ticket.status.ToString());
-            listViewTickets.Items.Add(item);
+            // Loads ticket information and loads them into the list view
+            InitializeComponent();
+            _ticketService = new TicketService();
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            _user = user;
+            ConfigureListView();
+            LoadTickets();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(@"An error occurred during initialization: " + ex.Message);
         }
     }
 
-    //Configures the format of the list view
+    // Loads tickets into the list 
+    private void LoadTickets()
+    {
+        try
+        {
+            IEnumerable<Ticket> openTickets = _ticketService.GetOpenTicketsUsingAggregation();
+            PopulateListView(openTickets);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(@"An error occurred while loading open tickets: " + ex.Message);
+        }
+    }
+
+    // Populates list view with the list of tickets 
+    private void PopulateListView(IEnumerable<Ticket> tickets)
+    {
+        try
+        {
+            listViewTickets.Items.Clear();
+
+            foreach (Ticket ticket in tickets)
+            {
+                ListViewItem item = new ListViewItem(ticket.ticketId.ToString())
+                {
+                    SubItems =
+                    {
+                        ticket.reportedByUser,
+                        ticket.dateTimeReported.ToString("yyyy-MM-dd HH:mm:ss"),
+                        ticket.status.ToString(),
+                        ticket.priorityEnum.ToString(),
+                        ticket.typeOfIncidentEnum.ToString()
+                    }
+                };
+                listViewTickets.Items.Add(item);
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(@"An error occurred while populating the list view: " + ex.Message);
+        }
+    }
+
+    // Configures the format of the list view
     private void ConfigureListView()
     {
-        listViewTickets.GridLines = true;
-        listViewTickets.FullRowSelect = true;
-        listViewTickets.View = View.Details;
-
-        listViewTickets.Columns.AddRange(new[]
+        try
         {
-            new ColumnHeader { Text = "Id", Width = 100 },
-            new ColumnHeader { Text = "Email", Width = 200 },
-            new ColumnHeader { Text = "Name", Width = 100 },
-            new ColumnHeader { Text = "Date & Time Reported", Width = 200 },
-            new ColumnHeader { Text = "Status", Width = 100 }
-        });
+            listViewTickets.GridLines = true;
+            listViewTickets.FullRowSelect = true;
+            listViewTickets.View = View.Details;
+
+            listViewTickets.Columns.AddRange(new[]
+            {
+                new ColumnHeader { Text = @"Id", Width = 100 },
+                new ColumnHeader { Text = @"Name", Width = 120 },
+                new ColumnHeader { Text = @"Date & Time Reported", Width = 160 },
+                new ColumnHeader { Text = @"Status", Width = 90 },
+                new ColumnHeader { Text = @"Priority", Width = 150 }
+            });
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(@"An error occurred while configuring the list view: " + ex.Message);
+        }
     }
-    //Goes back to dashboard view 
+
+    // Goes back to dashboard view 
     private void btnGoBack_Click(object sender, EventArgs e)
     {
-        Dashboard dashboard = new Dashboard(this.user);
-        Hide();
-        dashboard.Show();
-        dashboard.FormClosed += (s, args) => Close();
+        try
+        {
+            Dashboard dashboard = new Dashboard(_user);
+            Hide();
+            dashboard.Show();
+            dashboard.FormClosed += (s, args) => Close();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(@"An error occurred while returning to the dashboard: " + ex.Message);
+        }
     }
 }

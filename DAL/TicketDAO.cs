@@ -56,54 +56,70 @@ public class TicketDAO
     //The following query is finding tickets by status by using the match aggregation function
     public List<Ticket> GetOpenTicketsUsingAggregation()
     {
-        BsonDocument[] pipeline =
+        try
         {
-            new BsonDocument("$match",
-                new BsonDocument("status",
-                    new BsonDocument("$eq", "Open")))
-        };
+            BsonDocument[] pipeline =
+            {
+                new BsonDocument("$match",
+                    new BsonDocument("status",
+                        new BsonDocument("$eq", "Open")))
+            };
 
-        return ticketCollection.Aggregate<Ticket>(pipeline).ToList();
+            return ticketCollection.Aggregate<Ticket>(pipeline).ToList();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("An error occurred: " + ex.Message);
+            return new List<Ticket>();
+        }
     }
 
     //The following query is finding tickets that have ticket status open and that its deadline is over today's date.
     public List<Ticket> GetTicketsPastDeadlineUsingAggregation()
     {
-        DateTime currentDateTime = DateTime.UtcNow.Date;
-        BsonDateTime bsonCurrentDateTime = new BsonDateTime(currentDateTime);
-        BsonDocument[] pipeline =
+        try
         {
-            new BsonDocument("$addFields",
-                new BsonDocument("deadline",
-                    new BsonDocument("$dateFromParts",
-                        new BsonDocument
-                        {
-                            { "year", new BsonDocument("$year", new BsonDocument("$toDate", "$deadline")) },
-                            { "month", new BsonDocument("$month", new BsonDocument("$toDate", "$deadline")) },
-                            { "day", new BsonDocument("$dayOfMonth", new BsonDocument("$toDate", "$deadline")) }
-                        }
+            DateTime currentDateTime = DateTime.UtcNow.Date;
+            BsonDateTime bsonCurrentDateTime = new BsonDateTime(currentDateTime);
+            BsonDocument[] pipeline =
+            {
+                new BsonDocument("$addFields",
+                    new BsonDocument("deadline",
+                        new BsonDocument("$dateFromParts",
+                            new BsonDocument
+                            {
+                                { "year", new BsonDocument("$year", new BsonDocument("$toDate", "$deadline")) },
+                                { "month", new BsonDocument("$month", new BsonDocument("$toDate", "$deadline")) },
+                                { "day", new BsonDocument("$dayOfMonth", new BsonDocument("$toDate", "$deadline")) }
+                            }
+                        )
                     )
-                )
-            ),
-            new BsonDocument("$match",
-                new BsonDocument("$expr",
-                    new BsonDocument("$and",
-                        new BsonArray
-                        {
-                            new BsonDocument("$lt",
-                                new BsonArray
-                                {
-                                    "$deadline",
-                                    bsonCurrentDateTime
-                                }),
-                            new BsonDocument("$eq",
-                                new BsonArray
-                                {
-                                    "$status",
-                                    "Open"
-                                })
-                        })))
-        };
-        return ticketCollection.Aggregate<Ticket>(pipeline).ToList();
+                ),
+                new BsonDocument("$match",
+                    new BsonDocument("$expr",
+                        new BsonDocument("$and",
+                            new BsonArray
+                            {
+                                new BsonDocument("$lt",
+                                    new BsonArray
+                                    {
+                                        "$deadline",
+                                        bsonCurrentDateTime
+                                    }),
+                                new BsonDocument("$eq",
+                                    new BsonArray
+                                    {
+                                        "$status",
+                                        "Open"
+                                    })
+                            })))
+            };
+            return ticketCollection.Aggregate<Ticket>(pipeline).ToList();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("An error occurred: " + ex.Message);
+            return new List<Ticket>();
+        }
     }
 }
