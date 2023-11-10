@@ -93,4 +93,10 @@ public partial class TicketOverview : Form
         dashboard.Show();
         dashboard.FormClosed += (s, args) => Close();
     }
+
+    private void btnUserManagement_Click(object sender, EventArgs e)
+    {
+         UserManagement userManagementForm = new UserManagement();
+         userManagementForm.Show();
+    }
 }

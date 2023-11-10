@@ -45,12 +45,12 @@
             label8 = new Label();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
-            textBox3 = new TextBox();
             textBox4 = new TextBox();
             textBox5 = new TextBox();
-            textBox6 = new TextBox();
             btnCancel = new Button();
             btnAddUserToDatabase = new Button();
+            comboBox1 = new ComboBox();
+            comboBox2 = new ComboBox();
             pnlBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -216,13 +216,6 @@
             textBox2.Size = new Size(302, 27);
             textBox2.TabIndex = 30;
             // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(148, 284);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(302, 27);
-            textBox3.TabIndex = 31;
-            // 
             // textBox4
             // 
             textBox4.Location = new Point(148, 319);
@@ -236,13 +229,6 @@
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(302, 27);
             textBox5.TabIndex = 33;
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(148, 385);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(302, 27);
-            textBox6.TabIndex = 34;
             // 
             // btnCancel
             // 
@@ -265,17 +251,33 @@
             btnAddUserToDatabase.UseVisualStyleBackColor = false;
             btnAddUserToDatabase.Click += btnAddUserToDatabase_Click;
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(148, 285);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(302, 28);
+            comboBox1.TabIndex = 37;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(148, 385);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(302, 28);
+            comboBox2.TabIndex = 38;
+            // 
             // AddUser
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(591, 490);
+            Controls.Add(comboBox2);
+            Controls.Add(comboBox1);
             Controls.Add(btnAddUserToDatabase);
             Controls.Add(btnCancel);
-            Controls.Add(textBox6);
             Controls.Add(textBox5);
             Controls.Add(textBox4);
-            Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(label8);
@@ -318,11 +320,11 @@
         private Label label8;
         private TextBox textBox1;
         private TextBox textBox2;
-        private TextBox textBox3;
         private TextBox textBox4;
         private TextBox textBox5;
-        private TextBox textBox6;
         private Button btnCancel;
         private Button btnAddUserToDatabase;
+        private ComboBox comboBox1;
+        private ComboBox comboBox2;
     }
 }

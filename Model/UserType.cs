@@ -4,5 +4,6 @@ public enum UserType
 {
     User,
     ServiceDeskUser,
-    Manager
+    Manager,
+    Employee
 }
