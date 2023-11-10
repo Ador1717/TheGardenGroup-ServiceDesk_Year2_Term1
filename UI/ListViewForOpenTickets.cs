@@ -55,6 +55,7 @@ public partial class ListViewForOpenTickets : Form
                     SubItems =
                     {
                         ticket.reportedByUser,
+                        ticket.subject,
                         ticket.dateTimeReported.ToString("yyyy-MM-dd HH:mm:ss"),
                         ticket.status.ToString(),
                         ticket.priorityEnum.ToString(),
@@ -82,10 +83,11 @@ public partial class ListViewForOpenTickets : Form
             listViewTickets.Columns.AddRange(new[]
             {
                 new ColumnHeader { Text = @"Id", Width = 100 },
+                new ColumnHeader { Text = @"Subject", Width = 100 },
                 new ColumnHeader { Text = @"Name", Width = 120 },
                 new ColumnHeader { Text = @"Date & Time Reported", Width = 160 },
                 new ColumnHeader { Text = @"Status", Width = 90 },
-                new ColumnHeader { Text = @"Priority", Width = 150 }
+                new ColumnHeader { Text = @"Priority", Width = 90 }
             });
         }
         catch (Exception ex)
