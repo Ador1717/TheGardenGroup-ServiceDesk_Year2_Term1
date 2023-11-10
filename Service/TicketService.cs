@@ -25,13 +25,9 @@ public class TicketService
     }
 
 
-    public bool AddTicket(DateTime dateTimeReported, string subject,
-        TypeOfIncidentEnum typeOfIncidentEnum,
-        string reportedByUser, PriorityEnum priorityEnum, DateTime deadline, string description)
+    public void AddTicket(Ticket ticket)
     {
-        Ticket newTicket = new Ticket(dateTimeReported, subject, typeOfIncidentEnum, reportedByUser,
-            priorityEnum, deadline, description);
-        return _ticketDAO.AddTicket(newTicket);
+        _ticketDAO.AddTicket(ticket);
     }
 
     public bool DeleteTicket(ObjectId ticketId)
