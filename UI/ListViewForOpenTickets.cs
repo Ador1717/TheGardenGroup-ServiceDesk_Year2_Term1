@@ -32,7 +32,17 @@ public partial class ListViewForOpenTickets : Form
     {
         try
         {
-            IEnumerable<Ticket> openTickets = _ticketService.GetOpenTicketsUsingAggregation();
+            IEnumerable<Ticket> openTickets;
+
+            // Check if the user is a manager
+            if (_user.userType == UserType.Manager)
+                // If the user is a Manager, get all open tickets
+                openTickets = _ticketService.GetAllTickets().Where(t => t.status == TicketStatus.Open);
+            else
+                // For other users, get open tickets specific to them
+                openTickets = _ticketService.GetOpenTicketsUsingAggregation(_user.firstName.ToLower())
+                    .Where(t => t.reportedByUser.Equals(_user.firstName, StringComparison.OrdinalIgnoreCase));
+
             PopulateListView(openTickets);
         }
         catch (Exception ex)
@@ -40,6 +50,7 @@ public partial class ListViewForOpenTickets : Form
             MessageBox.Show(@"An error occurred while loading open tickets: " + ex.Message);
         }
     }
+
 
     // Populates list view with the list of tickets 
     private void PopulateListView(IEnumerable<Ticket> tickets)
@@ -83,8 +94,8 @@ public partial class ListViewForOpenTickets : Form
             listViewTickets.Columns.AddRange(new[]
             {
                 new ColumnHeader { Text = @"Id", Width = 100 },
-                new ColumnHeader { Text = @"Subject", Width = 100 },
                 new ColumnHeader { Text = @"Name", Width = 120 },
+                new ColumnHeader { Text = @"Subject", Width = 100 },
                 new ColumnHeader { Text = @"Date & Time Reported", Width = 160 },
                 new ColumnHeader { Text = @"Status", Width = 90 },
                 new ColumnHeader { Text = @"Priority", Width = 90 }

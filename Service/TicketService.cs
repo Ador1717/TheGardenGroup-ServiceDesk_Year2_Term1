@@ -40,13 +40,13 @@ public class TicketService
         return _ticketDAO.UpdateTicketStatus(ticketId, newStatus);
     }
 
-    public List<Ticket> GetOpenTicketsUsingAggregation()
+    public List<Ticket> GetOpenTicketsUsingAggregation(string userName)
     {
-        return _ticketDAO.GetOpenTicketsUsingAggregation();
+        return _ticketDAO.GetOpenTicketsUsingAggregation(userName);
     }
 
-    public List<Ticket> GetTicketsPastDeadlineUsingAggregation()
+    public List<Ticket> GetTicketsPastDeadlineUsingAggregation(string userName)
     {
-        return _ticketDAO.GetTicketsPastDeadlineUsingAggregation();
+        return _ticketDAO.GetTicketsPastDeadlineUsingAggregation(userName);
     }
 }

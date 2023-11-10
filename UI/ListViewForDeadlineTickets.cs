@@ -32,7 +32,18 @@ public partial class ListViewForDeadlineTickets : Form
     {
         try
         {
-            IEnumerable<Ticket> deadlineTickets = _ticketService.GetTicketsPastDeadlineUsingAggregation();
+            IEnumerable<Ticket> deadlineTickets;
+
+            // Check if the user is a manager
+            if (_user.userType == UserType.Manager)
+                // If the user is a Manager, get all tickets past deadline
+                deadlineTickets = _ticketService.GetAllTickets()
+                    .Where(t => t.deadline < DateTime.UtcNow && t.status == TicketStatus.Open);
+            else
+                // For other users, get tickets past deadline specific to them
+                deadlineTickets = _ticketService.GetTicketsPastDeadlineUsingAggregation(_user.firstName.ToLower())
+                    .Where(t => t.reportedByUser.Equals(_user.firstName, StringComparison.OrdinalIgnoreCase));
+
             PopulateListView(deadlineTickets);
         }
         catch (Exception ex)
@@ -40,6 +51,7 @@ public partial class ListViewForDeadlineTickets : Form
             MessageBox.Show(@"An error occurred while loading overdue tickets: " + ex.Message);
         }
     }
+
 
     // Populates list view with the list of tickets
     private void PopulateListView(IEnumerable<Ticket> tickets)
@@ -83,8 +95,8 @@ public partial class ListViewForDeadlineTickets : Form
             listViewTickets.Columns.AddRange(new[]
             {
                 new ColumnHeader { Text = @"Id", Width = 100 },
-                new ColumnHeader { Text = @"Subject", Width = 100 },
                 new ColumnHeader { Text = @"Name", Width = 120 },
+                new ColumnHeader { Text = @"Subject", Width = 100 },
                 new ColumnHeader { Text = @"Date & Time Reported", Width = 160 },
                 new ColumnHeader { Text = @"Status", Width = 90 },
                 new ColumnHeader { Text = @"Priority", Width = 90 }

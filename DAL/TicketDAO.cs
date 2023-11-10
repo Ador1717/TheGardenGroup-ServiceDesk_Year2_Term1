@@ -68,18 +68,18 @@ public class TicketDAO
     }
 
     //The following query is finding tickets by status by using the match aggregation function
-    public List<Ticket> GetOpenTicketsUsingAggregation()
+    public List<Ticket> GetOpenTicketsUsingAggregation(string userName)
     {
         try
         {
             BsonDocument[] pipeline =
             {
                 new BsonDocument("$match",
-                    new BsonDocument("status",
-                        new BsonDocument("$eq", "Open")))
+                    new BsonDocument("status", new BsonDocument("$eq", "Open")))
             };
 
-            return ticketCollection.Aggregate<Ticket>(pipeline).ToList();
+            List<Ticket>? tickets = ticketCollection.Aggregate<Ticket>(pipeline).ToList();
+            return tickets.Where(t => t.reportedByUser.Equals(userName, StringComparison.OrdinalIgnoreCase)).ToList();
         }
         catch (Exception ex)
         {
@@ -88,8 +88,9 @@ public class TicketDAO
         }
     }
 
+
     //The following query is finding tickets that have ticket status open and that its deadline is over today's date.
-    public List<Ticket> GetTicketsPastDeadlineUsingAggregation()
+    public List<Ticket> GetTicketsPastDeadlineUsingAggregation(string userName)
     {
         try
         {
@@ -125,10 +126,17 @@ public class TicketDAO
                                     {
                                         "$status",
                                         "Open"
+                                    }),
+                                new BsonDocument("$eq",
+                                    new BsonArray
+                                    {
+                                        "$reportedUser",
+                                        userName
                                     })
                             })))
             };
-            return ticketCollection.Aggregate<Ticket>(pipeline).ToList();
+            List<Ticket>? tickets = ticketCollection.Aggregate<Ticket>(pipeline).ToList();
+            return tickets.Where(t => t.reportedByUser.Equals(userName, StringComparison.OrdinalIgnoreCase)).ToList();
         }
         catch (Exception ex)
         {
