@@ -60,4 +60,21 @@ public class UserDAO
         UpdateResult? result = userCollection.UpdateOne(filter, update);
         return result.MatchedCount > 0;
     }
+
+    /* Migration from non-hash to hash for User */
+    public void UpdateUser(User user)
+    {
+        if (user == null)
+        {
+            return;
+        }
+        FilterDefinition<User>? filter = Builders<User>.Filter.Eq(u => u.username, user.username);
+        ReplaceOneResult result = userCollection.ReplaceOne(filter, user);
+    }
+
+    public List<User> GetAllUsers()
+    {
+        return userCollection.Find(new BsonDocument()).ToList();
+    }
+
 }

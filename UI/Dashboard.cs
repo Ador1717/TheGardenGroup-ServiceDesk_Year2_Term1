@@ -22,6 +22,9 @@ public partial class Dashboard : Form
             lblBarNoDesk.Text = user.email;
             btnUserManagement.Enabled =
                 _user.userType is UserType.ServiceDeskUser or UserType.Manager;
+
+            btnMenuIncidentManagement.Enabled = 
+            this.user.userType == UserType.ServiceDeskUser || this.user.userType == UserType.Manager;
         }
         catch (Exception ex)
         {

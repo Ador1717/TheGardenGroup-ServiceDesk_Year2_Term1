@@ -35,6 +35,44 @@ public partial class UserAuthentication : Form
 
     private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-        autentication.ResetPassword("hi");
+
+            if (user == null)
+            {
+                MessageBox.Show("Invalid Credentials");
+                return;
+            }
+
+
+            this.Hide();
+            new Dashboard(user).Show();
+            
+
+        }
+
+        // TODO: change label name
+        private void RestPasswordLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string username = textBoxUserName.Text;
+            if (username == "")
+            {
+                MessageBox.Show("Please enter the username for which you want to reset the password");
+                return;
+            }
+
+            User user = autentication.GetUserForForgetPassword(username);
+            this.Hide();
+            new ResetPassword(user).Show();
+        }
+
+        private void UserAuthentication_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Show_HidePass_CheckedChanged(object sender, EventArgs e)
+        {
+            textBoxPassword.UseSystemPasswordChar = Show_HidePass.Checked;
+            Show_HidePass.Text = Show_HidePass.Checked ? "hide" : "show";
+        }
     }
 }
