@@ -5,9 +5,8 @@ namespace Model;
 
 public class User
 {
-   
     public User(ObjectId userId, string firstName, string lastName, UserType userType, string email,
-        string phoneNumber, string location, string salt, string hashedPassword, string username, List<string> reportedTickets)
+        string phoneNumber, string location, string salt, string hashedPassword, string username)
     {
         this.userId = userId;
         this.username = username;
