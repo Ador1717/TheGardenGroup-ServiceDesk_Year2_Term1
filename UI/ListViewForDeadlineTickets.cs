@@ -35,7 +35,7 @@ public partial class ListViewForDeadlineTickets : Form
             IEnumerable<Ticket> deadlineTickets;
 
             // Check if the user is a manager
-            if (_user.userType == UserType.Manager)
+            if (_user.userType == UserType.Manager || _user.userType == UserType.ServiceDeskUser)
                 // If the user is a Manager, get all tickets past deadline
                 deadlineTickets = _ticketService.GetAllTickets()
                     .Where(t => t.deadline < DateTime.UtcNow && t.status == TicketStatus.Open);

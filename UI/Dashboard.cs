@@ -37,7 +37,7 @@ public partial class Dashboard : Form
             List<Ticket> allTickets;
             List<Ticket> openTickets;
 
-            if (_user.userType == UserType.Manager)
+            if (_user.userType == UserType.Manager || _user.userType == UserType.ServiceDeskUser)
             {
                 // If the user is a Manager, get all tickets
                 allTickets = _ticketService.GetAllTickets();
@@ -71,7 +71,7 @@ public partial class Dashboard : Form
             List<Ticket> pastDeadlineTickets;
             List<Ticket> allTickets;
 
-            if (_user.userType == UserType.Manager)
+            if (_user.userType == UserType.Manager || _user.userType == UserType.ServiceDeskUser)
             {
                 // If the user is a Manager, get all tickets
                 allTickets = _ticketService.GetAllTickets();

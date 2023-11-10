@@ -35,7 +35,7 @@ public partial class ListViewForOpenTickets : Form
             IEnumerable<Ticket> openTickets;
 
             // Check if the user is a manager
-            if (_user.userType == UserType.Manager)
+            if (_user.userType == UserType.Manager || _user.userType == UserType.ServiceDeskUser)
                 // If the user is a Manager, get all open tickets
                 openTickets = _ticketService.GetAllTickets().Where(t => t.status == TicketStatus.Open);
             else
