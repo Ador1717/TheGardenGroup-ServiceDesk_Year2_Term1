@@ -63,22 +63,26 @@ public partial class CreateTicket : Form
     }
 
 
-    private void btnUserManagement_Click(object sender, EventArgs e)
+    private void btnMenuDashboard_Click(object sender, EventArgs e)
     {
+        Dashboard dashboard = new Dashboard(user);
+        Hide();
+        dashboard.Show();
+        dashboard.FormClosed += (s, args) => Close();
     }
 
-    private void cBTypeIncident_SelectedIndexChanged(object sender, EventArgs e)
+    private void btnMenuIncidentManagement_Click(object sender, EventArgs e)
     {
+        TicketOverview ticketOverview = new TicketOverview(user);
+        Hide();
+        ticketOverview.Show();
+        ticketOverview.FormClosed += (s, args) => Close();
     }
 
-    private void CreateTicket_Load(object sender, EventArgs e)
+    private void btnUserManagement_Click_1(object sender, EventArgs e)
     {
-        cBPriority.DataSource = Enum.GetValues(typeof(PriorityEnum));
-        cBTypeIncident.DataSource = Enum.GetValues(typeof(TypeOfIncidentEnum));
-    }
-
-
-    private void lblBarNoDesk_Click(object sender, EventArgs e)
-    {
+        UserManagement userManagementForm = new UserManagement(user);
+        userManagementForm.Show();
+        userManagementForm.FormClosed += (s, args) => Close();
     }
 }

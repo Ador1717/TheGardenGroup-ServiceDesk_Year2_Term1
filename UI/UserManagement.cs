@@ -111,4 +111,10 @@ public partial class UserManagement : Form
         DeleteUser deleteUserForm = new DeleteUser(_user);
         deleteUserForm.Show();
     }
+
+    private void btnUserManagement_Click(object sender, EventArgs e)
+    {
+        UserManagement userManagementForm = new UserManagement(_user);
+        userManagementForm.Show();
+    }
 }

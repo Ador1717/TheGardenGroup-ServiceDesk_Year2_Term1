@@ -108,6 +108,7 @@
             btnMenuDashboard.TabIndex = 17;
             btnMenuDashboard.Text = "Dashboard";
             btnMenuDashboard.UseVisualStyleBackColor = true;
+            btnMenuDashboard.Click += btnMenuDashboard_Click;
             // 
             // btnMenuIncidentManagement
             // 
@@ -118,6 +119,7 @@
             btnMenuIncidentManagement.TabIndex = 18;
             btnMenuIncidentManagement.Text = "Incident Management";
             btnMenuIncidentManagement.UseVisualStyleBackColor = true;
+            btnMenuIncidentManagement.Click += btnMenuIncidentManagement_Click;
             // 
             // btnUserManagement
             // 
@@ -128,6 +130,7 @@
             btnUserManagement.TabIndex = 19;
             btnUserManagement.Text = "User Management";
             btnUserManagement.UseVisualStyleBackColor = true;
+            btnUserManagement.Click += btnUserManagement_Click;
             // 
             // label1
             // 

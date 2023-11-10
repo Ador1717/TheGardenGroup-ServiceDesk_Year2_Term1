@@ -107,6 +107,7 @@
             btnMenuIncidentManagement.TabIndex = 2;
             btnMenuIncidentManagement.Text = "Incident Management";
             btnMenuIncidentManagement.UseVisualStyleBackColor = true;
+            
             // 
             // btnUserManagement
             // 

@@ -28,303 +28,305 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblCreateTicket = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tBSubject = new System.Windows.Forms.TextBox();
-            this.dTPReportedDate = new System.Windows.Forms.DateTimePicker();
-            this.dTPDeadline = new System.Windows.Forms.DateTimePicker();
-            this.tBDescription = new System.Windows.Forms.TextBox();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSubmitTicket = new System.Windows.Forms.Button();
-            this.btnUserManagement = new System.Windows.Forms.Button();
-            this.btnMenuIncidentManagement = new System.Windows.Forms.Button();
-            this.btnMenuDashboard = new System.Windows.Forms.Button();
-            this.pnlBar = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblBarLicensed = new System.Windows.Forms.Label();
-            this.lblBarNoDesk = new System.Windows.Forms.Label();
-            this.cBUser = new System.Windows.Forms.TextBox();
-            this.cBTypeIncident = new System.Windows.Forms.ComboBox();
-            this.cBPriority = new System.Windows.Forms.ComboBox();
-            this.pnlBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            lblCreateTicket = new Label();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            tBSubject = new TextBox();
+            dTPReportedDate = new DateTimePicker();
+            dTPDeadline = new DateTimePicker();
+            tBDescription = new TextBox();
+            btnCancel = new Button();
+            btnSubmitTicket = new Button();
+            btnUserManagement = new Button();
+            btnMenuIncidentManagement = new Button();
+            btnMenuDashboard = new Button();
+            pnlBar = new Panel();
+            pictureBox1 = new PictureBox();
+            lblBarLicensed = new Label();
+            lblBarNoDesk = new Label();
+            cBUser = new TextBox();
+            cBTypeIncident = new ComboBox();
+            cBPriority = new ComboBox();
+            pnlBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // lblCreateTicket
             // 
-            this.lblCreateTicket.AutoSize = true;
-            this.lblCreateTicket.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCreateTicket.Location = new System.Drawing.Point(29, 198);
-            this.lblCreateTicket.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lblCreateTicket.Name = "lblCreateTicket";
-            this.lblCreateTicket.Size = new System.Drawing.Size(456, 48);
-            this.lblCreateTicket.TabIndex = 8;
-            this.lblCreateTicket.Text = "Create new incident ticket";
+            lblCreateTicket.AutoSize = true;
+            lblCreateTicket.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            lblCreateTicket.Location = new Point(29, 198);
+            lblCreateTicket.Margin = new Padding(5, 0, 5, 0);
+            lblCreateTicket.Name = "lblCreateTicket";
+            lblCreateTicket.Size = new Size(386, 41);
+            lblCreateTicket.TabIndex = 8;
+            lblCreateTicket.Text = "Create new incident ticket";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(75, 286);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(234, 32);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Date/time reported:";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(75, 286);
+            label1.Name = "label1";
+            label1.Size = new Size(194, 28);
+            label1.TabIndex = 9;
+            label1.Text = "Date/time reported:";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(85, 348);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(223, 32);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Subject of incident:";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(85, 348);
+            label2.Name = "label2";
+            label2.Size = new Size(188, 28);
+            label2.TabIndex = 10;
+            label2.Text = "Subject of incident:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(85, 411);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(201, 32);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Type of incident: ";
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(85, 411);
+            label3.Name = "label3";
+            label3.Size = new Size(170, 28);
+            label3.TabIndex = 11;
+            label3.Text = "Type of incident: ";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(85, 475);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(208, 32);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Reported by user:";
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(85, 475);
+            label4.Name = "label4";
+            label4.Size = new Size(175, 28);
+            label4.TabIndex = 12;
+            label4.Text = "Reported by user:";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(85, 544);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 32);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Priority:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(85, 544);
+            label5.Name = "label5";
+            label5.Size = new Size(82, 28);
+            label5.TabIndex = 13;
+            label5.Text = "Priority:";
+            label5.Click += label5_Click;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(85, 613);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(227, 32);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Deadline/follow up:";
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(85, 613);
+            label6.Name = "label6";
+            label6.Size = new Size(191, 28);
+            label6.TabIndex = 14;
+            label6.Text = "Deadline/follow up:";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(85, 678);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(143, 32);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Description:";
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(85, 678);
+            label7.Name = "label7";
+            label7.Size = new Size(120, 28);
+            label7.TabIndex = 15;
+            label7.Text = "Description:";
             // 
             // tBSubject
             // 
-            this.tBSubject.Location = new System.Drawing.Point(369, 335);
-            this.tBSubject.Name = "tBSubject";
-            this.tBSubject.Size = new System.Drawing.Size(328, 45);
-            this.tBSubject.TabIndex = 16;
+            tBSubject.Location = new Point(369, 335);
+            tBSubject.Name = "tBSubject";
+            tBSubject.Size = new Size(328, 39);
+            tBSubject.TabIndex = 16;
             // 
             // dTPReportedDate
             // 
-            this.dTPReportedDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.dTPReportedDate.Location = new System.Drawing.Point(369, 281);
-            this.dTPReportedDate.Name = "dTPReportedDate";
-            this.dTPReportedDate.Size = new System.Drawing.Size(350, 31);
-            this.dTPReportedDate.TabIndex = 17;
+            dTPReportedDate.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dTPReportedDate.Location = new Point(369, 281);
+            dTPReportedDate.Name = "dTPReportedDate";
+            dTPReportedDate.Size = new Size(350, 27);
+            dTPReportedDate.TabIndex = 17;
             // 
             // dTPDeadline
             // 
-            this.dTPDeadline.CalendarFont = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.dTPDeadline.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.dTPDeadline.Location = new System.Drawing.Point(368, 611);
-            this.dTPDeadline.Name = "dTPDeadline";
-            this.dTPDeadline.Size = new System.Drawing.Size(350, 34);
-            this.dTPDeadline.TabIndex = 21;
+            dTPDeadline.CalendarFont = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dTPDeadline.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            dTPDeadline.Location = new Point(368, 611);
+            dTPDeadline.Name = "dTPDeadline";
+            dTPDeadline.Size = new Size(350, 30);
+            dTPDeadline.TabIndex = 21;
             // 
             // tBDescription
             // 
-            this.tBDescription.Location = new System.Drawing.Point(368, 678);
-            this.tBDescription.Multiline = true;
-            this.tBDescription.Name = "tBDescription";
-            this.tBDescription.Size = new System.Drawing.Size(350, 146);
-            this.tBDescription.TabIndex = 22;
+            tBDescription.Location = new Point(368, 678);
+            tBDescription.Multiline = true;
+            tBDescription.Name = "tBDescription";
+            tBDescription.Size = new Size(350, 146);
+            tBDescription.TabIndex = 22;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(51, 837);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(177, 47);
-            this.btnCancel.TabIndex = 23;
-            this.btnCancel.Text = "CANCEL";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            btnCancel.Location = new Point(51, 837);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(177, 47);
+            btnCancel.TabIndex = 23;
+            btnCancel.Text = "CANCEL";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // btnSubmitTicket
             // 
-            this.btnSubmitTicket.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnSubmitTicket.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSubmitTicket.Location = new System.Drawing.Point(365, 837);
-            this.btnSubmitTicket.Name = "btnSubmitTicket";
-            this.btnSubmitTicket.Size = new System.Drawing.Size(350, 47);
-            this.btnSubmitTicket.TabIndex = 24;
-            this.btnSubmitTicket.Text = "SUBMIT TICKET";
-            this.btnSubmitTicket.UseVisualStyleBackColor = false;
-            this.btnSubmitTicket.Click += new System.EventHandler(this.btnSubmitTicket_Click);
+            btnSubmitTicket.BackColor = SystemColors.Highlight;
+            btnSubmitTicket.ForeColor = SystemColors.ControlLightLight;
+            btnSubmitTicket.Location = new Point(365, 837);
+            btnSubmitTicket.Name = "btnSubmitTicket";
+            btnSubmitTicket.Size = new Size(350, 47);
+            btnSubmitTicket.TabIndex = 24;
+            btnSubmitTicket.Text = "SUBMIT TICKET";
+            btnSubmitTicket.UseVisualStyleBackColor = false;
+            btnSubmitTicket.Click += btnSubmitTicket_Click;
             // 
             // btnUserManagement
             // 
-            this.btnUserManagement.Location = new System.Drawing.Point(497, 123);
-            this.btnUserManagement.Margin = new System.Windows.Forms.Padding(2);
-            this.btnUserManagement.Name = "btnUserManagement";
-            this.btnUserManagement.Size = new System.Drawing.Size(235, 43);
-            this.btnUserManagement.TabIndex = 28;
-            this.btnUserManagement.Text = "User Management";
-            this.btnUserManagement.UseVisualStyleBackColor = true;
+            btnUserManagement.Location = new Point(497, 123);
+            btnUserManagement.Margin = new Padding(2);
+            btnUserManagement.Name = "btnUserManagement";
+            btnUserManagement.Size = new Size(235, 43);
+            btnUserManagement.TabIndex = 28;
+            btnUserManagement.Text = "User Management";
+            btnUserManagement.UseVisualStyleBackColor = true;
+            btnUserManagement.Click += btnUserManagement_Click_1;
             // 
             // btnMenuIncidentManagement
             // 
-            this.btnMenuIncidentManagement.Location = new System.Drawing.Point(262, 123);
-            this.btnMenuIncidentManagement.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMenuIncidentManagement.Name = "btnMenuIncidentManagement";
-            this.btnMenuIncidentManagement.Size = new System.Drawing.Size(235, 43);
-            this.btnMenuIncidentManagement.TabIndex = 27;
-            this.btnMenuIncidentManagement.Text = "Incident Management";
-            this.btnMenuIncidentManagement.UseVisualStyleBackColor = true;
+            btnMenuIncidentManagement.Location = new Point(262, 123);
+            btnMenuIncidentManagement.Margin = new Padding(2);
+            btnMenuIncidentManagement.Name = "btnMenuIncidentManagement";
+            btnMenuIncidentManagement.Size = new Size(235, 43);
+            btnMenuIncidentManagement.TabIndex = 27;
+            btnMenuIncidentManagement.Text = "Incident Management";
+            btnMenuIncidentManagement.UseVisualStyleBackColor = true;
+            btnMenuIncidentManagement.Click += btnMenuIncidentManagement_Click;
             // 
             // btnMenuDashboard
             // 
-            this.btnMenuDashboard.Location = new System.Drawing.Point(27, 123);
-            this.btnMenuDashboard.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMenuDashboard.Name = "btnMenuDashboard";
-            this.btnMenuDashboard.Size = new System.Drawing.Size(235, 43);
-            this.btnMenuDashboard.TabIndex = 26;
-            this.btnMenuDashboard.Text = "Dashboard";
-            this.btnMenuDashboard.UseVisualStyleBackColor = true;
+            btnMenuDashboard.Location = new Point(27, 123);
+            btnMenuDashboard.Margin = new Padding(2);
+            btnMenuDashboard.Name = "btnMenuDashboard";
+            btnMenuDashboard.Size = new Size(235, 43);
+            btnMenuDashboard.TabIndex = 26;
+            btnMenuDashboard.Text = "Dashboard";
+            btnMenuDashboard.UseVisualStyleBackColor = true;
+            btnMenuDashboard.Click += btnMenuDashboard_Click;
             // 
             // pnlBar
             // 
-            this.pnlBar.Controls.Add(this.pictureBox1);
-            this.pnlBar.Controls.Add(this.lblBarLicensed);
-            this.pnlBar.Controls.Add(this.lblBarNoDesk);
-            this.pnlBar.Location = new System.Drawing.Point(27, 27);
-            this.pnlBar.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlBar.Name = "pnlBar";
-            this.pnlBar.Size = new System.Drawing.Size(705, 101);
-            this.pnlBar.TabIndex = 25;
+            pnlBar.Controls.Add(pictureBox1);
+            pnlBar.Controls.Add(lblBarLicensed);
+            pnlBar.Controls.Add(lblBarNoDesk);
+            pnlBar.Location = new Point(27, 27);
+            pnlBar.Margin = new Padding(2);
+            pnlBar.Name = "pnlBar";
+            pnlBar.Size = new Size(705, 101);
+            pnlBar.TabIndex = 25;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::UI.Properties.Resources._11;
-            this.pictureBox1.Location = new System.Drawing.Point(2, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(184, 92);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = Properties.Resources._11;
+            pictureBox1.Location = new Point(2, 0);
+            pictureBox1.Margin = new Padding(2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(184, 92);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
             // 
             // lblBarLicensed
             // 
-            this.lblBarLicensed.AutoSize = true;
-            this.lblBarLicensed.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblBarLicensed.Location = new System.Drawing.Point(395, 54);
-            this.lblBarLicensed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblBarLicensed.Name = "lblBarLicensed";
-            this.lblBarLicensed.Size = new System.Drawing.Size(303, 28);
-            this.lblBarLicensed.TabIndex = 1;
-            this.lblBarLicensed.Text = "Licensed to: The Garden Group";
+            lblBarLicensed.AutoSize = true;
+            lblBarLicensed.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblBarLicensed.Location = new Point(395, 54);
+            lblBarLicensed.Margin = new Padding(2, 0, 2, 0);
+            lblBarLicensed.Name = "lblBarLicensed";
+            lblBarLicensed.Size = new Size(257, 23);
+            lblBarLicensed.TabIndex = 1;
+            lblBarLicensed.Text = "Licensed to: The Garden Group";
             // 
             // lblBarNoDesk
             // 
-            this.lblBarNoDesk.AutoSize = true;
-            this.lblBarNoDesk.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblBarNoDesk.Location = new System.Drawing.Point(578, 9);
-            this.lblBarNoDesk.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblBarNoDesk.Name = "lblBarNoDesk";
-            this.lblBarNoDesk.Size = new System.Drawing.Size(120, 38);
-            this.lblBarNoDesk.TabIndex = 0;
-            this.lblBarNoDesk.Text = "NoDesk";
+            lblBarNoDesk.AutoSize = true;
+            lblBarNoDesk.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lblBarNoDesk.Location = new Point(578, 9);
+            lblBarNoDesk.Margin = new Padding(2, 0, 2, 0);
+            lblBarNoDesk.Name = "lblBarNoDesk";
+            lblBarNoDesk.Size = new Size(103, 32);
+            lblBarNoDesk.TabIndex = 0;
+            lblBarNoDesk.Text = "NoDesk";
             // 
             // cBUser
             // 
-            this.cBUser.Location = new System.Drawing.Point(369, 467);
-            this.cBUser.Name = "cBUser";
-            this.cBUser.Size = new System.Drawing.Size(328, 45);
-            this.cBUser.TabIndex = 30;
+            cBUser.Location = new Point(369, 467);
+            cBUser.Name = "cBUser";
+            cBUser.Size = new Size(328, 39);
+            cBUser.TabIndex = 30;
             // 
             // cBTypeIncident
             // 
-            this.cBTypeIncident.FormattingEnabled = true;
-            this.cBTypeIncident.Location = new System.Drawing.Point(369, 397);
-            this.cBTypeIncident.Name = "cBTypeIncident";
-            this.cBTypeIncident.Size = new System.Drawing.Size(328, 46);
-            this.cBTypeIncident.TabIndex = 32;
+            cBTypeIncident.FormattingEnabled = true;
+            cBTypeIncident.Location = new Point(369, 397);
+            cBTypeIncident.Name = "cBTypeIncident";
+            cBTypeIncident.Size = new Size(328, 39);
+            cBTypeIncident.TabIndex = 32;
             // 
             // cBPriority
             // 
-            this.cBPriority.FormattingEnabled = true;
-            this.cBPriority.Location = new System.Drawing.Point(369, 536);
-            this.cBPriority.Name = "cBPriority";
-            this.cBPriority.Size = new System.Drawing.Size(328, 46);
-            this.cBPriority.TabIndex = 33;
+            cBPriority.FormattingEnabled = true;
+            cBPriority.Location = new Point(369, 536);
+            cBPriority.Name = "cBPriority";
+            cBPriority.Size = new Size(328, 39);
+            cBPriority.TabIndex = 33;
             // 
             // CreateTicket
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 38F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 942);
-            this.Controls.Add(this.cBPriority);
-            this.Controls.Add(this.cBTypeIncident);
-            this.Controls.Add(this.cBUser);
-            this.Controls.Add(this.btnUserManagement);
-            this.Controls.Add(this.btnMenuIncidentManagement);
-            this.Controls.Add(this.btnMenuDashboard);
-            this.Controls.Add(this.pnlBar);
-            this.Controls.Add(this.btnSubmitTicket);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.tBDescription);
-            this.Controls.Add(this.dTPDeadline);
-            this.Controls.Add(this.dTPReportedDate);
-            this.Controls.Add(this.tBSubject);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblCreateTicket);
-            this.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "CreateTicket";
-            this.Text = "CreateTicket";
-            this.pnlBar.ResumeLayout(false);
-            this.pnlBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(14F, 31F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(829, 942);
+            Controls.Add(cBPriority);
+            Controls.Add(cBTypeIncident);
+            Controls.Add(cBUser);
+            Controls.Add(btnUserManagement);
+            Controls.Add(btnMenuIncidentManagement);
+            Controls.Add(btnMenuDashboard);
+            Controls.Add(pnlBar);
+            Controls.Add(btnSubmitTicket);
+            Controls.Add(btnCancel);
+            Controls.Add(tBDescription);
+            Controls.Add(dTPDeadline);
+            Controls.Add(dTPReportedDate);
+            Controls.Add(tBSubject);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(lblCreateTicket);
+            Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            Margin = new Padding(5);
+            Name = "CreateTicket";
+            Text = "CreateTicket";
+            pnlBar.ResumeLayout(false);
+            pnlBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

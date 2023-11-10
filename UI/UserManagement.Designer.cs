@@ -94,6 +94,7 @@
             btnUserManagement.TabIndex = 10;
             btnUserManagement.Text = "User Management";
             btnUserManagement.UseVisualStyleBackColor = true;
+            btnUserManagement.Click += btnUserManagement_Click;
             // 
             // btnMenuIncidentManagement
             // 

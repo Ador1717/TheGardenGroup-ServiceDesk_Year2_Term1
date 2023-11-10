@@ -76,4 +76,24 @@ public partial class AddUser : Form
         UserManagement userManagementForm = new UserManagement(_user);
         userManagementForm.Show();
     }
+
+    private void btnMenuDashboard_Click(object sender, EventArgs e)
+    {
+        Dashboard dashboard = new Dashboard(_user);
+        Hide();
+        dashboard.Show();
+        dashboard.FormClosed += (s, args) => Close();
+    }
+
+    private void btnMenuIncidentManagement_Click(object sender, EventArgs e)
+    {
+        CreateTicket create = new CreateTicket(_user);
+        Hide();
+    }
+
+    private void btnUserManagement_Click(object sender, EventArgs e)
+    {
+        UserManagement userManagementForm = new UserManagement(_user);
+        userManagementForm.Show();
+    }
 }
