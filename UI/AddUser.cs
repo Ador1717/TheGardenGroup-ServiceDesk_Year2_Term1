@@ -1,10 +1,16 @@
-﻿namespace UI;
+﻿using Model;
+
+namespace UI;
 
 public partial class AddUser : Form
+
 {
-    public AddUser()
+    private readonly User _user;
+
+    public AddUser(User user)
     {
         InitializeComponent();
+        _user = user;
 
         // Populate the UserTypeComboBox and LocationComboBox with enum values.
         /* UserTypeComboBox.DataSource = Enum.GetValues(typeof(UserType));
@@ -17,7 +23,7 @@ public partial class AddUser : Form
         Close();
 
         // Open the UserManagement form
-        UserManagement userManagementForm = new UserManagement();
+        UserManagement userManagementForm = new UserManagement(_user);
         userManagementForm.Show();
     }
 

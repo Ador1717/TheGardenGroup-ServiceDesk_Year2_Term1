@@ -84,7 +84,7 @@ public partial class UserManagement : Form
 
     private void btnAddNewUser_Click(object sender, EventArgs e)
     {
-        AddUser addUserForm = new AddUser();
+        AddUser addUserForm = new AddUser(_user);
         addUserForm.Show();
     }
 
