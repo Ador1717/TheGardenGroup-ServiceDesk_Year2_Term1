@@ -49,7 +49,6 @@ public partial class TicketOverview : Form
         listviewTicketOverview.Columns.Add("username", 100, HorizontalAlignment.Left);
         listviewTicketOverview.Columns.Add("dateTimeReported", 100, HorizontalAlignment.Left);
         listviewTicketOverview.Columns.Add("Status", 100, HorizontalAlignment.Left);
-
         LoadTicketData();
     }
 
@@ -90,7 +89,7 @@ public partial class TicketOverview : Form
 
     private void btnMenuDashboard_Click(object sender, EventArgs e)
     {
-        Dashboard dashboard = new Dashboard(this.user);
+        Dashboard dashboard = new Dashboard(user);
         Hide();
         dashboard.Show();
         dashboard.FormClosed += (s, args) => Close();

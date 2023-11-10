@@ -24,18 +24,16 @@ public class UserDAO
         return userCollection.Find(filter).FirstOrDefault();
     }
 
-    public BsonDocument AddUser(string email, string userName, string name, string password,
+    public BsonDocument AddUser(string email, string name,
         UserType userType, string phoneNumber, string location)
     {
         BsonDocument document = new BsonDocument
         {
-            { "Email", email },
-            { "UserName", userName },
-            { "Name", name },
-            { "Password", password },
-            { "UserType", userType.ToString() },
-            { "PhoneNumber", phoneNumber },
-            { "Location", location }
+            { "email", email },
+            { "name", name },
+            { "userType", userType.ToString() },
+            { "phone", phoneNumber },
+            { "location", location }
         };
         return document;
     }

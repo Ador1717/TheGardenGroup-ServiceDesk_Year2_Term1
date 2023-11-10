@@ -12,7 +12,6 @@ public partial class Dashboard : Form
     {
         try
         {
-            // Initializing lists, getting all tickets
             InitializeComponent();
             _user = user;
             _ticketService = new TicketService();
