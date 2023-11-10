@@ -7,7 +7,7 @@ public class Ticket
 {
     public Ticket(ObjectId ticketId, DateTime dateTimeReported, string subject, TypeOfIncidentEnum typeOfIncidentEnum,
         string reportedByUser, PriorityEnum priorityEnum, DateTime deadline, string description, TicketStatus status,
-        ObjectId userId, string email)
+        ObjectId userId, string email, string userDetails)
     {
         this.ticketId = ticketId;
         this.dateTimeReported = dateTimeReported;
@@ -20,6 +20,7 @@ public class Ticket
         this.status = status;
         this.userId = userId;
         this.email = email;
+        this.userDetails = userDetails;
     }
 
     public Ticket(DateTime dateTimeReported, string subject, TypeOfIncidentEnum typeOfIncidentEnum,
@@ -47,4 +48,6 @@ public class Ticket
     [BsonElement("description")] public string description { get; set; }
     [BsonElement("status")] public TicketStatus status { get; set; }
     [BsonElement("email")] public string email { get; set; }
+
+    [BsonElement("userDetails")] public string userDetails { get; set; }
 }

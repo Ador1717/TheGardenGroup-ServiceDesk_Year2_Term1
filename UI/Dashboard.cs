@@ -22,6 +22,9 @@ public partial class Dashboard : Form
         lblBarNoDesk.Text = user.email;
         btnUserManagement.Enabled =
             this.user.userType == UserType.ServiceDeskUser || this.user.userType == UserType.Manager;
+
+        btnMenuIncidentManagement.Enabled = 
+            this.user.userType == UserType.ServiceDeskUser || this.user.userType == UserType.Manager;
     }
 
     //Getting all tickets with status open and setting the progress bar and label with the correct data
@@ -84,10 +87,5 @@ public partial class Dashboard : Form
         Hide();
         listView.Show();
         listView.FormClosed += (s, args) => Close();
-    }
-
-    private void btnListViewUnresolved_Click_1(object sender, EventArgs e)
-    {
-
     }
 }

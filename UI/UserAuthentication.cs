@@ -37,7 +37,7 @@ namespace UI
         }
 
         // TODO: change label name
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void RestPasswordLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string username = textBoxUserName.Text;
             if (username == "")
@@ -55,5 +55,12 @@ namespace UI
         {
 
         }
+
+        private void Show_HidePass_CheckedChanged(object sender, EventArgs e)
+        {
+            textBoxPassword.UseSystemPasswordChar = Show_HidePass.Checked;
+            Show_HidePass.Text = Show_HidePass.Checked ? "hide" : "show";
+        }
+
     }
 }
