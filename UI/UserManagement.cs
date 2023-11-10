@@ -7,13 +7,15 @@ namespace UI;
 public partial class UserManagement : Form
 {
     private readonly TicketService _ticketService;
+    private readonly User _user;
     private readonly UserService _userService;
 
-    public UserManagement()
+    public UserManagement(User user)
     {
         InitializeComponent();
         _ticketService = new TicketService();
         _userService = new UserService();
+        _user = user;
         LoadTicketData();
     }
 
@@ -67,7 +69,7 @@ public partial class UserManagement : Form
 
     private void btnMenuDashboard_Click(object sender, EventArgs e)
     {
-        Dashboard dashboard = new Dashboard();
+        Dashboard dashboard = new Dashboard(_user);
         Hide();
         dashboard.Show();
         dashboard.FormClosed += (s, args) => Close();
@@ -75,7 +77,7 @@ public partial class UserManagement : Form
 
     private void btnMenuIncidentManagement_Click(object sender, EventArgs e)
     {
-        CreateTicket create = new CreateTicket();
+        CreateTicket create = new CreateTicket(_user);
         Hide();
         create.ShowDialog();
     }

@@ -7,17 +7,12 @@ namespace DAL;
 public class TicketDAO
 {
     private readonly IMongoCollection<Ticket> ticketCollection;
+    private readonly IMongoCollection<User> userCollection;
 
     public TicketDAO()
     {
         ticketCollection = MongoDBConnection.Instance.Database.GetCollection<Ticket>("Tickets");
-    protected static IMongoCollection<Ticket> ticketCollection;
-    protected static IMongoCollection<User> userCollection;
-
-    public TicketDAO()
-    {
-        ticketCollection = database.GetCollection<Ticket>("Tickets");
-        userCollection = database.GetCollection<User>("Users");
+        userCollection = MongoDBConnection.Instance.Database.GetCollection<User>("Users");
     }
 
 
@@ -29,20 +24,18 @@ public class TicketDAO
     public List<Ticket> GetAllTickets()
     {
         // Define the aggregation pipeline to match tickets with user details.
-        var aggregation = ticketCollection.Aggregate()
+        List<Ticket>? aggregation = ticketCollection.Aggregate()
             .Lookup(
-                foreignCollectionName: "Users",
-                localField: "userId",
-                foreignField: "_id",
-                @as: "userDetails"
+                "Users",
+                "userId",
+                "_id",
+                "userDetails"
             )
             .Unwind("userDetails", new AggregateUnwindOptions<Ticket> { PreserveNullAndEmptyArrays = true })
             .As<Ticket>()
             .ToList();
 
         return aggregation;
-       
-
     }
 
 

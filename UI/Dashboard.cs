@@ -1,6 +1,5 @@
 ﻿using Model;
 using Service;
-using System.Drawing.Printing;
 
 namespace UI;
 
@@ -66,9 +65,6 @@ public partial class Dashboard : Form
         }
     }
 
-    private void btnMenuDashboard_Click(object sender, EventArgs e)
-    {
-    }
 
     private void showList_Click_1(object sender, EventArgs e)
     {
@@ -85,13 +81,6 @@ public partial class Dashboard : Form
         }
     }
 
-    private void lblBarNoDesk_Click(object sender, EventArgs e)
-    {
-    }
-
-    private void btnUserManagement_Click(object sender, EventArgs e)
-    {
-    }
 
     //Opens Joan's additional part that shows a list view of tickets which have status open
     private void btnListViewUnresolved_Click_1(object sender, EventArgs e)
@@ -122,6 +111,36 @@ public partial class Dashboard : Form
         catch (Exception ex)
         {
             MessageBox.Show(@"An error occurred while opening list view for deadline tickets: " + ex.Message);
+        }
+    }
+
+    private void btnMenuIncidentManagement_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            TicketOverview ticketOverview = new TicketOverview(_user);
+            Hide();
+            ticketOverview.Show();
+            ticketOverview.FormClosed += (s, args) => Close();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(@"An error occurred while opening ticket overview: " + ex.Message);
+        }
+    }
+
+    private void btnUserManagement_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            UserManagement userManagement = new UserManagement(_user);
+            Hide();
+            userManagement.Show();
+            userManagement.FormClosed += (s, args) => Close();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(@"An error occurred while opening ticket overview: " + ex.Message);
         }
     }
 }

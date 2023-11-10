@@ -76,6 +76,7 @@
             btnMenuIncidentManagement.TabIndex = 6;
             btnMenuIncidentManagement.Text = "Incident Management";
             btnMenuIncidentManagement.UseVisualStyleBackColor = true;
+            btnMenuIncidentManagement.Click += btnMenuIncidentManagement_Click;
             // 
             // btnMenuDashboard
             // 
@@ -87,7 +88,6 @@
             btnMenuDashboard.TabIndex = 5;
             btnMenuDashboard.Text = "Dashboard";
             btnMenuDashboard.UseVisualStyleBackColor = true;
-            btnMenuDashboard.Click += btnMenuDashboard_Click;
             // 
             // pnlBar
             // 
@@ -132,7 +132,6 @@
             lblBarNoDesk.Size = new Size(103, 32);
             lblBarNoDesk.TabIndex = 0;
             lblBarNoDesk.Text = "NoDesk";
-            lblBarNoDesk.Click += lblBarNoDesk_Click;
             // 
             // label1
             // 
