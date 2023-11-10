@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             pnlBar = new Panel();
+            label2 = new Label();
             pictureBox1 = new PictureBox();
             lblBarLicensed = new Label();
             lblBarNoDesk = new Label();
@@ -45,14 +46,25 @@
             // 
             // pnlBar
             // 
+            pnlBar.Controls.Add(label2);
             pnlBar.Controls.Add(pictureBox1);
             pnlBar.Controls.Add(lblBarLicensed);
             pnlBar.Controls.Add(lblBarNoDesk);
             pnlBar.Location = new Point(43, 19);
             pnlBar.Margin = new Padding(2);
             pnlBar.Name = "pnlBar";
-            pnlBar.Size = new Size(564, 74);
+            pnlBar.Size = new Size(705, 79);
             pnlBar.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            label2.Location = new Point(150, 0);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(0, 28);
+            label2.TabIndex = 4;
             // 
             // pictureBox1
             // 
@@ -69,7 +81,7 @@
             // 
             lblBarLicensed.AutoSize = true;
             lblBarLicensed.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lblBarLicensed.Location = new Point(316, 43);
+            lblBarLicensed.Location = new Point(443, 48);
             lblBarLicensed.Margin = new Padding(2, 0, 2, 0);
             lblBarLicensed.Name = "lblBarLicensed";
             lblBarLicensed.Size = new Size(257, 23);
@@ -80,7 +92,7 @@
             // 
             lblBarNoDesk.AutoSize = true;
             lblBarNoDesk.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            lblBarNoDesk.Location = new Point(462, 7);
+            lblBarNoDesk.Location = new Point(589, 12);
             lblBarNoDesk.Margin = new Padding(2, 0, 2, 0);
             lblBarNoDesk.Name = "lblBarNoDesk";
             lblBarNoDesk.Size = new Size(103, 32);
@@ -89,10 +101,10 @@
             // 
             // btnMenuDashboard
             // 
-            btnMenuDashboard.Location = new Point(43, 96);
+            btnMenuDashboard.Location = new Point(38, 98);
             btnMenuDashboard.Margin = new Padding(2);
             btnMenuDashboard.Name = "btnMenuDashboard";
-            btnMenuDashboard.Size = new Size(188, 27);
+            btnMenuDashboard.Size = new Size(235, 43);
             btnMenuDashboard.TabIndex = 1;
             btnMenuDashboard.Text = "Dashboard";
             btnMenuDashboard.UseVisualStyleBackColor = true;
@@ -100,21 +112,20 @@
             // 
             // btnMenuIncidentManagement
             // 
-            btnMenuIncidentManagement.Location = new Point(231, 96);
+            btnMenuIncidentManagement.Location = new Point(277, 98);
             btnMenuIncidentManagement.Margin = new Padding(2);
             btnMenuIncidentManagement.Name = "btnMenuIncidentManagement";
-            btnMenuIncidentManagement.Size = new Size(188, 27);
+            btnMenuIncidentManagement.Size = new Size(235, 43);
             btnMenuIncidentManagement.TabIndex = 2;
             btnMenuIncidentManagement.Text = "Incident Management";
             btnMenuIncidentManagement.UseVisualStyleBackColor = true;
-            
             // 
             // btnUserManagement
             // 
-            btnUserManagement.Location = new Point(419, 96);
+            btnUserManagement.Location = new Point(516, 98);
             btnUserManagement.Margin = new Padding(2);
             btnUserManagement.Name = "btnUserManagement";
-            btnUserManagement.Size = new Size(188, 27);
+            btnUserManagement.Size = new Size(235, 43);
             btnUserManagement.TabIndex = 3;
             btnUserManagement.Text = "User Management";
             btnUserManagement.UseVisualStyleBackColor = true;
@@ -122,16 +133,16 @@
             // 
             // listviewTicketOverview
             // 
-            listviewTicketOverview.Location = new Point(45, 210);
+            listviewTicketOverview.Location = new Point(43, 188);
             listviewTicketOverview.Margin = new Padding(2);
             listviewTicketOverview.Name = "listviewTicketOverview";
-            listviewTicketOverview.Size = new Size(563, 181);
+            listviewTicketOverview.Size = new Size(698, 181);
             listviewTicketOverview.TabIndex = 4;
             listviewTicketOverview.UseCompatibleStateImageBehavior = false;
             // 
             // txtBoxFilterEmail
             // 
-            txtBoxFilterEmail.Location = new Point(45, 174);
+            txtBoxFilterEmail.Location = new Point(559, 151);
             txtBoxFilterEmail.Margin = new Padding(2);
             txtBoxFilterEmail.Name = "txtBoxFilterEmail";
             txtBoxFilterEmail.PlaceholderText = "     Filter by email";
@@ -141,7 +152,7 @@
             // 
             // btnCreateIncident
             // 
-            btnCreateIncident.Location = new Point(406, 171);
+            btnCreateIncident.Location = new Point(43, 373);
             btnCreateIncident.Margin = new Padding(2);
             btnCreateIncident.Name = "btnCreateIncident";
             btnCreateIncident.Size = new Size(188, 27);
@@ -154,7 +165,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(43, 133);
+            label1.Location = new Point(45, 141);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(236, 37);
@@ -165,7 +176,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(640, 414);
+            ClientSize = new Size(800, 411);
             Controls.Add(label1);
             Controls.Add(btnCreateIncident);
             Controls.Add(txtBoxFilterEmail);
@@ -198,5 +209,6 @@
         private TextBox txtBoxFilterEmail;
         private Button btnCreateIncident;
         private Label label1;
+        private Label label2;
     }
 }

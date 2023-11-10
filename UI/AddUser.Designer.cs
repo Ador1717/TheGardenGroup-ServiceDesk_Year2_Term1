@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             pnlBar = new Panel();
+            label9 = new Label();
             pictureBox1 = new PictureBox();
             lblBarLicensed = new Label();
             lblBarNoDesk = new Label();
@@ -57,14 +58,25 @@
             // 
             // pnlBar
             // 
+            pnlBar.Controls.Add(label9);
             pnlBar.Controls.Add(pictureBox1);
             pnlBar.Controls.Add(lblBarLicensed);
             pnlBar.Controls.Add(lblBarNoDesk);
-            pnlBar.Location = new Point(11, 11);
+            pnlBar.Location = new Point(37, 18);
             pnlBar.Margin = new Padding(2);
             pnlBar.Name = "pnlBar";
-            pnlBar.Size = new Size(569, 84);
+            pnlBar.Size = new Size(737, 74);
             pnlBar.TabIndex = 16;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            label9.Location = new Point(153, 3);
+            label9.Margin = new Padding(2, 0, 2, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(0, 28);
+            label9.TabIndex = 4;
             // 
             // pictureBox1
             // 
@@ -81,7 +93,7 @@
             // 
             lblBarLicensed.AutoSize = true;
             lblBarLicensed.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lblBarLicensed.Location = new Point(307, 39);
+            lblBarLicensed.Location = new Point(477, 46);
             lblBarLicensed.Margin = new Padding(2, 0, 2, 0);
             lblBarLicensed.Name = "lblBarLicensed";
             lblBarLicensed.Size = new Size(257, 23);
@@ -92,7 +104,7 @@
             // 
             lblBarNoDesk.AutoSize = true;
             lblBarNoDesk.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            lblBarNoDesk.Location = new Point(462, 7);
+            lblBarNoDesk.Location = new Point(626, 13);
             lblBarNoDesk.Margin = new Padding(2, 0, 2, 0);
             lblBarNoDesk.Name = "lblBarNoDesk";
             lblBarNoDesk.Size = new Size(103, 32);
@@ -101,10 +113,10 @@
             // 
             // btnMenuDashboard
             // 
-            btnMenuDashboard.Location = new Point(11, 109);
+            btnMenuDashboard.Location = new Point(37, 96);
             btnMenuDashboard.Margin = new Padding(2);
             btnMenuDashboard.Name = "btnMenuDashboard";
-            btnMenuDashboard.Size = new Size(188, 27);
+            btnMenuDashboard.Size = new Size(252, 43);
             btnMenuDashboard.TabIndex = 17;
             btnMenuDashboard.Text = "Dashboard";
             btnMenuDashboard.UseVisualStyleBackColor = true;
@@ -112,10 +124,10 @@
             // 
             // btnMenuIncidentManagement
             // 
-            btnMenuIncidentManagement.Location = new Point(203, 109);
+            btnMenuIncidentManagement.Location = new Point(293, 96);
             btnMenuIncidentManagement.Margin = new Padding(2);
             btnMenuIncidentManagement.Name = "btnMenuIncidentManagement";
-            btnMenuIncidentManagement.Size = new Size(188, 27);
+            btnMenuIncidentManagement.Size = new Size(252, 43);
             btnMenuIncidentManagement.TabIndex = 18;
             btnMenuIncidentManagement.Text = "Incident Management";
             btnMenuIncidentManagement.UseVisualStyleBackColor = true;
@@ -123,10 +135,10 @@
             // 
             // btnUserManagement
             // 
-            btnUserManagement.Location = new Point(392, 109);
+            btnUserManagement.Location = new Point(551, 96);
             btnUserManagement.Margin = new Padding(2);
             btnUserManagement.Name = "btnUserManagement";
-            btnUserManagement.Size = new Size(188, 27);
+            btnUserManagement.Size = new Size(223, 43);
             btnUserManagement.TabIndex = 19;
             btnUserManagement.Text = "User Management";
             btnUserManagement.UseVisualStyleBackColor = true;
@@ -136,7 +148,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(11, 156);
+            label1.Location = new Point(37, 141);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(222, 37);
@@ -146,7 +158,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 225);
+            label2.Location = new Point(40, 191);
             label2.Name = "label2";
             label2.Size = new Size(80, 20);
             label2.TabIndex = 21;
@@ -155,7 +167,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(13, 258);
+            label3.Location = new Point(41, 224);
             label3.Name = "label3";
             label3.Size = new Size(79, 20);
             label3.TabIndex = 22;
@@ -164,7 +176,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(11, 291);
+            label4.Location = new Point(39, 257);
             label4.Name = "label4";
             label4.Size = new Size(92, 20);
             label4.TabIndex = 23;
@@ -173,7 +185,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(13, 326);
+            label5.Location = new Point(41, 292);
             label5.Name = "label5";
             label5.Size = new Size(107, 20);
             label5.TabIndex = 24;
@@ -182,7 +194,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(15, 359);
+            label6.Location = new Point(43, 325);
             label6.Name = "label6";
             label6.Size = new Size(105, 20);
             label6.TabIndex = 25;
@@ -191,7 +203,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(12, 392);
+            label7.Location = new Point(40, 358);
             label7.Name = "label7";
             label7.Size = new Size(120, 20);
             label7.TabIndex = 26;
@@ -207,35 +219,35 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(148, 218);
+            textBox1.Location = new Point(176, 184);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(302, 27);
             textBox1.TabIndex = 29;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(148, 251);
+            textBox2.Location = new Point(176, 217);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(302, 27);
             textBox2.TabIndex = 30;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(148, 319);
+            textBox4.Location = new Point(176, 285);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(302, 27);
             textBox4.TabIndex = 32;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(148, 352);
+            textBox5.Location = new Point(176, 318);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(302, 27);
             textBox5.TabIndex = 33;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(176, 444);
+            btnCancel.Location = new Point(39, 392);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(131, 34);
             btnCancel.TabIndex = 35;
@@ -246,7 +258,7 @@
             // btnAddUserToDatabase
             // 
             btnAddUserToDatabase.BackColor = SystemColors.GradientActiveCaption;
-            btnAddUserToDatabase.Location = new Point(319, 444);
+            btnAddUserToDatabase.Location = new Point(176, 392);
             btnAddUserToDatabase.Name = "btnAddUserToDatabase";
             btnAddUserToDatabase.Size = new Size(131, 34);
             btnAddUserToDatabase.TabIndex = 36;
@@ -257,7 +269,7 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(148, 285);
+            comboBox1.Location = new Point(176, 251);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(302, 28);
             comboBox1.TabIndex = 37;
@@ -265,7 +277,7 @@
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(148, 385);
+            comboBox2.Location = new Point(176, 351);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(302, 28);
             comboBox2.TabIndex = 38;
@@ -274,7 +286,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(591, 490);
+            ClientSize = new Size(800, 445);
             Controls.Add(comboBox2);
             Controls.Add(comboBox1);
             Controls.Add(btnAddUserToDatabase);
@@ -329,5 +341,6 @@
         private Button btnAddUserToDatabase;
         private ComboBox comboBox1;
         private ComboBox comboBox2;
+        private Label label9;
     }
 }

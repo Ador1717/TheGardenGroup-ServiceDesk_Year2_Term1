@@ -32,9 +32,10 @@
             btnMenuIncidentManagement = new Button();
             btnMenuDashboard = new Button();
             pnlBar = new Panel();
+            lblBarNoDesk = new Label();
             pictureBox1 = new PictureBox();
             lblBarLicensed = new Label();
-            lblBarNoDesk = new Label();
+            ll = new Label();
             label1 = new Label();
             label2 = new Label();
             lblOpenTicketCount = new Label();
@@ -56,7 +57,7 @@
             // 
             // btnUserManagement
             // 
-            btnUserManagement.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUserManagement.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btnUserManagement.Location = new Point(551, 96);
             btnUserManagement.Margin = new Padding(2);
             btnUserManagement.Name = "btnUserManagement";
@@ -68,7 +69,7 @@
             // 
             // btnMenuIncidentManagement
             // 
-            btnMenuIncidentManagement.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnMenuIncidentManagement.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btnMenuIncidentManagement.Location = new Point(293, 96);
             btnMenuIncidentManagement.Margin = new Padding(2);
             btnMenuIncidentManagement.Name = "btnMenuIncidentManagement";
@@ -80,7 +81,7 @@
             // 
             // btnMenuDashboard
             // 
-            btnMenuDashboard.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnMenuDashboard.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btnMenuDashboard.Location = new Point(37, 96);
             btnMenuDashboard.Margin = new Padding(2);
             btnMenuDashboard.Name = "btnMenuDashboard";
@@ -91,14 +92,26 @@
             // 
             // pnlBar
             // 
+            pnlBar.Controls.Add(lblBarNoDesk);
             pnlBar.Controls.Add(pictureBox1);
             pnlBar.Controls.Add(lblBarLicensed);
-            pnlBar.Controls.Add(lblBarNoDesk);
+            pnlBar.Controls.Add(ll);
             pnlBar.Location = new Point(37, 18);
             pnlBar.Margin = new Padding(2);
             pnlBar.Name = "pnlBar";
             pnlBar.Size = new Size(737, 74);
             pnlBar.TabIndex = 4;
+            // 
+            // lblBarNoDesk
+            // 
+            lblBarNoDesk.AutoSize = true;
+            lblBarNoDesk.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            lblBarNoDesk.Location = new Point(155, 3);
+            lblBarNoDesk.Margin = new Padding(2, 0, 2, 0);
+            lblBarNoDesk.Name = "lblBarNoDesk";
+            lblBarNoDesk.Size = new Size(80, 28);
+            lblBarNoDesk.TabIndex = 3;
+            lblBarNoDesk.Text = "NoDesk";
             // 
             // pictureBox1
             // 
@@ -122,16 +135,16 @@
             lblBarLicensed.TabIndex = 1;
             lblBarLicensed.Text = "Licensed to: The Garden Group";
             // 
-            // lblBarNoDesk
+            // ll
             // 
-            lblBarNoDesk.AutoSize = true;
-            lblBarNoDesk.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            lblBarNoDesk.Location = new Point(153, 0);
-            lblBarNoDesk.Margin = new Padding(2, 0, 2, 0);
-            lblBarNoDesk.Name = "lblBarNoDesk";
-            lblBarNoDesk.Size = new Size(103, 32);
-            lblBarNoDesk.TabIndex = 0;
-            lblBarNoDesk.Text = "NoDesk";
+            ll.AutoSize = true;
+            ll.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            ll.Location = new Point(626, 13);
+            ll.Margin = new Padding(2, 0, 2, 0);
+            ll.Name = "ll";
+            ll.Size = new Size(103, 32);
+            ll.TabIndex = 0;
+            ll.Text = "NoDesk";
             // 
             // label1
             // 
@@ -294,7 +307,7 @@
         private Panel pnlBar;
         private PictureBox pictureBox1;
         private Label lblBarLicensed;
-        private Label lblBarNoDesk;
+        private Label ll;
         private Label label1;
         private Label label2;
         private Label lblOpenTicketCount;
@@ -308,5 +321,6 @@
         private ProgressBar pbOpen;
         private ProgressBar pbDeadline;
         private Button showList;
+        private Label lblBarNoDesk;
     }
 }

@@ -16,6 +16,7 @@ public partial class AddUser : Form
         _user = user;
         comboBox1.DataSource = Enum.GetValues(typeof(UserType));
         comboBox2.DataSource = Enum.GetValues(typeof(Location));
+        label9.Text = user.email;
         StartPosition = FormStartPosition.CenterScreen;
         FormBorderStyle = FormBorderStyle.FixedSingle;
     }

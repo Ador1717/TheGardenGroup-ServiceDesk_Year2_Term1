@@ -19,6 +19,7 @@ public partial class TicketOverview : Form
         FormBorderStyle = FormBorderStyle.FixedSingle;
         LoadTicketData();
         this.user = user;
+        label2.Text = user.email;
     }
 
     private void LoadTicketData()

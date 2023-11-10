@@ -21,6 +21,7 @@ public partial class UserManagement : Form
         FormBorderStyle = FormBorderStyle.FixedSingle;
         InitializeListView();
         LoadUserData();
+        label2.Text = user.email;
     }
 
     private void InitializeListView()

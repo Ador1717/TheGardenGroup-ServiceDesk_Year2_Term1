@@ -36,6 +36,7 @@
             btnMenuIncidentManagement = new Button();
             btnMenuDashboard = new Button();
             pnlBar = new Panel();
+            label2 = new Label();
             pictureBox1 = new PictureBox();
             lblBarLicensed = new Label();
             lblBarNoDesk = new Label();
@@ -48,7 +49,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(30, 151);
+            label1.Location = new Point(37, 144);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(252, 37);
@@ -57,11 +58,13 @@
             // 
             // btnAddNewUser
             // 
-            btnAddNewUser.BackColor = Color.GreenYellow;
-            btnAddNewUser.Location = new Point(440, 192);
+            btnAddNewUser.BackColor = Color.DarkGreen;
+            btnAddNewUser.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAddNewUser.ForeColor = Color.White;
+            btnAddNewUser.Location = new Point(448, 181);
             btnAddNewUser.Margin = new Padding(2);
             btnAddNewUser.Name = "btnAddNewUser";
-            btnAddNewUser.Size = new Size(154, 27);
+            btnAddNewUser.Size = new Size(154, 35);
             btnAddNewUser.TabIndex = 13;
             btnAddNewUser.Text = "+ ADD NEW USER";
             btnAddNewUser.UseVisualStyleBackColor = false;
@@ -69,7 +72,7 @@
             // 
             // txtBoxFilterEmail
             // 
-            txtBoxFilterEmail.Location = new Point(32, 192);
+            txtBoxFilterEmail.Location = new Point(39, 185);
             txtBoxFilterEmail.Margin = new Padding(2);
             txtBoxFilterEmail.Name = "txtBoxFilterEmail";
             txtBoxFilterEmail.PlaceholderText = "     Filter by email";
@@ -78,19 +81,19 @@
             // 
             // listviewUsermanagement
             // 
-            listviewUsermanagement.Location = new Point(32, 228);
+            listviewUsermanagement.Location = new Point(39, 221);
             listviewUsermanagement.Margin = new Padding(2);
             listviewUsermanagement.Name = "listviewUsermanagement";
-            listviewUsermanagement.Size = new Size(563, 181);
+            listviewUsermanagement.Size = new Size(563, 182);
             listviewUsermanagement.TabIndex = 11;
             listviewUsermanagement.UseCompatibleStateImageBehavior = false;
             // 
             // btnUserManagement
             // 
-            btnUserManagement.Location = new Point(406, 114);
+            btnUserManagement.Location = new Point(551, 96);
             btnUserManagement.Margin = new Padding(2);
             btnUserManagement.Name = "btnUserManagement";
-            btnUserManagement.Size = new Size(188, 27);
+            btnUserManagement.Size = new Size(223, 43);
             btnUserManagement.TabIndex = 10;
             btnUserManagement.Text = "User Management";
             btnUserManagement.UseVisualStyleBackColor = true;
@@ -98,10 +101,10 @@
             // 
             // btnMenuIncidentManagement
             // 
-            btnMenuIncidentManagement.Location = new Point(218, 114);
+            btnMenuIncidentManagement.Location = new Point(293, 96);
             btnMenuIncidentManagement.Margin = new Padding(2);
             btnMenuIncidentManagement.Name = "btnMenuIncidentManagement";
-            btnMenuIncidentManagement.Size = new Size(188, 27);
+            btnMenuIncidentManagement.Size = new Size(252, 43);
             btnMenuIncidentManagement.TabIndex = 9;
             btnMenuIncidentManagement.Text = "Incident Management";
             btnMenuIncidentManagement.UseVisualStyleBackColor = true;
@@ -109,10 +112,10 @@
             // 
             // btnMenuDashboard
             // 
-            btnMenuDashboard.Location = new Point(30, 114);
+            btnMenuDashboard.Location = new Point(37, 96);
             btnMenuDashboard.Margin = new Padding(2);
             btnMenuDashboard.Name = "btnMenuDashboard";
-            btnMenuDashboard.Size = new Size(188, 27);
+            btnMenuDashboard.Size = new Size(252, 43);
             btnMenuDashboard.TabIndex = 8;
             btnMenuDashboard.Text = "Dashboard";
             btnMenuDashboard.UseVisualStyleBackColor = true;
@@ -120,14 +123,25 @@
             // 
             // pnlBar
             // 
+            pnlBar.Controls.Add(label2);
             pnlBar.Controls.Add(pictureBox1);
             pnlBar.Controls.Add(lblBarLicensed);
             pnlBar.Controls.Add(lblBarNoDesk);
-            pnlBar.Location = new Point(30, 11);
+            pnlBar.Location = new Point(37, 18);
             pnlBar.Margin = new Padding(2);
             pnlBar.Name = "pnlBar";
-            pnlBar.Size = new Size(565, 86);
+            pnlBar.Size = new Size(737, 74);
             pnlBar.TabIndex = 15;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point);
+            label2.Location = new Point(152, 3);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(0, 28);
+            label2.TabIndex = 17;
             // 
             // pictureBox1
             // 
@@ -144,7 +158,7 @@
             // 
             lblBarLicensed.AutoSize = true;
             lblBarLicensed.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lblBarLicensed.Location = new Point(307, 39);
+            lblBarLicensed.Location = new Point(472, 45);
             lblBarLicensed.Margin = new Padding(2, 0, 2, 0);
             lblBarLicensed.Name = "lblBarLicensed";
             lblBarLicensed.Size = new Size(257, 23);
@@ -155,7 +169,7 @@
             // 
             lblBarNoDesk.AutoSize = true;
             lblBarNoDesk.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            lblBarNoDesk.Location = new Point(462, 7);
+            lblBarNoDesk.Location = new Point(626, 13);
             lblBarNoDesk.Margin = new Padding(2, 0, 2, 0);
             lblBarNoDesk.Name = "lblBarNoDesk";
             lblBarNoDesk.Size = new Size(103, 32);
@@ -165,9 +179,11 @@
             // btnDeleteUser
             // 
             btnDeleteUser.BackColor = Color.Red;
-            btnDeleteUser.Location = new Point(440, 414);
+            btnDeleteUser.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnDeleteUser.ForeColor = Color.White;
+            btnDeleteUser.Location = new Point(448, 408);
             btnDeleteUser.Name = "btnDeleteUser";
-            btnDeleteUser.Size = new Size(154, 34);
+            btnDeleteUser.Size = new Size(154, 35);
             btnDeleteUser.TabIndex = 16;
             btnDeleteUser.Text = "DELETE USER";
             btnDeleteUser.UseVisualStyleBackColor = false;
@@ -177,7 +193,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(619, 450);
+            ClientSize = new Size(800, 449);
             Controls.Add(btnDeleteUser);
             Controls.Add(pnlBar);
             Controls.Add(label1);
@@ -210,5 +226,6 @@
         private Label lblBarLicensed;
         private Label lblBarNoDesk;
         private Button btnDeleteUser;
+        private Label label2;
     }
 }

@@ -20,6 +20,7 @@ public partial class CreateTicket : Form
         _ticketService = new TicketService();
         _userService = new UserService();
         this.user = user;
+        label8.Text = user.email;
     }
 
 
