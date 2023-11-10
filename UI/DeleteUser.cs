@@ -1,63 +1,53 @@
 ﻿using DAL;
+using Model;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace UI
+namespace UI;
+
+public partial class DeleteUser : Form
 {
-    public partial class DeleteUser : Form
+    private readonly User _user;
+
+    public DeleteUser(User user)
     {
-        public DeleteUser()
+        _user = user;
+        InitializeComponent();
+    }
+
+
+    private void cancelButton_Click(object sender, EventArgs e)
+    {
+        UserManagement userManagementForm = new UserManagement(_user);
+        userManagementForm.Show();
+    }
+
+    private void deleteUserButton_Click(object sender, EventArgs e)
+    {
+        // Get the identity of the currently logged-in user 
+        string userId = "your_user_id_here";
+
+        IMongoDatabase database = MongoDBConnection.Instance.Database;
+
+        // Choose the MongoDB collection where user data is stored (e.g., "Users")
+        IMongoCollection<BsonDocument>? usersCollection = database.GetCollection<BsonDocument>("Users");
+
+        try
         {
-            InitializeComponent();
+            // Define a filter to find the user based on their identity
+            FilterDefinition<BsonDocument>? filter = Builders<BsonDocument>.Filter.Eq("UserId", userId);
+
+            // Delete the user document from the collection
+            DeleteResult? result = usersCollection.DeleteOne(filter);
+
+            if (result.DeletedCount == 1)
+                MessageBox.Show("User's information deleted from the MongoDB database successfully.");
+            else
+                MessageBox.Show("User not found in the database.");
         }
-
-
-        private void cancelButton_Click(object sender, EventArgs e)
+        catch (Exception ex)
         {
-            UserManagement userManagementForm = new UserManagement();
-            userManagementForm.Show();
-        }
-
-        private void deleteUserButton_Click(object sender, EventArgs e)
-        {
-            // Get the identity of the currently logged-in user 
-            string userId = "your_user_id_here";
-
-            var database = MongoDBConnection.Instance.Database;
-
-            // Choose the MongoDB collection where user data is stored (e.g., "Users")
-            var usersCollection = database.GetCollection<BsonDocument>("Users");
-
-            try
-            {
-                // Define a filter to find the user based on their identity
-                var filter = Builders<BsonDocument>.Filter.Eq("UserId", userId); 
-
-                // Delete the user document from the collection
-                var result = usersCollection.DeleteOne(filter);
-
-                if (result.DeletedCount == 1)
-                {
-                    MessageBox.Show("User's information deleted from the MongoDB database successfully.");
-                }
-                else
-                {
-                    MessageBox.Show("User not found in the database.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message);
-            }
+            MessageBox.Show("An error occurred: " + ex.Message);
         }
     }
 }

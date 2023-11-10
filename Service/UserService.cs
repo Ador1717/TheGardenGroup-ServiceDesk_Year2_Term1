@@ -33,7 +33,7 @@ public class UserService
     public void AddUser(string email, string userName, string name, string password,
         UserType userType, string phoneNumber, string location)
     {
-        BsonDocument? user = _userDAO.AddUser(email, name, userType, phoneNumber, location);
+        BsonDocument? user = _userDAO.AddUser(email, userName, name, password, userType, phoneNumber, location);
         //if (user != null) UserDAO.userCollection.InsertOne(user);
     }
 

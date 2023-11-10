@@ -5,6 +5,5 @@ public enum UserType
     User,
     Employee,
     ServiceDeskUser,
-    Manager,
-    Employee
+    Manager
 }

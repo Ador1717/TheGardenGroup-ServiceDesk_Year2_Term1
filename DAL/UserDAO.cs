@@ -36,7 +36,9 @@ public class UserDAO
         BsonDocument document = new BsonDocument
         {
             { "email", email },
+            { "UserName", userName },
             { "name", name },
+            { "Password", password },
             { "userType", userType.ToString() },
             { "phone", phoneNumber },
             { "location", location }

@@ -18,7 +18,6 @@ public class User
         this.location = location;
         this.salt = salt;
         this.hashedPassword = hashedPassword;
-        this.username = username;
     }
 
     [BsonId] public ObjectId userId { get; set; }
@@ -33,6 +32,4 @@ public class User
     [BsonElement("location")] public string location { get; set; }
     [BsonElement("salt")] public string salt { get; set; }
     [BsonElement("hashedPassword")] public string hashedPassword { get; set; }
-
-    [BsonElement("username")] public string username { get; set; }
 }

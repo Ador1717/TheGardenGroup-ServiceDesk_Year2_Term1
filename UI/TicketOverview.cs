@@ -9,6 +9,7 @@ public partial class TicketOverview : Form
     private readonly TicketService _ticketService;
     private readonly UserService _userService;
     private readonly User user;
+
     public TicketOverview(User user)
     {
         InitializeComponent();
@@ -60,15 +61,16 @@ public partial class TicketOverview : Form
     private void FilterTickets(string emailFilter)
     {
         listviewTicketOverview.Items.Clear();
-       
+
         // Retrieve all tickets
         IEnumerable<Ticket> tickets = _ticketService.GetAllTickets();
 
         // Filter tickets based on the email
-        IEnumerable<Ticket> filteredTickets = tickets.Where(ticket => ticket.UserDetails.Email.Contains(emailFilter, StringComparison.OrdinalIgnoreCase));
+        IEnumerable<Ticket> filteredTickets = tickets.Where(ticket =>
+            ticket.UserDetails.Email.Contains(emailFilter, StringComparison.OrdinalIgnoreCase));
 
         // Display the filtered tickets
-        foreach (var ticket in filteredTickets)
+        foreach (Ticket ticket in filteredTickets)
         {
             ListViewItem item = new ListViewItem(ticket.ticketId.ToString());
             item.Tag = ticket.ticketId.ToString();
@@ -79,7 +81,6 @@ public partial class TicketOverview : Form
             item.SubItems.Add(ticket.status.ToString());
             listviewTicketOverview.Items.Add(item);
         }
-
     }
 
     private void btnCreateIncident_Click(object sender, EventArgs e)
@@ -99,7 +100,7 @@ public partial class TicketOverview : Form
 
     private void btnUserManagement_Click(object sender, EventArgs e)
     {
-         UserManagement userManagementForm = new UserManagement();
-         userManagementForm.Show();
+        UserManagement userManagementForm = new UserManagement(user);
+        userManagementForm.Show();
     }
 }
