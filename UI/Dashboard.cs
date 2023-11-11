@@ -24,7 +24,7 @@ public partial class Dashboard : Form
                 _user.userType is UserType.ServiceDeskUser or UserType.Manager;
 
             btnMenuIncidentManagement.Enabled = 
-            this.user.userType == UserType.ServiceDeskUser || this.user.userType == UserType.Manager;
+            this._user.userType == UserType.ServiceDeskUser || this._user.userType == UserType.Manager;
         }
         catch (Exception ex)
         {

@@ -32,47 +32,24 @@ public partial class UserAuthentication : Form
         Hide();
         new Dashboard(user).Show();
     }
-
-    private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+   
+    private void RestPasswordLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-
-            if (user == null)
-            {
-                MessageBox.Show("Invalid Credentials");
-                return;
-            }
-
-
-            this.Hide();
-            new Dashboard(user).Show();
-            
-
-        }
-
-        // TODO: change label name
-        private void RestPasswordLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        string username = textBoxUserName.Text;
+        if (username == "")
         {
-            string username = textBoxUserName.Text;
-            if (username == "")
-            {
-                MessageBox.Show("Please enter the username for which you want to reset the password");
-                return;
-            }
-
-            User user = autentication.GetUserForForgetPassword(username);
-            this.Hide();
-            new ResetPassword(user).Show();
+            MessageBox.Show("Please enter the username for which you want to reset the password");
+            return;
         }
 
-        private void UserAuthentication_Load(object sender, EventArgs e)
-        {
+        User user = autentication.GetUserForForgetPassword(username);
+        this.Hide();
+        new ResetPassword(user).Show();
+    }
 
-        }
-
-        private void Show_HidePass_CheckedChanged(object sender, EventArgs e)
-        {
-            textBoxPassword.UseSystemPasswordChar = Show_HidePass.Checked;
-            Show_HidePass.Text = Show_HidePass.Checked ? "hide" : "show";
-        }
+    private void Show_HidePass_CheckedChanged(object sender, EventArgs e)
+    {
+        textBoxPassword.UseSystemPasswordChar = Show_HidePass.Checked;
+        Show_HidePass.Text = Show_HidePass.Checked ? "hide" : "show";
     }
 }

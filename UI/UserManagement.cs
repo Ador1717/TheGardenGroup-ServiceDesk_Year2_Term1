@@ -30,8 +30,9 @@ public partial class UserManagement : Form
         listviewUsermanagement.View = View.Details;
 
         // Add columns to the ListView
-        listviewUsermanagement.Columns.Add("ID", 60);
+        listviewUsermanagement.Columns.Add("", 0);
         listviewUsermanagement.Columns.Add("Email", 150);
+        listviewUsermanagement.Columns.Add("Username", 100);
         listviewUsermanagement.Columns.Add("First Name", 100);
         listviewUsermanagement.Columns.Add("Last Name", 100);
         listviewUsermanagement.Columns.Add("Location", 80);
@@ -48,9 +49,8 @@ public partial class UserManagement : Form
         foreach (User user in users)
         {
             ListViewItem item = new ListViewItem(user.ID);
-
-            item.SubItems.Add(user.ID);
             item.SubItems.Add(user.email);
+            item.SubItems.Add(user.username);
             item.SubItems.Add(user.firstName);
             item.SubItems.Add(user.lastName);
             item.SubItems.Add(user.location);

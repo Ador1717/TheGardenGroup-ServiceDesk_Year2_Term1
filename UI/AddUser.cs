@@ -2,6 +2,7 @@
 using Model;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Service;
 
 namespace UI;
 
@@ -31,14 +32,26 @@ public partial class AddUser : Form
         string email = textBox4.Text;
         string phoneNumber = textBox5.Text;
         string location = comboBox2.SelectedItem.ToString();
+        string username = usernameTextbox.Text;
+        string password = passwordTextbox.Text;
 
         // Ensure that the fields are not empty
-        if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(email) ||
-            string.IsNullOrEmpty(phoneNumber) || string.IsNullOrEmpty(userType) || string.IsNullOrEmpty(location))
+        if (string.IsNullOrEmpty(firstName) || 
+            string.IsNullOrEmpty(lastName) || 
+            string.IsNullOrEmpty(email) ||
+            string.IsNullOrEmpty(phoneNumber) || 
+            string.IsNullOrEmpty(userType) || 
+            string.IsNullOrEmpty(location) ||
+            string.IsNullOrEmpty(username) ||
+            string.IsNullOrEmpty(password)
+            )
         {
             MessageBox.Show("Please fill in all the fields.");
             return;
         }
+
+        string salt = HashUtil.GenerateSalt();
+        string hashedPassword = HashUtil.HashPassword(password, salt);
 
         // Create a new user document to insert into the MongoDB collection
         BsonDocument userDocument = new BsonDocument
@@ -48,7 +61,10 @@ public partial class AddUser : Form
             { "userType", userType },
             { "email", email },
             { "phone", phoneNumber },
-            { "location", location }
+            { "location", location },
+            { "hashedPassword", hashedPassword },
+            { "username", username },
+            { "salt", salt }
         };
 
         // Get the MongoDB database instance from your MongoDBConnection Singleton
@@ -104,5 +120,10 @@ public partial class AddUser : Form
         userManagementForm.Show();
         Hide();
         userManagementForm.FormClosed += (s, args) => Close();
+    }
+
+    private void btnAddUserToDatabase_Click_1(object sender, EventArgs e)
+    {
+
     }
 }
