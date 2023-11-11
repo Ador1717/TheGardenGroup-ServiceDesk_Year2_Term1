@@ -13,10 +13,10 @@ public class UserService
         _userDAO = new UserDAO();
     }
 
-    public User GetUserByEmail(string email)
+    public User GetUserByEmail(string emailFilter)
     {
         // additional business logic if needed
-        return _userDAO.GetUserByEmail(email);
+        return _userDAO.GetUserByEmail(emailFilter);
     }
 
     public User GetUserByUsername(string username)

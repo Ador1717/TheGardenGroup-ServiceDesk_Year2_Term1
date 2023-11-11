@@ -34,7 +34,6 @@ public partial class UserManagement : Form
         listviewUsermanagement.Columns.Add("Email", 150);
         listviewUsermanagement.Columns.Add("First Name", 100);
         listviewUsermanagement.Columns.Add("Last Name", 100);
-        listviewUsermanagement.Columns.Add("Location", 80);
     }
 
 
@@ -49,44 +48,14 @@ public partial class UserManagement : Form
         {
             ListViewItem item = new ListViewItem(user.ID);
 
-            item.SubItems.Add(user.ID);
+            //item.SubItems.Add(user.ID);
             item.SubItems.Add(user.email);
             item.SubItems.Add(user.firstName);
             item.SubItems.Add(user.lastName);
-            item.SubItems.Add(user.location);
             listviewUsermanagement.Items.Add(item);
         }
     }
 
-    private void txtBoxFilterEmail_TextChanged(object sender, EventArgs e)
-    {
-        FilterUsers(txtBoxFilterEmail.Text);
-    }
-
-
-    private void FilterUsers(string emailFilter)
-    {
-        listviewUsermanagement.Items.Clear();
-
-        IEnumerable<User> users = _userService.GetAllUsers();
-
-        // Filter the users based on the emailFilter.
-        IEnumerable<User> filteredUsers = users.Where(u =>
-            u.email != null &&
-            u.email.Contains(emailFilter, StringComparison.OrdinalIgnoreCase));
-
-        foreach (User user in filteredUsers)
-        {
-            ListViewItem item = new ListViewItem(user.ID);
-            item.Tag = user.ID;
-
-            item.SubItems.Add(user.email);
-            item.SubItems.Add(user.firstName);
-            item.SubItems.Add(user.lastName);
-            item.SubItems.Add(user.location);
-            listviewUsermanagement.Items.Add(item);
-        }
-    }
 
     private void btnMenuDashboard_Click(object sender, EventArgs e)
     {
