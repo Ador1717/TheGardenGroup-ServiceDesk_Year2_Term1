@@ -247,6 +247,7 @@
             btnListViewUnresolved.TabIndex = 19;
             btnListViewUnresolved.Text = "Open List Of Tickets";
             btnListViewUnresolved.UseVisualStyleBackColor = true;
+            btnListViewUnresolved.Click += btnListViewUnresolved_Click;
             // 
             // btnListViewDeadline
             // 

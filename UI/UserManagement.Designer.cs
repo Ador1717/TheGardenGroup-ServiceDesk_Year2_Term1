@@ -28,22 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnAddNewUser = new System.Windows.Forms.Button();
-            this.txtBoxFilterEmail = new System.Windows.Forms.TextBox();
-            this.listviewUsermanagement = new System.Windows.Forms.ListView();
-            this.btnUserManagement = new System.Windows.Forms.Button();
-            this.btnMenuIncidentManagement = new System.Windows.Forms.Button();
-            this.btnMenuDashboard = new System.Windows.Forms.Button();
-            this.pnlBar = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblBarLicensed = new System.Windows.Forms.Label();
-            this.lblBarNoDesk = new System.Windows.Forms.Label();
-            this.btnDeleteUser = new System.Windows.Forms.Button();
-            this.pnlBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            label1 = new Label();
+            btnAddNewUser = new Button();
+            listviewUsermanagement = new ListView();
+            btnUserManagement = new Button();
+            btnMenuIncidentManagement = new Button();
+            btnMenuDashboard = new Button();
+            pnlBar = new Panel();
+            label2 = new Label();
+            pictureBox1 = new PictureBox();
+            lblBarLicensed = new Label();
+            lblBarNoDesk = new Label();
+            btnDeleteUser = new Button();
+            pnlBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // label1
             // 
@@ -213,7 +212,6 @@
 
         private Label label1;
         private Button btnAddNewUser;
-        private TextBox txtBoxFilterEmail;
         private ListView listviewUsermanagement;
         private Button btnUserManagement;
         private Button btnMenuIncidentManagement;

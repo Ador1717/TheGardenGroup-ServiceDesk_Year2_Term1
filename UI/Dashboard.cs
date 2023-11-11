@@ -37,8 +37,23 @@ public partial class Dashboard : Form
     {
         try
         {
-            List<Ticket> allTickets = _ticketService.GetAllTickets();
-            List<Ticket> openTickets = _ticketService.GetOpenTicketsUsingAggregation();
+            List<Ticket> allTickets;
+            List<Ticket> openTickets;
+
+            if (_user.userType == UserType.Manager || _user.userType == UserType.ServiceDeskUser)
+            {
+                // If the user is a Manager, get all tickets
+                allTickets = _ticketService.GetAllTickets();
+                openTickets = allTickets.Where(t => t.status == TicketStatus.Open).ToList();
+            }
+            else
+            {
+                // For other users, get tickets specific to them
+                allTickets = _ticketService.GetAllTickets();
+                openTickets = _ticketService.GetOpenTicketsUsingAggregation(_user.firstName.ToLower())
+                    .Where(t => t.reportedByUser.Equals(_user.firstName, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+            }
 
             pbOpen.Maximum = allTickets.Count > 0 ? allTickets.Count : 1;
             pbOpen.Value = openTickets.Count;
@@ -50,13 +65,30 @@ public partial class Dashboard : Form
         }
     }
 
+
     //Loads a list of unresolved tickets
     private void UpdatePastDeadlineProgressBar()
     {
         try
         {
-            List<Ticket> pastDeadlineTickets = _ticketService.GetTicketsPastDeadlineUsingAggregation();
-            List<Ticket> allTickets = _ticketService.GetAllTickets();
+            List<Ticket> pastDeadlineTickets;
+            List<Ticket> allTickets;
+
+            if (_user.userType == UserType.Manager || _user.userType == UserType.ServiceDeskUser)
+            {
+                // If the user is a Manager, get all tickets
+                allTickets = _ticketService.GetAllTickets();
+                pastDeadlineTickets = allTickets
+                    .Where(t => t.deadline < DateTime.UtcNow && t.status == TicketStatus.Open).ToList();
+            }
+            else
+            {
+                // For other users, get tickets specific to them
+                allTickets = _ticketService.GetAllTickets();
+                pastDeadlineTickets = _ticketService.GetTicketsPastDeadlineUsingAggregation(_user.firstName.ToLower())
+                    .Where(t => t.reportedByUser.Equals(_user.firstName, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+            }
 
             pbDeadline.Maximum = allTickets.Count > 0 ? allTickets.Count : 1;
             pbDeadline.Value = pastDeadlineTickets.Count;
@@ -86,7 +118,7 @@ public partial class Dashboard : Form
 
 
     //Opens Joan's additional part that shows a list view of tickets which have status open
-    private void btnListViewUnresolved_Click_1(object sender, EventArgs e)
+    private void btnListViewUnresolved_Click(object sender, EventArgs e)
     {
         try
         {

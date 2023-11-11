@@ -64,12 +64,8 @@ public class UserDAO
     /* Migration from non-hash to hash for User */
     public void UpdateUser(User user)
     {
-        if (user == null)
-        {
-            return;
-        }
+        if (user == null) return;
         FilterDefinition<User>? filter = Builders<User>.Filter.Eq(u => u.username, user.username);
         ReplaceOneResult result = userCollection.ReplaceOne(filter, user);
     }
-
 }
