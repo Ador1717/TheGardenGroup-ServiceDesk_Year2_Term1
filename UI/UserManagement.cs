@@ -1,6 +1,7 @@
 ﻿using Model;
 using Service;
 using Services;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace UI;
 
@@ -40,20 +41,24 @@ public partial class UserManagement : Form
     private void LoadUserData()
     {
         listviewUsermanagement.Items.Clear();
-
+        int UserCounter = 1;
         IEnumerable<User> users = _userService.GetAllUsers();
 
         // Format and display data in ListView or other control.
         foreach (User user in users)
         {
-            ListViewItem item = new ListViewItem(user.ID);
-
+            ListViewItem item = new ListViewItem(UserCounter.ToString());
+           // item.Tag = user.ID.ToString();
             //item.SubItems.Add(user.ID);
             item.SubItems.Add(user.email);
             item.SubItems.Add(user.firstName);
             item.SubItems.Add(user.lastName);
             listviewUsermanagement.Items.Add(item);
+
+            UserCounter++;
         }
+
+       
     }
 
 
