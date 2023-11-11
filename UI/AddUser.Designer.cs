@@ -126,6 +126,7 @@
             this.btnMenuDashboard.TabIndex = 17;
             this.btnMenuDashboard.Text = "Dashboard";
             this.btnMenuDashboard.UseVisualStyleBackColor = true;
+            this.btnMenuDashboard.Click += new System.EventHandler(this.btnMenuDashboard_Click);
             // 
             // btnMenuIncidentManagement
             // 
@@ -136,6 +137,7 @@
             this.btnMenuIncidentManagement.TabIndex = 18;
             this.btnMenuIncidentManagement.Text = "Incident Management";
             this.btnMenuIncidentManagement.UseVisualStyleBackColor = true;
+            this.btnMenuIncidentManagement.Click += new System.EventHandler(this.btnMenuIncidentManagement_Click);
             // 
             // btnUserManagement
             // 
@@ -146,6 +148,7 @@
             this.btnUserManagement.TabIndex = 19;
             this.btnUserManagement.Text = "User Management";
             this.btnUserManagement.UseVisualStyleBackColor = true;
+            this.btnUserManagement.Click += new System.EventHandler(this.btnUserManagement_Click);
             // 
             // label1
             // 

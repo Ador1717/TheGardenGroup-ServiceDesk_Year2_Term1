@@ -122,8 +122,4 @@ public partial class AddUser : Form
         userManagementForm.FormClosed += (s, args) => Close();
     }
 
-    private void btnAddUserToDatabase_Click_1(object sender, EventArgs e)
-    {
-
-    }
 }
