@@ -1,6 +1,9 @@
-﻿using Model;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using Model;
 using Service;
 using Services;
+using System.Diagnostics;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace UI;
 
@@ -8,41 +11,69 @@ public partial class TicketOverview : Form
 {
     private readonly TicketService _ticketService;
     private readonly UserService _userService;
-    private readonly User user;
+    private readonly Model.User user;
 
-    public TicketOverview(User user)
+    public TicketOverview(Model.User user)
     {
         InitializeComponent();
         _ticketService = new TicketService();
         _userService = new UserService();
+        this.user = user;
         StartPosition = FormStartPosition.CenterScreen;
         FormBorderStyle = FormBorderStyle.FixedSingle;
         LoadTicketData();
-        this.user = user;
         label2.Text = user.email;
     }
 
     private void LoadTicketData()
     {
-        listviewTicketOverview.Items.Clear();
-
-        IEnumerable<Ticket> tickets = _ticketService.GetAllTickets();
-
-        // Format and display data in ListView or other control.
-        foreach (Ticket ticket in tickets)
+        try
         {
-            ListViewItem item = new ListViewItem(ticket.ticketId.ToString());
-            item.Tag = ticket.ticketId.ToString();
+            IEnumerable<Ticket> openTickets;
 
-            string userEmail = ticket.UserDetails?.Email ?? "Not Available"; // Handle null UserDetails
-            item.SubItems.Add(userEmail);
-            item.SubItems.Add(ticket.reportedByUser);
-            item.SubItems.Add(ticket.dateTimeReported.ToString("yyyy-MM-dd HH:mm:ss"));
-            item.SubItems.Add(ticket.status.ToString());
-            listviewTicketOverview.Items.Add(item);
+            // Check if the user is a manager
+            if (user.userType == UserType.Manager || user.userType == UserType.ServiceDeskUser)
+                // If the user is a Manager, get all open tickets
+                openTickets = _ticketService.GetAllTickets().Where(t => t.status == TicketStatus.Open);
+            else
+                // For other users, get open tickets specific to them
+                openTickets = _ticketService.GetOpenTicketsUsingAggregation(user.firstName.ToLower())
+                    .Where(t => t.reportedByUser.Equals(user.firstName, StringComparison.OrdinalIgnoreCase));
+
+            populateTable(openTickets);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(@"An error occurred while loading open tickets: " + ex.Message);
         }
     }
+    public void populateTable(IEnumerable<Ticket> tickets)
+    {
+        try
+        {
+            listviewTicketOverview.Items.Clear();
+            int ticketCounter = 1; // Start a counter for the ticket ID
+            foreach (Ticket ticket in tickets)
+            {
+                ListViewItem item = new ListViewItem(ticketCounter.ToString()); // Use the counter as the ID
+                item.Tag = ticket.ticketId.ToString(); // Keep the actual database ID in the Tag property if needed
 
+                string userEmail = ticket.UserDetails?.Email ?? "Not Available";
+                item.SubItems.Add(userEmail);
+                item.SubItems.Add(ticket.reportedByUser);
+                item.SubItems.Add(ticket.dateTimeReported.ToString("yyyy-MM-dd HH:mm:ss"));
+                item.SubItems.Add(ticket.status.ToString());
+                listviewTicketOverview.Items.Add(item);
+
+                ticketCounter++; // Increment the counter for each ticket
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(@"An error occurred while populating the list view: " + ex.Message);
+        }
+
+    }
     private void TicketOverview_Load(object sender, EventArgs e)
     {
         listviewTicketOverview.GridLines = true;
@@ -65,25 +96,18 @@ public partial class TicketOverview : Form
     {
         listviewTicketOverview.Items.Clear();
 
-        // Retrieve all tickets
-        IEnumerable<Ticket> tickets = _ticketService.GetAllTickets();
+        if (string.IsNullOrEmpty(emailFilter))
+        {
+            // If no email filter is provided, load all tickets
+            LoadTicketData();
+            return;
+        }
 
-        // Filter tickets based on the email
-        IEnumerable<Ticket> filteredTickets = tickets.Where(ticket =>
-            ticket.UserDetails.Email.Contains(emailFilter, StringComparison.OrdinalIgnoreCase));
+        // Retrieve tickets for the specified email from the database
+        IEnumerable<Ticket> filteredTickets = _ticketService.GetTicketsByReporterEmail(emailFilter);
 
         // Display the filtered tickets
-        foreach (Ticket ticket in filteredTickets)
-        {
-            ListViewItem item = new ListViewItem(ticket.ticketId.ToString());
-            item.Tag = ticket.ticketId.ToString();
-
-            item.SubItems.Add(ticket.UserDetails.Email);
-            item.SubItems.Add(ticket.reportedByUser);
-            item.SubItems.Add(ticket.dateTimeReported.ToString("yyyy-MM-dd HH:mm:ss"));
-            item.SubItems.Add(ticket.status.ToString());
-            listviewTicketOverview.Items.Add(item);
-        }
+        populateTable(filteredTickets);
     }
 
     private void btnCreateIncident_Click(object sender, EventArgs e)

@@ -16,9 +16,11 @@ public class TicketDAO
     }
 
 
-    public IEnumerable<Ticket> GetTicketsByReporterEmail(string email)
+    public IEnumerable<Ticket> GetTicketsByReporterEmail(string emailFragment)
     {
-        return ticketCollection.Find(ticket => ticket.reportedByUser == email).ToList();
+        // Use a filter that checks if the 'reportedByUser' field contains the email fragment
+        var filter = Builders<Ticket>.Filter.Regex(t => t.reportedByUser, new BsonRegularExpression(emailFragment, "i")); // 'i' for case-insensitive
+        return ticketCollection.Find(filter).ToList();
     }
 
     public List<Ticket> GetAllTickets()

@@ -145,7 +145,7 @@
             txtBoxFilterEmail.Location = new Point(559, 151);
             txtBoxFilterEmail.Margin = new Padding(2);
             txtBoxFilterEmail.Name = "txtBoxFilterEmail";
-            txtBoxFilterEmail.PlaceholderText = "     Filter by email";
+            txtBoxFilterEmail.PlaceholderText = "     Filter by username";
             txtBoxFilterEmail.Size = new Size(182, 27);
             txtBoxFilterEmail.TabIndex = 5;
             txtBoxFilterEmail.TextChanged += txtBoxFilterEmail_TextChanged;
