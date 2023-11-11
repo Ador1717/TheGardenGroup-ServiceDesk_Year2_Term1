@@ -1,7 +1,6 @@
 using Model;
 using Service;
 using Services;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace UI;
 
@@ -36,13 +35,14 @@ public partial class UserManagement : Form
         listviewUsermanagement.Columns.Add("Username", 100);
         listviewUsermanagement.Columns.Add("First Name", 100);
         listviewUsermanagement.Columns.Add("Last Name", 100);
+        listviewUsermanagement.Columns.Add("Location", 80);
     }
 
 
     private void LoadUserData()
     {
         listviewUsermanagement.Items.Clear();
-        int UserCounter = 1;
+
         IEnumerable<User> users = _userService.GetAllUsers();
 
         // Format and display data in ListView or other control.
@@ -53,14 +53,40 @@ public partial class UserManagement : Form
             item.SubItems.Add(user.username);
             item.SubItems.Add(user.firstName);
             item.SubItems.Add(user.lastName);
+            item.SubItems.Add(user.location);
             listviewUsermanagement.Items.Add(item);
-
-            UserCounter++;
         }
-
-       
     }
 
+    private void txtBoxFilterEmail_TextChanged(object sender, EventArgs e)
+    {
+        FilterUsers(txtBoxFilterEmail.Text);
+    }
+
+
+    private void FilterUsers(string emailFilter)
+    {
+        listviewUsermanagement.Items.Clear();
+
+        IEnumerable<User> users = _userService.GetAllUsers();
+
+        // Filter the users based on the emailFilter.
+        IEnumerable<User> filteredUsers = users.Where(u =>
+            u.email != null &&
+            u.email.Contains(emailFilter, StringComparison.OrdinalIgnoreCase));
+
+        foreach (User user in filteredUsers)
+        {
+            ListViewItem item = new ListViewItem(user.ID);
+            item.Tag = user.ID;
+
+            item.SubItems.Add(user.email);
+            item.SubItems.Add(user.firstName);
+            item.SubItems.Add(user.lastName);
+            item.SubItems.Add(user.location);
+            listviewUsermanagement.Items.Add(item);
+        }
+    }
 
     private void btnMenuDashboard_Click(object sender, EventArgs e)
     {
