@@ -1,6 +1,11 @@
+using DAL;
 using Model;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using Service;
 using Services;
+using System.Data;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace UI;
 
@@ -38,55 +43,32 @@ public partial class UserManagement : Form
         listviewUsermanagement.Columns.Add("Location", 80);
     }
 
-
     private void LoadUserData()
     {
         listviewUsermanagement.Items.Clear();
+        listviewUsermanagement.FullRowSelect = true;
 
         IEnumerable<User> users = _userService.GetAllUsers();
+        int userCounter = 1;
 
         // Format and display data in ListView or other control.
         foreach (User user in users)
         {
-            ListViewItem item = new ListViewItem(user.ID);
+            ListViewItem item = new ListViewItem(userCounter.ToString());
+            item.Tag = user.userId.ToString();
+
+
             item.SubItems.Add(user.email);
             item.SubItems.Add(user.username);
             item.SubItems.Add(user.firstName);
             item.SubItems.Add(user.lastName);
             item.SubItems.Add(user.location);
             listviewUsermanagement.Items.Add(item);
+
+            userCounter++;
         }
     }
 
-    private void txtBoxFilterEmail_TextChanged(object sender, EventArgs e)
-    {
-        FilterUsers(txtBoxFilterEmail.Text);
-    }
-
-
-    private void FilterUsers(string emailFilter)
-    {
-        listviewUsermanagement.Items.Clear();
-
-        IEnumerable<User> users = _userService.GetAllUsers();
-
-        // Filter the users based on the emailFilter.
-        IEnumerable<User> filteredUsers = users.Where(u =>
-            u.email != null &&
-            u.email.Contains(emailFilter, StringComparison.OrdinalIgnoreCase));
-
-        foreach (User user in filteredUsers)
-        {
-            ListViewItem item = new ListViewItem(user.ID);
-            item.Tag = user.ID;
-
-            item.SubItems.Add(user.email);
-            item.SubItems.Add(user.firstName);
-            item.SubItems.Add(user.lastName);
-            item.SubItems.Add(user.location);
-            listviewUsermanagement.Items.Add(item);
-        }
-    }
 
     private void btnMenuDashboard_Click(object sender, EventArgs e)
     {
@@ -112,11 +94,58 @@ public partial class UserManagement : Form
         addUserForm.FormClosed += (s, args) => Close();
     }
 
+
     private void btnDeleteUser_Click(object sender, EventArgs e)
     {
-        DeleteUser deleteUserForm = new DeleteUser(_user);
-        deleteUserForm.Show();
-        deleteUserForm.FormClosed += (s, args) => Close();
+        DeleteSelectedTicket();
+    }
+
+    private void DeleteSelectedTicket()
+    {
+        if (listviewUsermanagement.SelectedItems.Count == 0)
+        {
+            MessageBox.Show("Please select a user to delete.");
+            return;
+        }
+
+        // Check if the current user is a manager or service desk user
+        if (_user.userType == UserType.Manager || _user.userType == UserType.ServiceDeskUser)
+        {
+            var selectedUser = listviewUsermanagement.SelectedItems[0];
+            var userIdString = selectedUser.Tag.ToString();
+
+            if (!ObjectId.TryParse(userIdString, out ObjectId userId))
+            {
+                MessageBox.Show("Invalid user ID.");
+                return;
+            }
+
+            var confirmResult = MessageBox.Show("Are you sure to delete this user?", "Confirm Delete", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                PerformDeleteOperation(userId);
+            }
+        }
+        else
+        {
+            MessageBox.Show("You do not have permission to delete users.", "Permission Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+    }
+
+    private void PerformDeleteOperation(ObjectId userId)
+    {
+        try
+        {
+            _userService.DeleteUser(userId); // Assuming such a method exists
+            MessageBox.Show("User deleted successfully.");
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error deleting user: " + ex.Message);
+        }
+
+        // Update the ListView
+        LoadUserData();
     }
 
     private void btnUserManagement_Click(object sender, EventArgs e)

@@ -36,11 +36,11 @@ public partial class AddUser : Form
         string password = passwordTextbox.Text;
 
         // Ensure that the fields are not empty
-        if (string.IsNullOrEmpty(firstName) || 
-            string.IsNullOrEmpty(lastName) || 
+        if (string.IsNullOrEmpty(firstName) ||
+            string.IsNullOrEmpty(lastName) ||
             string.IsNullOrEmpty(email) ||
-            string.IsNullOrEmpty(phoneNumber) || 
-            string.IsNullOrEmpty(userType) || 
+            string.IsNullOrEmpty(phoneNumber) ||
+            string.IsNullOrEmpty(userType) ||
             string.IsNullOrEmpty(location) ||
             string.IsNullOrEmpty(username) ||
             string.IsNullOrEmpty(password)
@@ -86,6 +86,7 @@ public partial class AddUser : Form
         }
     }
 
+    /*
     private void btnCancel_Click(object sender, EventArgs e)
     {
         // Close the current AddUser form
@@ -96,7 +97,7 @@ public partial class AddUser : Form
         userManagementForm.Show();
         Hide();
         userManagementForm.FormClosed += (s, args) => Close();
-    }
+    } */
 
     private void btnMenuDashboard_Click(object sender, EventArgs e)
     {
@@ -122,4 +123,15 @@ public partial class AddUser : Form
         userManagementForm.FormClosed += (s, args) => Close();
     }
 
+    private void btnCancel_Click_1(object sender, EventArgs e)
+    {
+        // Close the current AddUser form
+        Close();
+
+        // Open the UserManagement form
+        UserManagement userManagementForm = new UserManagement(_user);
+        userManagementForm.Show();
+        Hide();
+        userManagementForm.FormClosed += (s, args) => Close();
+    }
 }

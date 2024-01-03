@@ -68,4 +68,11 @@ public class UserDAO
         FilterDefinition<User>? filter = Builders<User>.Filter.Eq(u => u.username, user.username);
         ReplaceOneResult result = userCollection.ReplaceOne(filter, user);
     }
+
+    public bool DeleteUser(ObjectId userId)
+    {
+        FilterDefinition<User> filter = Builders<User>.Filter.Eq(t => t.userId, userId);
+        DeleteResult result = userCollection.DeleteOne(filter);
+        return result.DeletedCount > 0;
+    }
 }

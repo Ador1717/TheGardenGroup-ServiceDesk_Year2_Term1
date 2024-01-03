@@ -46,4 +46,9 @@ public class UserService
     {
         return _userDAO.HashedPassword(email, hashedPassword);
     }
+
+    public bool DeleteUser(ObjectId ticketId)
+    {
+        return _userDAO.DeleteUser(ticketId);
+    }
 }

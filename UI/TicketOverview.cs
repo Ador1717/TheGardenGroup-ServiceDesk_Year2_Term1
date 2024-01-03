@@ -47,6 +47,7 @@ public partial class TicketOverview : Form
             MessageBox.Show(@"An error occurred while loading open tickets: " + ex.Message);
         }
     }
+
     public void populateTable(IEnumerable<Ticket> tickets)
     {
         try

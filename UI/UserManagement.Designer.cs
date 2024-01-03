@@ -30,7 +30,6 @@
         {
             label1 = new Label();
             btnAddNewUser = new Button();
-            txtBoxFilterEmail = new TextBox();
             listviewUsermanagement = new ListView();
             btnUserManagement = new Button();
             btnMenuIncidentManagement = new Button();
@@ -70,15 +69,6 @@
             btnAddNewUser.UseVisualStyleBackColor = false;
             btnAddNewUser.Click += btnAddNewUser_Click;
             // 
-            // txtBoxFilterEmail
-            // 
-            txtBoxFilterEmail.Location = new Point(39, 185);
-            txtBoxFilterEmail.Margin = new Padding(2);
-            txtBoxFilterEmail.Name = "txtBoxFilterEmail";
-            txtBoxFilterEmail.PlaceholderText = "     Filter by email";
-            txtBoxFilterEmail.Size = new Size(182, 27);
-            txtBoxFilterEmail.TabIndex = 12;
-            // 
             // listviewUsermanagement
             // 
             listviewUsermanagement.Location = new Point(39, 221);
@@ -87,6 +77,7 @@
             listviewUsermanagement.Size = new Size(563, 182);
             listviewUsermanagement.TabIndex = 11;
             listviewUsermanagement.UseCompatibleStateImageBehavior = false;
+            
             // 
             // btnUserManagement
             // 
@@ -198,7 +189,6 @@
             Controls.Add(pnlBar);
             Controls.Add(label1);
             Controls.Add(btnAddNewUser);
-            Controls.Add(txtBoxFilterEmail);
             Controls.Add(listviewUsermanagement);
             Controls.Add(btnUserManagement);
             Controls.Add(btnMenuIncidentManagement);
@@ -216,7 +206,6 @@
 
         private Label label1;
         private Button btnAddNewUser;
-        private TextBox txtBoxFilterEmail;
         private ListView listviewUsermanagement;
         private Button btnUserManagement;
         private Button btnMenuIncidentManagement;
