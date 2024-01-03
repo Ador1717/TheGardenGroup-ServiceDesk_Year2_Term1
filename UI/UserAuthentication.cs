@@ -32,9 +32,7 @@ public partial class UserAuthentication : Form
         Hide();
         new Dashboard(user).Show();
     }
-
-
-    // TODO: change label name
+   
     private void RestPasswordLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         string username = textBoxUserName.Text;
@@ -45,12 +43,8 @@ public partial class UserAuthentication : Form
         }
 
         User user = autentication.GetUserForForgetPassword(username);
-        Hide();
+        this.Hide();
         new ResetPassword(user).Show();
-    }
-
-    private void UserAuthentication_Load(object sender, EventArgs e)
-    {
     }
 
     private void Show_HidePass_CheckedChanged(object sender, EventArgs e)
