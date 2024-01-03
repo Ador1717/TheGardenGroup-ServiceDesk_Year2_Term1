@@ -72,10 +72,10 @@ public partial class UserManagement : Form
 
     private void btnMenuIncidentManagement_Click(object sender, EventArgs e)
     {
-        CreateTicket create = new CreateTicket(_user);
-        create.Show();
+       TicketOverview ticketOverview = new TicketOverview(_user);
+        ticketOverview.Show();
         Hide();
-        create.FormClosed += (s, args) => Close();
+        ticketOverview.FormClosed += (s, args) => Close();
     }
 
     private void btnAddNewUser_Click(object sender, EventArgs e)

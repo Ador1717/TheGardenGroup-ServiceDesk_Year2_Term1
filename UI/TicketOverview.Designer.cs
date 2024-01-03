@@ -40,6 +40,8 @@
             txtBoxFilterEmail = new TextBox();
             btnCreateIncident = new Button();
             label1 = new Label();
+            Delete_incident = new Button();
+            btnEdit = new Button();
             pnlBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -152,13 +154,15 @@
             // 
             // btnCreateIncident
             // 
+            btnCreateIncident.BackColor = Color.Chartreuse;
+            btnCreateIncident.ForeColor = SystemColors.Desktop;
             btnCreateIncident.Location = new Point(43, 373);
             btnCreateIncident.Margin = new Padding(2);
             btnCreateIncident.Name = "btnCreateIncident";
-            btnCreateIncident.Size = new Size(188, 27);
+            btnCreateIncident.Size = new Size(188, 33);
             btnCreateIncident.TabIndex = 6;
             btnCreateIncident.Text = "CREATE INCIDENT";
-            btnCreateIncident.UseVisualStyleBackColor = true;
+            btnCreateIncident.UseVisualStyleBackColor = false;
             btnCreateIncident.Click += btnCreateIncident_Click;
             // 
             // label1
@@ -172,11 +176,39 @@
             label1.TabIndex = 7;
             label1.Text = "Overview Tickets";
             // 
+            // Delete_incident
+            // 
+            Delete_incident.BackColor = Color.Red;
+            Delete_incident.ForeColor = SystemColors.ButtonHighlight;
+            Delete_incident.Location = new Point(555, 373);
+            Delete_incident.Margin = new Padding(2);
+            Delete_incident.Name = "Delete_incident";
+            Delete_incident.Size = new Size(188, 33);
+            Delete_incident.TabIndex = 8;
+            Delete_incident.Text = "DELETE INCIDENT";
+            Delete_incident.UseVisualStyleBackColor = false;
+            Delete_incident.Click += Delete_incident_Click;
+            // 
+            // btnEdit
+            // 
+            btnEdit.BackColor = Color.DodgerBlue;
+            btnEdit.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEdit.ForeColor = SystemColors.ButtonHighlight;
+            btnEdit.Location = new Point(398, 373);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(152, 33);
+            btnEdit.TabIndex = 9;
+            btnEdit.Text = "Edit Ticket";
+            btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
+            // 
             // TicketOverview
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 411);
+            Controls.Add(btnEdit);
+            Controls.Add(Delete_incident);
             Controls.Add(label1);
             Controls.Add(btnCreateIncident);
             Controls.Add(txtBoxFilterEmail);
@@ -210,5 +242,7 @@
         private Button btnCreateIncident;
         private Label label1;
         private Label label2;
+        private Button Delete_incident;
+        private Button btnEdit;
     }
 }
