@@ -43,9 +43,10 @@ public partial class CreateTicket : Form
             userId = user.userId
         };
         _ticketService.AddTicket(ticket);
-        MessageBox.Show("Ticket submitted successfully!", "Confirmation", MessageBoxButtons.OK,
-            MessageBoxIcon.Information);
+        MessageBox.Show("Ticket submitted successfully!");
+        this.DialogResult = DialogResult.OK;
         ResetFields();
+        this.Close();
     }
 
     private void ResetFields()
@@ -61,8 +62,9 @@ public partial class CreateTicket : Form
 
     private void btnCancel_Click(object sender, EventArgs e)
     {
+        this.Close();
         ResetFields();
-        Close();
+       
     }
 
 
@@ -88,5 +90,10 @@ public partial class CreateTicket : Form
         userManagementForm.Show();
         Hide();
         userManagementForm.FormClosed += (s, args) => Close();
+    }
+
+    private void CreateTicket_Load(object sender, EventArgs e)
+    {
+
     }
 }

@@ -344,6 +344,7 @@
             Margin = new Padding(5);
             Name = "CreateTicket";
             Text = "CreateTicket";
+            Load += CreateTicket_Load;
             pnlBar.ResumeLayout(false);
             pnlBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

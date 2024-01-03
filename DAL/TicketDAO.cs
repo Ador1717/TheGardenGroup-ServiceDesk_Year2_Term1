@@ -60,6 +60,32 @@ public class TicketDAO
         DeleteResult result = ticketCollection.DeleteOne(filter);
         return result.DeletedCount > 0;
     }
+    public bool UpdateTicket(Ticket updatedTicket)
+    {
+        var filter = Builders<Ticket>.Filter.Eq(t => t.ticketId, updatedTicket.ticketId);
+        var update = Builders<Ticket>.Update
+            .Set(t => t.subject, updatedTicket.subject)
+            .Set(t => t.description, updatedTicket.description)
+            .Set(t => t.priorityEnum, updatedTicket.priorityEnum)
+            .Set(t => t.typeOfIncidentEnum, updatedTicket.typeOfIncidentEnum)
+            .Set(t => t.dateTimeReported, updatedTicket.dateTimeReported)
+            .Set(t => t.deadline, updatedTicket.deadline)
+            .Set(t => t.reportedByUser, updatedTicket.reportedByUser)
+            .Set(t => t.status, updatedTicket.status); // Add other fields as necessary
+
+        try
+        {
+            var result = ticketCollection.UpdateOne(filter, update);
+            return result.IsAcknowledged && result.ModifiedCount > 0;
+        }
+        catch (Exception ex)
+        {
+            // Log the exception and handle it as needed
+            Console.WriteLine("An error occurred: " + ex.Message);
+            return false;
+        }
+    }
+
 
     public bool UpdateTicketStatus(ObjectId ticketId, TicketStatus newStatus)
     {
@@ -68,6 +94,12 @@ public class TicketDAO
         UpdateResult result = ticketCollection.UpdateOne(filter, update);
         return result.ModifiedCount > 0;
     }
+    public Ticket GetTicketById(ObjectId ticketId)
+    {
+        var filter = Builders<Ticket>.Filter.Eq(t => t.ticketId, ticketId);
+        return ticketCollection.Find(filter).FirstOrDefault();
+    }
+
 
     //The following query is finding tickets by status by using the match aggregation function
     public List<Ticket> GetOpenTicketsUsingAggregation(string userName)

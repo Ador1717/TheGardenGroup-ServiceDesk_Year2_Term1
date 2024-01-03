@@ -49,4 +49,13 @@ public class TicketService
     {
         return _ticketDAO.GetTicketsPastDeadlineUsingAggregation(userName);
     }
+    public Ticket GetTicketById(ObjectId ticketId)
+    {
+        return _ticketDAO.GetTicketById(ticketId);
+    }
+    public bool UpdateTicket(Ticket updatedTicket)
+    {
+        return _ticketDAO.UpdateTicket(updatedTicket);
+    }
+
 }
